@@ -1,0 +1,36 @@
+import React, { Component, Fragment } from 'react';
+// import { Provider } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+
+import './App.css';
+import SignIn from './components/SignIn.js';
+import Dashboard from './components/Dashboard.js';
+import Courses from './components/Courses.js';
+import Roster from './components/Roster.js';
+import Random from './components/Random.js';
+import Quiz from './components/Quiz.js';
+import CodeRunner from './components/CodeRunner.js';
+
+
+class App extends Component {
+  render() {
+    return (
+      
+      <BrowserRouter>
+        <Fragment>
+          <Route exact path='/' component={SignIn} />
+          <Route path='/dashboard' component={Dashboard} />
+          <Route path='/courses' component={Courses} />
+          <Route path='/roster' component={Roster} />
+          <Route path='/random' component={Random} />
+          <Route path='/quiz' component={Quiz} />
+          <Route path='/coderunner' component={CodeRunner} />
+        </Fragment>
+      </BrowserRouter>
+      
+    );
+  }
+}
+
+export default App;
