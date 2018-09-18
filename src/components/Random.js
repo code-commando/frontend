@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-export default class Dashboard extends Component {
+export default class Random extends Component {
   render() {
     return (
-      <h1>Dashboard</h1>
+      <h1>Random</h1>
     );
   }
 }

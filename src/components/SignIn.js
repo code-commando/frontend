@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-export default class Dashboard extends Component {
+export default class SignIn extends Component {
   render() {
     return (
-      <h1>Dashboard</h1>
+      <h1>Sign in</h1>
     );
   }
 }
