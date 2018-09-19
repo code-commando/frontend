@@ -1,11 +1,6 @@
 import React, { Component, Fragment } from 'react';
 // import su
 
-//  replace with API get requests
-import './data/201roster.json';
-import './data/301roster.json';
-import './data/401roster.json';
-
 
 export default class Roster extends Component {
 

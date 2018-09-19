@@ -1,18 +1,18 @@
 import React, { Component, Fragment } from 'react';
 
 const coursesStyle = {
-  background: "red",
-  color: "blue"
+  background: 'red',
+  color: 'blue',
 };
 
 export default class Courses extends Component {
   render() {
     return (
-      <Fragment style={coursesStyle}>
-        <header>
+      <Fragment>
+        <header style={coursesStyle}>
           <h1>Username Classes</h1>
         </header>
-        <h1>Courses</h1>
+        <h1 style={coursesStyle}>Courses</h1>
       </Fragment>
     );
   }
