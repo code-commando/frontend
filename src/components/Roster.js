@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react';
-// import su
+import { connect } from 'react-redux';
+import { fetchAllRosterThunk } from '../actions/roster-action.js';
 
 
-export default class Roster extends Component {
+class Roster extends Component {
 
-  componentWillMount() {
-
+  componentDidMount() {
+    this.props.fetchAllRosterThunk();
   }
 
 
@@ -15,9 +16,8 @@ export default class Roster extends Component {
       <Fragment>
         <h1>Roster</h1>
         <ul>
-          <li>
+          {this.props.roster &&this.props.roster.results}
 
-          </li>
         </ul>
 
         <form>
@@ -37,3 +37,10 @@ export default class Roster extends Component {
     );
   }
 }
+
+
+const mapStateToProps = state => ({roster: state.rosterReducer});
+
+const mapDispatchToProps = {fetchAllRosterThunk};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Roster);
