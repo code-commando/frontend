@@ -12,10 +12,11 @@ const headerStyle = {
 };
 
 const main = {
-  padding: '5em',
+  
   textAlign: 'center',
   background: '#D6D6D6',
-  height: '65vh',
+  height: '100vh',
+  width: '100%',
 };
 const coursesStyle = {
   display: 'inline-block',
@@ -23,11 +24,12 @@ const coursesStyle = {
   color: 'white',
   height: '35vh',
   width: 'auto',
-  marginLeft: '15vh',
-  marginRight: '15vh',
+  marginLeft: '5vw',
+  marginRight: '5vw',
 };
 
 const titleStyle = {
+  display: 'block',
   color: 'black',
   fontSize: '3em',
   textAlign: 'center',
@@ -38,8 +40,8 @@ const textStyle = {
   textAlign: 'center',
   fontSize: '3em',
   paddingTop: '4vh',
-  paddingLeft: '10vh',
-  paddingRight: '10vh',
+  paddingLeft: '10vw',
+  paddingRight: '10vw',
 };
 
 const imageStyle = {
@@ -51,10 +53,11 @@ export default class Courses extends Component {
   render() {
     return (
       <Fragment>
-        <header style={headerStyle}>
-          Placeholder for Navbar
-        </header>
         <div style={main}>
+          <header style={headerStyle}>
+            Placeholder for Navbar
+          </header>
+
           <h1 style={titleStyle}>Welcome [user]</h1>
           <nav style={coursesStyle}>
             <p style={imageStyle}>placeholder for image</p>
