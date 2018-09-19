@@ -1,4 +1,6 @@
 import React, { Component, Fragment } from 'react';
+import NavBar from './NavBar.js';
+
 
 export default class Quiz extends Component {
   render() {
