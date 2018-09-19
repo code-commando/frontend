@@ -1,6 +1,15 @@
 import React, { Component, Fragment } from 'react';
+// import su
+
 
 export default class Roster extends Component {
+
+  componentWillMount() {
+
+  }
+
+
+
   render() {
     return (
       <Fragment>
@@ -22,7 +31,7 @@ export default class Roster extends Component {
 
           <input type="button" value="edit"/>
           <input type="button" value="delete"/>
-          
+
         </form>
       </Fragment>
     );
