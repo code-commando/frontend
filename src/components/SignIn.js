@@ -1,6 +1,14 @@
 import React, { Component, Fragment } from 'react';
+import {connect} from 'react-redux';
+import {signinThunk} from '../actions/signin-action.js';
 
-export default class SignIn extends Component {
+
+class SignIn extends Component {
+
+  componentDidMount() {
+    this.props.signinThunk();
+  }
+
   render() {
     return (
       <Fragment>
@@ -8,6 +16,7 @@ export default class SignIn extends Component {
           <h1>Title</h1>
         </header>
         <div>
+          {/* {this.props.signin} */}
           <h1>Sign-in Title</h1>
           <p>Sign-in box here</p>
         </div>
@@ -15,3 +24,12 @@ export default class SignIn extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  roster: state.rosterReducer,
+  signin: state.signinReducer,
+});
+
+const mapDispatchToProps = {signinThunk};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
