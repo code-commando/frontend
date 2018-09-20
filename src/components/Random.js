@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
-import Roster from './Roster';
+import React, { Fragment, Component } from 'react';
+import NavBar from './NavBar.js';
+import Roster from './Roster.js';
 
 export default class Random extends Component {
   render() {
     return (
-      <div>
-        <h1>Random Title</h1>
-        <p>random pairs and random student</p>
+      <Fragment>
+        <Roster />
+        <h1>random button</h1>
+        <h1></h1>
         
         <ul>
-          <Roster />
         </ul>
-      </div>
+      </Fragment>
     );
   }
 }

@@ -28,6 +28,7 @@ class SignIn extends Component {
 const mapStateToProps = state => ({
   roster: state.rosterReducer,
   signin: state.signinReducer,
+  quiz: state.quizReducer,
 });
 
 const mapDispatchToProps = {signinThunk};

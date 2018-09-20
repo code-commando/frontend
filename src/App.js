@@ -14,6 +14,7 @@ import Quiz from './components/Quiz.js';
 import CodeRunner from './components/CodeRunner.js';
 
 
+
 class App extends Component {
   render() {
     return (
@@ -27,6 +28,7 @@ class App extends Component {
             <Route path='/random' component={Random} />
             <Route path='/quiz' component={Quiz} />
             <Route path='/coderunner' component={CodeRunner} />
+            <Route path='/signin' component={SignIn} />
           </Fragment>
         </BrowserRouter>
       </Provider>
