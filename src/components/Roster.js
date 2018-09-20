@@ -1,25 +1,21 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchAllRosterThunk } from '../actions/roster-action.js';
+import { fetchAll } from '../actions/roster-action';
+// import { fetchAllRosterThunk } from '../actions/roster-action.js';
 import NavBar from './NavBar.js';
 
 class Roster extends Component {
-
   componentDidMount() {
-    this.props.fetchAllRosterThunk();
+    this.props.fetchAll();
+    console.log('fetching', this.props.roster);
   }
-
-
 
   render() {
     return (
       <Fragment>
         <NavBar />
         <h1>Roster</h1>
-        <ul>
-          {this.props.roster &&this.props.roster.results}
-
-        </ul>
+        <ul>{this.props.roster && this.props.roster.results}</ul>
 
         <form>
           <label>edit student</label>
@@ -32,16 +28,23 @@ class Roster extends Component {
 
           <input type="button" value="edit" />
           <input type="button" value="delete" />
-
         </form>
       </Fragment>
     );
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  fetchAll: () => dispatch(fetchAll),
+});
 
-const mapStateToProps = state => ({roster: state.rosterReducer});
+const mapStateToProps = state => ({
+  roster: state.rosterReducer,
+});
 
-const mapDispatchToProps = {fetchAllRosterThunk};
+// const mapDispatchToProps = { fetchAllRosterThunk };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Roster);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Roster);
