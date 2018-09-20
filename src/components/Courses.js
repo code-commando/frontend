@@ -1,17 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import NavBar from './NavBar.js';
 
-//  i just put this in to help position other elements, navbar should contain its own styling
-// const headerStyle = {
-//   borderWidth: '10px',
-//   borderColor: 'black',
-//   backgroundColor: '#D23833',
-//   color: 'black',
-//   height: '10vh',
-//   width: '100%',
-//   textAlign: 'center',
-// };
-
 const main = {
   textAlign: 'center',
   background: '#D6D6D6',
@@ -22,7 +11,7 @@ const coursesStyle = {
   display: 'inline-block',
   background: '#D23833',
   color: 'white',
-  height: '35vh',
+  height: '30vh',
   width: 'auto',
   marginLeft: '5vw',
   marginRight: '5vw',
@@ -33,7 +22,7 @@ const titleStyle = {
   color: 'black',
   fontSize: '3em',
   textAlign: 'center',
-  marginBottom: '10vh',
+  marginBottom: '8vh',
 };
 
 const textStyle = {

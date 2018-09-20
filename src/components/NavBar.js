@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 
 const navBarStyle = {
   display: 'inline-block',
-  backgroundColor: '#D23833',
+  background: '#D23833',
   color: 'black',
   height: '10vh',
   width: '100%',
@@ -11,18 +11,35 @@ const navBarStyle = {
   margin: 0,
 };
 
+const linkStyle = {
+  display: 'inline-block',
+  color: 'black',
+  background: '#D6D6D6',
+  borderStyle: 'solid',
+  borderColor: 'black',
+  borderWidth: '2px',
+  borderRadius: '15%',
+  marginLeft: '3vw',
+  marginRight: '3vw',
+  marginTop: '2vh',
+  marginBottom: '1vh',
+  paddingLeft: '1vw',
+  paddingRight: '1vw',
+  paddingTop: '1vh',
+  paddingBottom: '1vh',
+};
 //  wasn't sure where the sign out was supposed to link to, so for now it just points back to the sign in page
 
 export default class NavBar extends Component {
   render() {
     return (
       <Fragment>
-        <ul style={navBarStyle} className='navbar'>The Coolest NavBar You Ever Saw
-          <NavLink to='/courses'>My Classes</NavLink>
-          <NavLink to='/quiz'>Quiz</NavLink>
-          <NavLink to='/dashboard'>Slides</NavLink>
-          <NavLink to='/coderunner'>Repl</NavLink>
-          <NavLink to='/signin'>Sign Out</NavLink>
+        <ul style={navBarStyle} className='navbar'>
+          <NavLink style={linkStyle} to='/courses'>My Classes</NavLink>
+          <NavLink style={linkStyle} to='/quiz'>Quiz</NavLink>
+          <NavLink style={linkStyle} to='/dashboard'>Slides</NavLink>
+          <NavLink style={linkStyle} to='/coderunner'>Repl</NavLink>
+          <NavLink style={linkStyle} to='/signin'>Sign Out</NavLink>
         </ul>
       </Fragment>
     );
