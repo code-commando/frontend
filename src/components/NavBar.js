@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import {NavLink} from 'react-router-dom';
 
+
 const navBarStyle = {
   display: 'inline-block',
   background: '#D23833',
@@ -40,7 +41,6 @@ export default class NavBar extends Component {
           <NavLink style={linkStyle} to='/roster'>Roster</NavLink>
           <NavLink style={linkStyle} to='/random'>Random Pairs</NavLink>
           <NavLink style={linkStyle} to='/coderunner'>Repl</NavLink>
-          <NavLink style={linkStyle} to='/signin'>Sign Out</NavLink>
         </ul>
       </Fragment>
     );

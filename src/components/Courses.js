@@ -19,11 +19,11 @@ const coursesStyle = {
 
 const titleStyle = {
   display: 'block',
+  marginBottom: '8vh',
+  marginTop: '0',
   color: 'black',
   fontSize: '3em',
   textAlign: 'center',
-  marginTop: '0',
-  marginBottom: '8vh',
 };
 
 const textStyle = {
@@ -50,6 +50,7 @@ export default class Courses extends Component {
       <Fragment>
         <NavBar />
         <div style={main}>
+          <br></br>
           <h1 style={titleStyle}>Welcome [user]</h1>
           <nav style={coursesStyle}>
             <p style={imageStyle}>placeholder for image</p>
