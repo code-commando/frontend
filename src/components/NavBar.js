@@ -5,7 +5,7 @@ const navBarStyle = {
   display: 'inline-block',
   background: '#D23833',
   color: 'black',
-  height: '10vh',
+  height: '100%',
   width: '100%',
   textAlign: 'center',
   margin: 0,
@@ -19,8 +19,7 @@ const linkStyle = {
   borderColor: 'black',
   borderWidth: '2px',
   borderRadius: '15%',
-  marginLeft: '3vw',
-  marginRight: '3vw',
+  marginRight: '6vw',
   marginTop: '2vh',
   marginBottom: '1vh',
   paddingLeft: '1vw',
@@ -38,6 +37,8 @@ export default class NavBar extends Component {
           <NavLink style={linkStyle} to='/courses'>My Classes</NavLink>
           <NavLink style={linkStyle} to='/quiz'>Quiz</NavLink>
           <NavLink style={linkStyle} to='/dashboard'>Slides</NavLink>
+          <NavLink style={linkStyle} to='/roster'>Roster</NavLink>
+          <NavLink style={linkStyle} to='/random'>Random Pairs</NavLink>
           <NavLink style={linkStyle} to='/coderunner'>Repl</NavLink>
           <NavLink style={linkStyle} to='/signin'>Sign Out</NavLink>
         </ul>

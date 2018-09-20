@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchAllRosterThunk } from '../actions/roster-action.js';
-
+import NavBar from './NavBar.js';
 
 class Roster extends Component {
 
@@ -14,6 +14,7 @@ class Roster extends Component {
   render() {
     return (
       <Fragment>
+        <NavBar />
         <h1>Roster</h1>
         <ul>
           {this.props.roster &&this.props.roster.results}
