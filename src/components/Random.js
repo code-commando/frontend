@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Roster from './Roster';
 
 export default class Random extends Component {
   render() {
@@ -6,7 +7,10 @@ export default class Random extends Component {
       <div>
         <h1>Random Title</h1>
         <p>random pairs and random student</p>
-        <p> Roster Component here</p>
+        
+        <ul>
+          <Roster />
+        </ul>
       </div>
     );
   }

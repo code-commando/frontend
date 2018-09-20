@@ -9,6 +9,7 @@ export default class NavBar extends Component {
                     <li><a href='/quiz'>Quiz</a></li>
                     <li><a href='/dashboard'>Slides</a></li>
                     <li><a href='/coderunner'>Repl</a></li>
+                    <li><a href='/random'>Random</a></li>
                     <li>SignOut</li>
                 </ul>
             </React.Fragment>

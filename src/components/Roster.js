@@ -16,22 +16,16 @@ class Roster extends Component {
       <Fragment>
         <h1>Roster</h1>
         <ul>
-          {this.props.roster &&this.props.roster.results}
-
+          {this.props.roster && this.props.roster.results}
         </ul>
 
         <form>
-          <label>edit student</label>
-          <label>name</label>
-          <input type="text"/>
-          <label>name</label>
-          <input type="text"/>
-          <label>name</label>
-          <input type="text"/>
-
-          <input type="button" value="edit"/>
-          <input type="button" value="delete"/>
-
+            <input name='name' placeholder='New Student' value={this.props.value}/><br/>
+            <button>Add New Student</button><br/>
+            </form>
+            <form onSubmit={this.deleteFromList} onChange={this.onChangeId}>
+            <input name='name' placeholder='Student ID' value={this.props.value}/><br/>
+            <button>Delete By ID</button><br/>
         </form>
       </Fragment>
     );
