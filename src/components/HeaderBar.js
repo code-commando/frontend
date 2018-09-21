@@ -2,8 +2,6 @@ import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 
 
-//  this is identical to the linkStyle in NavBar, can we import the same styling twice from one source?
-
 const main = {
   background: 'black',
   margin: 0,

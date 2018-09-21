@@ -5,6 +5,7 @@ import HeaderBar from './HeaderBar';
 const main = {
   background: '#D6D6D6',
   textAlign: 'center',
+  minHeight: '100vh',
   height: '100%',
   width: '100%',
 };
@@ -12,12 +13,11 @@ const main = {
 const content = {
   display: 'inline-block',
   borderStyle: 'solid',
-  borderWidth: '5px',
+  borderWidth: '9px',
   borderColor: '#90000A',
   width: '80%',
   height: '75%',
   paddingBottom: '5vh',
-  marginTop: '4vh',
 };
 
 const title = {
@@ -57,6 +57,10 @@ const buttonStyle = {
   marginRight: '80%',
 };
 
+const h1Style = {
+  height: '4vh',
+};
+
 const enBiggen = {
   fontSize: '22pt',
 };
@@ -66,7 +70,7 @@ export default class Dashboard extends Component {
       <Fragment>
         <div type="main" style={main}>
           <HeaderBar />
-          <h1>301n##</h1>
+          <h1 style={h1Style}>301n##</h1>
           <NavBar />
           <div type="content" style={content}>
             <h1 style={title}>Day ##</h1>
