@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import NavBar from './NavBar.js';
+import { Link } from 'react-router-dom';
+import HeaderBar from './HeaderBar.js';
 
 const main = {
   textAlign: 'center',
@@ -34,32 +35,36 @@ const textStyle = {
   paddingRight: '10vw',
 };
 
+
 const imageStyle = {
-  textAlign: 'right',
+  float: 'right',
 };
 
-//  The styling is getting a little wordy (and will be a lot longer on subsequent pages)
+//  jlm The styling is getting a little wordy (and will be a lot longer on subsequent pages)
 //  - do we want to put the styling in its own file and import the whole thing here?
 
-//  i couldn't remember how to get divs to render as inline-block so i made them navs for now
 
-//  They will eventually need to include links
+//  jlm Links are to /dashboard, will need to be to /dashboard/:id or something
 export default class Courses extends Component {
   render() {
     return (
       <Fragment>
-        <NavBar />
+        <HeaderBar />
         <div style={main}>
           <br></br>
           <h1 style={titleStyle}>Welcome [user]</h1>
-          <nav style={coursesStyle}>
-            <p style={imageStyle}>placeholder for image</p>
-            <p style={textStyle}>301d##</p>
-          </nav>
-          <nav style={coursesStyle}>
-            <p style={imageStyle}>placeholder for image</p>
-            <p style={textStyle}>401n##</p>
-          </nav>
+          <Link to='/dashboard'>
+            <div style={coursesStyle}>
+              <p style={imageStyle}>placeholder for image</p>
+              <p style={textStyle}>301d##</p>
+            </div>
+          </Link>
+          <Link to='/dashboard'>
+            <div style={coursesStyle}>
+              <p style={imageStyle}>placeholder for image</p>
+              <p style={textStyle}>401n##</p>
+            </div>
+          </Link>
         </div>
       </Fragment>
     );
