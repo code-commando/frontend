@@ -7,6 +7,11 @@ import {randomStudentThunk} from '../actions/roster-action.js';
 import { connect } from 'tls';
 
 class Random extends Component {
+
+  componentDidMount() {
+    this.props.randomStudentThunk();
+  }
+
   render() {
     return (
       <Fragment>
@@ -24,12 +29,12 @@ class Random extends Component {
     );
   }
 }
-export default Random;
+// export default Random;
 
-// const mapStateToProps = (state) => ({
-//   roster: state.rosterReducer,
-// });
+const mapStateToProps = (state) => ({
+  roster: state.rosterReducer,
+});
 
-// const mapDispatchToProps = {randomStudentThunk};
+const mapDispatchToProps = {randomStudentThunk};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Random);
+export default connect(mapStateToProps, mapDispatchToProps)(Random);

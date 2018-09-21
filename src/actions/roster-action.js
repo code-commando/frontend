@@ -32,7 +32,7 @@ export const fetchAllRosterThunk = () => {
 export const randomStudentThunk = () => {
   return dispatch => {
     superagent
-      .get(`http://localhost:3000/api/v1/roster/random??classCode=401n5`)
+      .get(`http://localhost:3000/api/v1/roster/random?classCode=401n5`)
       .then(student => {
         console.log('student', student);
       });
