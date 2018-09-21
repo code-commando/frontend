@@ -3,8 +3,8 @@ import NavBar from './NavBar.js';
 // import Roster from './Roster.js';
 import HeaderBar from './HeaderBar.js';
 
-import {randomStudentThunk} from '../actions/roster-action.js';
-import { connect } from 'tls';
+import {randomStudentThunk} from '../actions/random-student-action.js';
+import { connect } from 'react-redux';
 
 class Random extends Component {
 
@@ -23,13 +23,12 @@ class Random extends Component {
         
         <button>Random Pairs</button>
 
-        
-        {/* <Roster/> */}
+        {this.props.roster.results}
+
       </Fragment>
     );
   }
 }
-// export default Random;
 
 const mapStateToProps = (state) => ({
   roster: state.rosterReducer,

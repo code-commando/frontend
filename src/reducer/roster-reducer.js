@@ -1,4 +1,4 @@
-import {FETCH_ALL, RANDOM_STUDENT} from '../actions/roster-action.js';
+import {FETCH_ALL} from '../actions/roster-action.js';
 
 
 // let initialState = {};
@@ -10,7 +10,8 @@ export default (state = initialState, action) => {
 
   switch(type) {
     case FETCH_ALL: return {...state, ...payload};
-    case RANDOM_STUDENT: return {...state, ...payload};
+    // case RANDOM_STUDENT: return {...state, ...payload};
+    // case RANDOM_PAIRS: return {...state, ...payload};
     default: return state;
   }
 
