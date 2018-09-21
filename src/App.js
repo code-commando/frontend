@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
+import store from '../src/store/store.js';
 
 
 import './App.css';
@@ -13,22 +14,24 @@ import Quiz from './components/Quiz.js';
 import CodeRunner from './components/CodeRunner.js';
 
 
+
 class App extends Component {
   render() {
     return (
-      
-      <BrowserRouter>
-        <Fragment>
-          <Route exact path='/' component={SignIn} />
-          <Route path='/dashboard' component={Dashboard} />
-          <Route path='/courses' component={Courses} />
-          <Route path='/roster' component={Roster} />
-          <Route path='/random' component={Random} />
-          <Route path='/quiz' component={Quiz} />
-          <Route path='/coderunner' component={CodeRunner} />
-        </Fragment>
-      </BrowserRouter>
-      
+      <Provider store={store}>
+        <BrowserRouter>
+          <Fragment>
+            <Route exact path='/' component={SignIn} />
+            <Route path='/dashboard' component={Dashboard} />
+            <Route path='/courses' component={Courses} />
+            <Route path='/roster' component={Roster} />
+            <Route path='/random' component={Random} />
+            <Route path='/quiz' component={Quiz} />
+            <Route path='/coderunner' component={CodeRunner} />
+            <Route path='/signin' component={SignIn} />
+          </Fragment>
+        </BrowserRouter>
+      </Provider>
     );
   }
 }

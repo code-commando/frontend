@@ -1,11 +1,12 @@
 import React, { Component, Fragment } from 'react';
-// import su
+import { connect } from 'react-redux';
+import { fetchAllRosterThunk } from '../actions/roster-action.js';
+import NavBar from './NavBar.js';
 
+class Roster extends Component {
 
-export default class Roster extends Component {
-
-  componentWillMount() {
-
+  componentDidMount() {
+    this.props.fetchAllRosterThunk();
   }
 
 
@@ -13,27 +14,34 @@ export default class Roster extends Component {
   render() {
     return (
       <Fragment>
+        <NavBar />
         <h1>Roster</h1>
         <ul>
-          <li>
+          {this.props.roster &&this.props.roster.results}
 
-          </li>
         </ul>
 
         <form>
           <label>edit student</label>
           <label>name</label>
-          <input type="text"/>
+          <input type="text" />
           <label>name</label>
-          <input type="text"/>
+          <input type="text" />
           <label>name</label>
-          <input type="text"/>
+          <input type="text" />
 
-          <input type="button" value="edit"/>
-          <input type="button" value="delete"/>
+          <input type="button" value="edit" />
+          <input type="button" value="delete" />
 
         </form>
       </Fragment>
     );
   }
 }
+
+
+const mapStateToProps = state => ({roster: state.rosterReducer});
+
+const mapDispatchToProps = {fetchAllRosterThunk};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Roster);
