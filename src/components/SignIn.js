@@ -12,7 +12,7 @@ const mainStyle = {
 
 const logIn = {
   width: '40vw',
-  fontSize: '24px',
+  fontSize: '18px',
   margin: '30px auto',
   minHeight: '8vh',
   background: '#D90000',
