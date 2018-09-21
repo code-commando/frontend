@@ -17,7 +17,9 @@ class Roster extends Component {
         <NavBar />
         <h1>Roster</h1>
         <ul>
-          {this.props.roster &&this.props.roster.results}
+          {this.props.roster &&this.props.roster.results.map(student => {
+            return <li key={student}>{student}</li>;
+          })}
 
         </ul>
 
