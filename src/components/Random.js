@@ -3,23 +3,33 @@ import NavBar from './NavBar.js';
 // import Roster from './Roster.js';
 import HeaderBar from './HeaderBar.js';
 
-import {randomStudentThunk} from '../actions/roster-action.js';
+import { randomStudentThunk } from '../actions/roster-action.js';
 import { connect } from 'tls';
+
+const main = {
+  background: '#D6D6D6',
+  minHeight: '100vh',
+  height: '100%',
+  width: '100%',
+  textAlign: 'center',
+};
 
 class Random extends Component {
   render() {
     return (
       <Fragment>
-        <HeaderBar />
-        <NavBar />
-        <h1>Random Title</h1>
-        <p>random pairs and random student</p>
-        <button>Random Student</button>
-        
-        <button>Random Pairs</button>
+        <div style={main}>
+          <HeaderBar />
+          <NavBar />
+          <h1>Random Title</h1>
+          <p>random pairs and random student</p>
+          <button>Random Student</button>
 
-        
-        {/* <Roster/> */}
+          <button>Random Pairs</button>
+
+
+          {/* <Roster/> */}
+        </div>
       </Fragment>
     );
   }
