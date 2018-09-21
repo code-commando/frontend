@@ -1,4 +1,4 @@
-import {RANDOM_PAIRS} from '../actions/roster-action.js';
+import {RANDOM_PAIRS} from '../actions/random-pairs-action.js';
 
 let initialState = {results:[]};
 

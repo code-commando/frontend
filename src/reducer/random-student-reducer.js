@@ -1,4 +1,4 @@
-import {RANDOM_STUDENT} from '../actions/roster-action.js';
+import {RANDOM_STUDENT} from '../actions/random-student-action.js';
 
 
 let initialState = {results:[]};
