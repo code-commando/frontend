@@ -1,21 +1,23 @@
-import React, { Component, Fragment } from 'react';
-import {connect} from 'react-redux';
+import React from 'react';
+import { Component, Fragment } from 'react';
+import { connect } from 'react-redux'
+import HeaderBar from './HeaderBar.js';
 
-const dayClasses = {
-  width: "200px",
-  margin: "30px auto",
-  backgroundColor: "yellow",
-  minHeight: "200px",
-  boxSizing: "border-box"
+const mainStyle = {
+  background: '#D6D6D6',
+  height: '100vh',
+  width: '100%',
+  textAlign: 'center'
+};
+
+const logIn = {
+  width: '40vw',
+  fontSize: '24px',
+  margin: '30px auto',
+  minHeight: '8vh',
+  background: '#D90000',
 }
 
-const eveClasses = {
-  width: "200px",
-  margin: "30px auto",
-  backgroundColor: "grey",
-  minHeight: "200px",
-  boxSizing: "border-box"
-}
 class SignIn extends Component {
 
   // componentDidMount() {
@@ -38,27 +40,22 @@ class SignIn extends Component {
     };
 
     let QueryString = Object.keys(options).map((key) => {
-      return `${key}=` +  encodeURIComponent(options[key]);
+      return `${key}=` + encodeURIComponent(options[key]);
     }).join('&');
 
     let authURL = `${githubURL}?${QueryString}`;
-  
+
     window.location = authURL;
   }
-
-
-
   render() {
     return (
       <Fragment>
-        <header className='sign-in-navbar'>
-          <h1>Title</h1>
-        </header>
-        <div>
-          <button onClick={this.handleClick} >Login with Github</button>
-          <h1>Sign-in Title</h1>
-          <p style={dayClasses}>Day Classes</p>
-          <p style={eveClasses}></p>
+        <div style={mainStyle}>
+          <HeaderBar/>
+          <h1>Please Sign In</h1>
+          
+          <button style={logIn} onClick={this.handleClick}>Login with Github
+          </button>
         </div>
       </Fragment>
     );
