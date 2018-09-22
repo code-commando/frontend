@@ -41,58 +41,55 @@ class Roster extends Component {
   onChange = event => {
     const val = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     const changedBit = {
-        [event.target.name]: val
+      [event.target.name]: val
     };
     this.setState(changedBit);
-};
+  };
 
-onChangeId = event => {
+  onChangeId = event => {
     const val = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     const changedBit = {
-        id: val
+      id: val,
     };
     this.setState(changedBit);
-};
+  };
   render() {
     return (
       <Fragment>
-<<<<<<< HEAD
         <div className="RosterMain">
-=======
-      
-        <form onSubmit={this.addToRoster} onChange={this.onChange}>
-            <input name='name' placeholder='New Student' value={this.props.value}/><br/>
-            <button>Add New Student</button><br/>
+
+          <form onSubmit={this.addToRoster} onChange={this.onChange}>
+            <input name='name' placeholder='New Student' value={this.props.value} /><br />
+            <button>Add New Student</button><br />
           </form>
           <form onSubmit={this.deleteFromRoster} onChange={this.onChangeId}>
-            <input name='name' placeholder='Student ID' value={this.props.value}/><br/>
-            <button>Delete By ID</button><br/>
-        </form>
-      
-        <div type="main" style={main}>
-          <HeaderBar />
-          <NavBar />
->>>>>>> 465c2ba95ca3c44c310afc96861f754dcb300858
-          <h1 style={h1Style}>Roster</h1>
-          <ul>
-            {this.props.roster && this.props.roster.results.map(student => {
-              return <li style={liStyle} key={student}>{student}</li>;
-            })}
-          </ul>
-
-          <form style={formStyle}>
-            <h2 style={h2Style}>edit student</h2>
-            <label>name</label>
-            <input style={inputStyle} type="text" />
-            <label>name</label>
-            <input style={inputStyle} type="text" />
-            <label>name</label>
-            <input style={inputStyle} type="text" />
-
-            <input type="button" value="edit" />
-            <input type="button" value="delete" />
-
+            <input name='name' placeholder='Student ID' value={this.props.value} /><br />
+            <button>Delete By ID</button><br />
           </form>
+
+          <div type="main" >
+            
+            <h1 style={h1Style}>Roster</h1>
+            <ul>
+              {this.props.roster && this.props.roster.results.map(student => {
+                return <li style={liStyle} key={student}>{student}</li>;
+              })}
+            </ul>
+
+            <form style={formStyle}>
+              <h2 style={h2Style}>edit student</h2>
+              <label>name</label>
+              <input style={inputStyle} type="text" />
+              <label>name</label>
+              <input style={inputStyle} type="text" />
+              <label>name</label>
+              <input style={inputStyle} type="text" />
+
+              <input type="button" value="edit" />
+              <input type="button" value="delete" />
+
+            </form>
+          </div>
         </div>
       </Fragment>
     );
