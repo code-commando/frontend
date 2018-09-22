@@ -10,12 +10,22 @@ const mainStyle = {
   textAlign: 'center'
 };
 
+const signIn = {
+  fontSize: '24px',
+  fontFamily: 'ariel',
+  padding: ''
+
+};
+
 const logIn = {
   width: '40vw',
-  fontSize: '18px',
+  fontSize: '28px',
   margin: '30px auto',
   minHeight: '8vh',
   background: '#D90000',
+  borderRadius: '20px',
+  boxShadow: '10px 5px 5px black',
+
 }
 
 class SignIn extends Component {
@@ -52,7 +62,7 @@ class SignIn extends Component {
       <Fragment>
         <div style={mainStyle}>
           <HeaderBar/>
-          <h1>Please Sign In</h1>
+          <h1 style={signIn}>Please Sign In</h1>
           
           <button style={logIn} onClick={this.handleClick}>Login with Github
           </button>
