@@ -1,23 +1,28 @@
 [
     {
       "questions": "NPM is a dependency manager",
-      "answers": [
-        "True",
+      "possibleAnswers": [
+        "True, ",
         "False"
       ],
       "correctAnswer": "True"
     },
     {
       "questions": "What can you use package.json for?",
-      "answers": [
-        "Defining Scripts",
-        "Assigning Permissions",
-        "Connecting to github repo"
+      "possibleAnswers": [
+        "A) Defining Scripts, ",
+        "B) Assigning Permissions, ",
+        "C) Connecting to github repo, "
       ],
       "correctAnswer": "Defining Scripts"
     },
     {
       "questions": "What is an advantage of doing TDD?",
+      "possibleAnswers": [
+        "A) Defining Scripts, ",
+        "B) Assigning Permissions, ",
+        "C) Connecting to github repo, "
+      ],
       "correctAnswer": "Faster development, solid code, well tested edge cases"
     }
   ]

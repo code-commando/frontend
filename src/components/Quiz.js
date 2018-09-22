@@ -1,18 +1,17 @@
 import React, { Component, Fragment } from 'react';
-import {connect} from 'react-redux';
-
-import {fetchQuizData} from '../actions/quiz-action.js';
 
 import NavBar from './NavBar.js';
 import HeaderBar from './HeaderBar.js';
+import QuizData from './QuizData.js';
 
 class Quiz extends Component {
-
-  componentDidMount() {
-    this.props.fetchQuizData();
+  state = {
+    showQuiz: false,
   }
 
-
+  renderQuiz = () => {
+    this.setState({ showQuiz: true});
+  }
 
   render() {
     return (
@@ -22,19 +21,13 @@ class Quiz extends Component {
         <h1>Quiz</h1>
         <p>display questions</p>
         <p>display answers</p>
-        <button>Generate Quiz</button>
+        <button onClick={this.renderQuiz}>Generate Quiz</button>
         <ul>
-          {this.props.quiz.map((question, i) => <li key={i}>{question.questions}</li>)}
+          {this.state.showQuiz && < QuizData/>}
         </ul>
       </Fragment>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  quiz: state.quizReducer,
-})
-
-const mapDispatchToProps = {fetchQuizData}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Quiz);
+export default Quiz;
