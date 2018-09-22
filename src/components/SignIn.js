@@ -12,12 +12,27 @@ const mainStyle = {
 
 const logIn = {
   width: '40vw',
-  fontSize: '18px',
+  fontSize: '28px',
   margin: '30px auto',
   minHeight: '8vh',
   background: '#D90000',
+  borderRadius: '20px',
+  boxShadow: '10px 5px 5px black',
 }
 
+const githubImgStyle = {
+  display: 'block',
+  padding: '25px',
+  margin: '25px',
+  color: 'purple',
+};
+
+const imgStyle = {
+  display: 'block',
+  padding: '25px',
+  bottomMargin: '75px',
+  color: 'purple',
+};
 class SignIn extends Component {
 
   // componentDidMount() {
@@ -51,11 +66,13 @@ class SignIn extends Component {
     return (
       <Fragment>
         <div style={mainStyle}>
-          <HeaderBar/>
+          <HeaderBar />
           <h1>Please Sign In</h1>
-          
+          <p style={githubImgStyle}>github icon photo</p>
+
           <button style={logIn} onClick={this.handleClick}>Login with Github
           </button>
+          <p style={imgStyle}>stock photo of laptop</p>
         </div>
       </Fragment>
     );
