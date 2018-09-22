@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
+import style from '../style/style.js';
 
 
 class SignIn extends Component {

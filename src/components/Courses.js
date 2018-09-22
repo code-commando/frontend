@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import HeaderBar from './HeaderBar.js';
+// import HeaderBar from './HeaderBar.js';
+import style from '../style/style.js';
 
 const main = {
   textAlign: 'center',
@@ -49,7 +50,8 @@ export default class Courses extends Component {
   render() {
     return (
       <Fragment>
-        <HeaderBar />
+        {/* <HeaderBar /> */}
+        <style.HeaderBar />
         <div style={main}>
           <br></br>
           <h1 style={titleStyle}>Welcome [user]</h1>
