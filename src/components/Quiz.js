@@ -24,7 +24,7 @@ class Quiz extends Component {
         <p>display answers</p>
         <button>Generate Quiz</button>
         <ul>
-          {this.props.quiz.map(question => <li key={question}>{this.props.quiz.questions}</li>)}
+          {this.props.quiz.map((question, i) => <li key={i}>{question.questions}</li>)}
         </ul>
       </Fragment>
     );
