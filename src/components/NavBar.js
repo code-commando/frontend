@@ -40,7 +40,7 @@ export default class NavBar extends Component {
         <div style={navBarStyle}>
           <ul className='navbar'>
             <NavLink style={linkStyle} to='/dashboard'>Slides</NavLink>
-            <NavLink style={linkStyle} to='/random'>Random Pairs</NavLink>
+            <NavLink style={linkStyle} to='/random'>Random</NavLink>
             <NavLink style={linkStyle} to='/quiz'>Quiz</NavLink>
             <NavLink style={linkStyle} to='/coderunner'>Repl</NavLink>
             <NavLink style={linkStyle} to='/roster'>Roster</NavLink>

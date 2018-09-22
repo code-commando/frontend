@@ -1,13 +1,15 @@
-import React from 'react';
-import { Component, Fragment } from 'react';
-import { connect } from 'react-redux'
+import React, { Component, Fragment } from 'react';
+import {Redirect} from 'react-router-dom';
+import { connect } from 'react-redux';
+import cookies from 'react-cookies';
+
 import HeaderBar from './HeaderBar.js';
 
 const mainStyle = {
   background: '#D6D6D6',
   height: '100vh',
   width: '100%',
-  textAlign: 'center'
+  textAlign: 'center',
 };
 
 const logIn = {
@@ -18,7 +20,7 @@ const logIn = {
   background: '#D90000',
   borderRadius: '20px',
   boxShadow: '10px 5px 5px black',
-}
+};
 
 const githubImgStyle = {
   display: 'block',
@@ -35,9 +37,6 @@ const imgStyle = {
 };
 class SignIn extends Component {
 
-  // componentDidMount() {
-  //   this.props.signinThunk();
-  // }
 
   handleClick = () => {
     let githubURL = 'https://github.com/login/oauth/authorize';
@@ -62,7 +61,15 @@ class SignIn extends Component {
 
     window.location = authURL;
   }
+
+
+
   render() {
+
+    if(cookies.load('githubtoken')) {
+      return <Redirect to='/dashboard'/>;
+    }
+
     return (
       <Fragment>
         <div style={mainStyle}>
