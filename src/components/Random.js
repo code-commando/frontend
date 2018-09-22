@@ -3,9 +3,19 @@ import NavBar from './NavBar.js';
 // import Roster from './Roster.js';
 import HeaderBar from './HeaderBar.js';
 
+
 import {randomStudentThunk} from '../actions/random-student-action.js';
 import {randomPairsThunk} from '../actions/random-pairs-action.js';
 import { connect } from 'react-redux';
+
+
+const main = {
+  background: '#D6D6D6',
+  minHeight: '100vh',
+  height: '100%',
+  width: '100%',
+  textAlign: 'center',
+};
 
 class Random extends Component {
 
@@ -35,6 +45,18 @@ class Random extends Component {
           </li>;
         })}
 
+        <div style={main}>
+          <HeaderBar />
+          <NavBar />
+          <h1>Random Title</h1>
+          <p>random pairs and random student</p>
+          <button>Random Student</button>
+
+          <button>Random Pairs</button>
+
+
+          {/* <Roster/> */}
+        </div>
       </Fragment>
     );
   }
@@ -48,4 +70,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {randomStudentThunk, randomPairsThunk};
 
+
 export default connect(mapStateToProps, mapDispatchToProps)(Random);
+
