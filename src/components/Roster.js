@@ -1,14 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchAllRosterThunk } from '../actions/roster-action.js';
-import NavBar from './NavBar.js';
-import HeaderBar from './HeaderBar.js';
-
-const main = {
-  width: '100%',
-  height: '100%',
-  background: '#D5D5D5',
-};
 
 const liStyle = {
   display: 'block',
@@ -41,9 +33,7 @@ class Roster extends Component {
   render() {
     return (
       <Fragment>
-        <div type="main" style={main}>
-          <HeaderBar />
-          <NavBar />
+        <div className="RosterMain">
           <h1 style={h1Style}>Roster</h1>
           <ul>
             {this.props.roster && this.props.roster.results.map(student => {
