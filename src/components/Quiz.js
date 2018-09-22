@@ -4,6 +4,14 @@ import NavBar from './NavBar.js';
 import HeaderBar from './HeaderBar.js';
 import QuizData from './QuizData.js';
 
+const main = {
+  background: '#D6D6D6',
+  minHeight: '100vh',
+  height: '100%',
+  width: '100%',
+  textAlign: 'center',
+};
+
 class Quiz extends Component {
   state = {
     showQuiz: false,

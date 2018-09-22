@@ -1,6 +1,22 @@
-import React, { Component, Fragment } from 'react';
-import {connect} from 'react-redux';
+import React from 'react';
+import { Component, Fragment } from 'react';
+import { connect } from 'react-redux'
+import HeaderBar from './HeaderBar.js';
 
+const mainStyle = {
+  background: '#D6D6D6',
+  height: '100vh',
+  width: '100%',
+  textAlign: 'center'
+};
+
+const logIn = {
+  width: '40vw',
+  fontSize: '18px',
+  margin: '30px auto',
+  minHeight: '8vh',
+  background: '#D90000',
+}
 
 class SignIn extends Component {
 
@@ -24,24 +40,22 @@ class SignIn extends Component {
     };
 
     let QueryString = Object.keys(options).map((key) => {
-      return `${key}=` +  encodeURIComponent(options[key]);
+      return `${key}=` + encodeURIComponent(options[key]);
     }).join('&');
 
     let authURL = `${githubURL}?${QueryString}`;
-  
+
     window.location = authURL;
   }
-
   render() {
     return (
       <Fragment>
-        <header className='sign-in-navbar'>
-          <h1>Title</h1>
-        </header>
-        <div>
-          <button onClick={this.handleClick} >Login with Github</button>
-          <h1>Sign-in Title</h1>
-          <p>Sign-in box here</p>
+        <div style={mainStyle}>
+          <HeaderBar/>
+          <h1>Please Sign In</h1>
+          
+          <button style={logIn} onClick={this.handleClick}>Login with Github
+          </button>
         </div>
       </Fragment>
     );
