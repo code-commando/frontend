@@ -49,8 +49,9 @@ export default class Courses extends Component {
   render() {
     return (
       <Fragment>
-        <HeaderBar />
+        
         <div style={main}>
+          <HeaderBar />
           <br></br>
           <h1 style={titleStyle}>Welcome [user]</h1>
           <Link to='/dashboard'>
