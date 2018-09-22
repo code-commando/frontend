@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {fetchQuizData} from '../actions/quiz-action.js';
 
 import NavBar from './NavBar.js';
-
+import HeaderBar from './HeaderBar.js';
 
 class Quiz extends Component {
 
@@ -17,7 +17,8 @@ class Quiz extends Component {
   render() {
     return (
       <Fragment>
-        <header><NavBar /></header>
+        <HeaderBar />
+        <NavBar />
         <h1>Quiz</h1>
         <p>display questions</p>
         <p>display answers</p>
