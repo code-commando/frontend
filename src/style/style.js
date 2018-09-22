@@ -74,6 +74,16 @@ const style = {
     paddingTop: '1vh',
     paddingBottom: '1vh',
   },
+
+  borderStyle: {
+    margin: 'auto',
+    width: '90%',
+    height: '500px',
+    background: '#D6D6D6',
+    borderColor: '#9d1a02',
+    borderStyle: 'solid',
+    borderWidth: '5px',
+  },
 };
 
 class HeaderBar extends Component {

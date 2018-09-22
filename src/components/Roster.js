@@ -57,8 +57,6 @@ class Roster extends Component {
             <input style={inputStyle} type="text" />
             <label>name</label>
             <input style={inputStyle} type="text" />
-            <label>name</label>
-            <input style={inputStyle} type="text" />
 
             <input type="button" value="edit" />
             <input type="button" value="delete" />
