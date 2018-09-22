@@ -1,12 +1,35 @@
 import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
-import {signinThunk} from '../actions/signin-action.js';
 
 
 class SignIn extends Component {
 
-  componentDidMount() {
-    this.props.signinThunk();
+  // componentDidMount() {
+  //   this.props.signinThunk();
+  // }
+
+  handleClick = () => {
+    let githubURL = 'https://github.com/login/oauth/authorize';
+
+    let options = {
+      // local
+      client_id: 'd6c0defbd80f3979493a',
+      //live
+      // client_id: 'f749977a8455b627dc56',
+      redirect_uri: 'http://localhost:3000/oauth',
+      // redirect_uri: 'https://code-commando.herokuapp.com/oauth',
+      scope: 'read:user repo',
+      state: 'autumn',
+      allow_signup: 'true',
+    };
+
+    let QueryString = Object.keys(options).map((key) => {
+      return `${key}=` +  encodeURIComponent(options[key]);
+    }).join('&');
+
+    let authURL = `${githubURL}?${QueryString}`;
+  
+    window.location = authURL;
   }
 
   render() {
@@ -16,7 +39,7 @@ class SignIn extends Component {
           <h1>Title</h1>
         </header>
         <div>
-          {/* {this.props.signin} */}
+          <button onClick={this.handleClick} >Login with Github</button>
           <h1>Sign-in Title</h1>
           <p>Sign-in box here</p>
         </div>
@@ -27,10 +50,8 @@ class SignIn extends Component {
 
 const mapStateToProps = state => ({
   roster: state.rosterReducer,
-  signin: state.signinReducer,
   quiz: state.quizReducer,
 });
 
-const mapDispatchToProps = {signinThunk};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn);
+export default connect(mapStateToProps, null)(SignIn);

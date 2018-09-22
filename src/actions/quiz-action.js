@@ -1,10 +1,10 @@
-import express from 'express';
-const router = express.Router();
+// import express from 'express';
+import superagent from 'superagent';
 
 
 export const FETCH_QUIZ = 'FETCH_QUIZ';
 
-//let QUIZ_API = '';
+let QUIZ_API = 'data/quiz.json';
 
 export const fetchQuiz = (quiz) => ({
     type: FETCH_QUIZ,
@@ -13,13 +13,14 @@ export const fetchQuiz = (quiz) => ({
 
 //API actions
 export const fetchQuizData = () => {
+    console.log('!!!!!!')
     return dispatch => {
-        router.get('/api/v1/quiz/:id', auth, (req, res, next) => {
-            Quiz.findOne(req.params.id, req,cookies.jwt)
-                .then( data => res.send(data))
-                .catch(next);
-        });
+        superagent
+            .get(QUIZ_API)
+            .then(response => {
+                console.log(response.body)
+                dispatch(fetchQuiz(response.body));
+            });
     }
 }
 
-export default router;

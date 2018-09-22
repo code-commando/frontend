@@ -12,6 +12,8 @@ class Quiz extends Component {
     this.props.fetchQuizData();
   }
 
+
+
   render() {
     return (
       <Fragment>
@@ -19,7 +21,10 @@ class Quiz extends Component {
         <h1>Quiz</h1>
         <p>display questions</p>
         <p>display answers</p>
-        <button onClick={}>Generate Quiz</button>
+        <button>Generate Quiz</button>
+        <ul>
+          {this.props.quiz.map(question => <li key={question}>{this.props.quiz.questions}</li>)}
+        </ul>
       </Fragment>
     );
   }
