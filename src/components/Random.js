@@ -4,7 +4,7 @@ import NavBar from './NavBar.js';
 import HeaderBar from './HeaderBar.js';
 
 
-import {randomStudentThunk} from '../actions/random-student-action.js';
+import {randomStudentThunk, randomStudent} from '../actions/random-student-action.js';
 import {randomPairsThunk} from '../actions/random-pairs-action.js';
 import { connect } from 'react-redux';
 
@@ -24,38 +24,33 @@ class Random extends Component {
     this.props.randomPairsThunk();
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.props.student.results[0];
+    console.log('ASKJDSLJ', this.props.student.results[0]);
+  }
+
   render() {
     return (
       <Fragment>
-        <HeaderBar />
-        <NavBar />
-        <h1>Random Title</h1>
-        <p>random pairs and random student</p>
-        <button>Random Student</button>
-        
-        <button>Random Pairs</button>
-
-        {this.props.student.results}
-
-        {this.props.pairs.results.map(pair => {
-          return <li key={pair}>
-            <p>{pair[0]}</p> 
-            <p>{pair[1]}</p> 
-            <p>{pair[2]}</p>
-          </li>;
-        })}
-
         <div style={main}>
           <HeaderBar />
           <NavBar />
           <h1>Random Title</h1>
-          <p>random pairs and random student</p>
-          <button>Random Student</button>
+          <input type='submit'  value='Random Student' onClick={this.handleSubmit}/>
+        
+          <input type='submit' value='Random Pairs'/>
 
-          <button>Random Pairs</button>
+          {/* {this.props.student.results} */}
 
+          {/* {this.props.pairs.results.map(pair => {
+            return <li key={pair}>
+              <p>{pair[0]}</p> 
+              <p>{pair[1]}</p> 
+              <p>{pair[2]}</p>
+            </li>;
+          })} */}
 
-          {/* <Roster/> */}
         </div>
       </Fragment>
     );
@@ -68,7 +63,7 @@ const mapStateToProps = (state) => ({
   pairs: state.randomPairsReducer,
 });
 
-const mapDispatchToProps = {randomStudentThunk, randomPairsThunk};
+const mapDispatchToProps = {randomStudentThunk, randomStudent, randomPairsThunk};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Random);
