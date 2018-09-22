@@ -66,11 +66,8 @@ const style = {
     borderRadius: '5px',
     marginRight: '5vw',
     marginTop: '2vh',
-    marginBottom: '1vh',
-    paddingLeft: '1vw',
-    paddingRight: '1vw',
-    paddingTop: '1vh',
-    paddingBottom: '1vh',
+    marginBottom: '.5vh',
+    padding: '10px',
     width: '10%',
     height: '30px',
   },
@@ -104,6 +101,36 @@ class HeaderBar extends Component {
 }
 
 class NavBar extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.defaultState = {
+  //     dashboard: {
+  //       active: true,
+  //       color: '',
+  //     },
+  //     random: {
+  //       active: false,
+  //       color: '',
+  //     },
+  //     quiz: {
+  //       active: false,
+  //       color: '',
+  //     },
+  //     coderunner: {
+  //       active: false,
+  //       color: '',
+  //     },
+  //   };
+
+  //   this.state = {...this.defaultState};
+
+  //   highLighted = e => {
+  //     if() {
+
+  //     }
+  //   };
+  // }
+  
   render() {
     return (
       <Fragment>
