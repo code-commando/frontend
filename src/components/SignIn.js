@@ -64,6 +64,7 @@ class SignIn extends Component {
 
 const mapStateToProps = state => ({
   roster: state.rosterReducer,
+  quiz: state.quizReducer,
 });
 
 
