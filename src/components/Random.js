@@ -24,11 +24,11 @@ class Random extends Component {
     this.props.randomPairsThunk();
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.student.results[0];
-    console.log('ASKJDSLJ', this.props.student.results[0]);
-  }
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   this.props.student.results[0];
+  //   console.log('ASKJDSLJ', this.props.student.results[0]);
+  // }
 
   render() {
     return (
@@ -41,15 +41,15 @@ class Random extends Component {
         
           <input type='submit' value='Random Pairs'/>
 
-          {/* {this.props.student.results} */}
+          {this.props.student.results}
 
-          {/* {this.props.pairs.results.map(pair => {
+          {this.props.pairs.results.map(pair => {
             return <li key={pair}>
               <p>{pair[0]}</p> 
               <p>{pair[1]}</p> 
               <p>{pair[2]}</p>
             </li>;
-          })} */}
+          })}
 
         </div>
       </Fragment>
