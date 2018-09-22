@@ -1,14 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchAllRosterThunk } from '../actions/roster-action.js';
-import NavBar from './NavBar.js';
-import HeaderBar from './HeaderBar.js';
-
-const main = {
-  width: '100%',
-  height: '100%',
-  background: '#D5D5D5',
-};
 
 const liStyle = {
   display: 'block',
@@ -64,6 +56,9 @@ onChangeId = event => {
   render() {
     return (
       <Fragment>
+<<<<<<< HEAD
+        <div className="RosterMain">
+=======
       
         <form onSubmit={this.addToRoster} onChange={this.onChange}>
             <input name='name' placeholder='New Student' value={this.props.value}/><br/>
@@ -77,6 +72,7 @@ onChangeId = event => {
         <div type="main" style={main}>
           <HeaderBar />
           <NavBar />
+>>>>>>> 465c2ba95ca3c44c310afc96861f754dcb300858
           <h1 style={h1Style}>Roster</h1>
           <ul>
             {this.props.roster && this.props.roster.results.map(student => {
