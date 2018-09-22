@@ -5,8 +5,8 @@ import React, { Fragment, Component } from 'react';
 import style from '../style/style.js';
 
 
-import { randomStudentThunk } from '../actions/random-student-action.js';
-import { randomPairsThunk } from '../actions/random-pairs-action.js';
+import {randomStudentThunk, randomStudent} from '../actions/random-student-action.js';
+import {randomPairsThunk} from '../actions/random-pairs-action.js';
 import { connect } from 'react-redux';
 
 
@@ -25,6 +25,12 @@ class Random extends Component {
     this.props.randomPairsThunk();
   }
 
+  // handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   this.props.student.results[0];
+  //   console.log('ASKJDSLJ', this.props.student.results[0]);
+  // }
+
   render() {
     return (
       <Fragment>
@@ -34,20 +40,20 @@ class Random extends Component {
         {/* <NavBar /> */}
         <div style={style.style.borderStyle}>
           <h1>Random Title</h1>
-          <p>random pairs and random student</p>
-          <button>Random Student</button>
-
-          <button>Random Pairs</button>
+          <input type='submit'  value='Random Student' onClick={this.handleSubmit}/>
+        
+          <input type='submit' value='Random Pairs'/>
 
           {this.props.student.results}
 
           {this.props.pairs.results.map(pair => {
             return <li key={pair}>
-              <p>{pair[0]}</p>
-              <p>{pair[1]}</p>
+              <p>{pair[0]}</p> 
+              <p>{pair[1]}</p> 
               <p>{pair[2]}</p>
             </li>;
           })}
+
         </div>
       </Fragment>
     );
@@ -60,7 +66,7 @@ const mapStateToProps = (state) => ({
   pairs: state.randomPairsReducer,
 });
 
-const mapDispatchToProps = { randomStudentThunk, randomPairsThunk };
+const mapDispatchToProps = {randomStudentThunk, randomStudent, randomPairsThunk};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Random);

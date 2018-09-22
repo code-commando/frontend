@@ -7,6 +7,7 @@ import store from '../src/store/store.js';
 import './App.css';
 import SignIn from './components/SignIn.js';
 import Dashboard from './components/Dashboard.js';
+// import Dashboard from './components/Dashboard2.js';
 import Courses from './components/Courses.js';
 import Roster from './components/Roster.js';
 import Random from './components/Random.js';
