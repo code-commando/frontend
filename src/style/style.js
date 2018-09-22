@@ -1,29 +1,29 @@
 'use strict';
-import React, {Component, Fragment} from 'react';
+import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 
+
 const style = {
-  test: {
-    width: '100%',
-    heigth: '20%',
-    backgroundColor: 'black',
-    color: 'white',
-    margin: 'auto',
-    fontSize: '48px',
-  },
 
   main: {
     background: 'black',
     margin: 0,
     width: '100%',
   },
-  
+
   imgStyle: {
     display: 'inline-block',
     float: 'left',
     color: 'white',
   },
-  
+
+  logoSize: {
+    display: 'inline-block',
+    float: 'left',
+    height: '75px',
+    margin: '15px',
+  },
+
   linkStyle: {
     display: 'inline-block',
     float: 'right',
@@ -32,7 +32,7 @@ const style = {
     borderStyle: 'solid',
     borderColor: 'black',
     borderWidth: '2px',
-    borderRadius: '15%',
+    borderRadius: '5px',
     marginRight: '1vw',
     marginTop: '2vh',
     paddingLeft: '1vw',
@@ -40,7 +40,7 @@ const style = {
     paddingTop: '1vh',
     paddingBottom: '1vh',
   },
-  
+
   center: {
     display: 'inline-block',
     marginLeft: '25%',
@@ -50,8 +50,6 @@ const style = {
 
   navBarStyle: {
     display: 'inline-block',
-    background: '#D23833',
-    color: 'black',
     height: '90px',
     width: '100%',
     textAlign: 'center',
@@ -60,12 +58,12 @@ const style = {
 
   navLinkStyle: {
     display: 'inline-block',
-    color: 'black',
-    background: '#D6D6D6',
-    borderStyle: 'solid',
-    borderColor: 'black',
-    borderWidth: '2px',
-    borderRadius: '15%',
+    color: 'white',
+    background: '#D23833',
+    // borderStyle: 'solid',
+    // borderColor: 'black',
+    // borderWidth: '2px',
+    borderRadius: '5px',
     marginRight: '5vw',
     marginTop: '2vh',
     marginBottom: '1vh',
@@ -73,16 +71,20 @@ const style = {
     paddingRight: '1vw',
     paddingTop: '1vh',
     paddingBottom: '1vh',
+    width: '10%',
+    height: '30px',
   },
 
   borderStyle: {
     margin: 'auto',
+    padding: '25px',
     width: '90%',
     height: '500px',
     background: '#D6D6D6',
     borderColor: '#9d1a02',
     borderStyle: 'solid',
     borderWidth: '5px',
+    borderRadius: '10px',
   },
 };
 
@@ -91,7 +93,8 @@ class HeaderBar extends Component {
     return (
       <Fragment>
         <div style={style.main}>
-          <p style={style.imgStyle}>placeholder for image</p>
+          <img src='/images/code-fellows.png' alt='Code Fellows' style = {style.logoSize} />
+          <h1 style={style.imgStyle}>Code Fellows</h1>
           <p style={style.center}>Code Commando</p>
           <NavLink style={style.linkStyle} to='/signin'>Sign Out</NavLink>
         </div>
@@ -117,6 +120,47 @@ class NavBar extends Component {
       </Fragment>
     );
   }
-} 
+}
 
-export default {style, HeaderBar, NavBar};
+// class Preference extends Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.basic = {
+//       background: '#D6D6D6',
+//       borderColor: '#9d1a02',
+//       navColor: '#D23833',
+//       textColor: 'black',
+//     };
+
+//     this.dark = {
+//       background: '#22222a',
+//       borderColor: '#0f1743',
+//       navColor: '#242947',
+//       textColor: 'white',
+//     };
+
+//     this.state = { ...this.basic };
+//   }
+
+//   basicTheme = () => {
+//     this.setState({ ...this.basic });
+//   }
+
+//   darkTheme = () => {
+//     this.setState({ ...this.dark });
+//   }
+
+//   render() {
+//     return (
+//       <Fragment>
+//         <div>
+//           <button onClick={this.state.basicTheme}>Basic</button>
+//           <button onClick={this.state.darkTheme}>Dark</button>
+//         </div>
+//       </Fragment>
+//     );
+//   }
+// }
+
+export default { style, HeaderBar, NavBar };
