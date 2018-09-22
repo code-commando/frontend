@@ -13,7 +13,7 @@ const mainStyle = {
 const signIn = {
   fontSize: '24px',
   fontFamily: 'ariel',
-  padding: ''
+  padding: '22px',
 
 };
 
