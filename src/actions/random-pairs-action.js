@@ -23,7 +23,7 @@ export const randomPairsThunk = () => {
       .get(`${apiURL}/pairs?classCode=401n5`)
       .then(pairs => {
         console.log('pairs', pairs);
-        dispatch(randomPairs(pairs.body));
+        dispatch(randomPairs(pairs.body)).catch(err => console.log(err));
       });
   };
 };
