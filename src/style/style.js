@@ -84,6 +84,7 @@ const style = {
 
   borderStyle: {
     margin: 'auto',
+    marginBottom: '2%',
     padding: '25px',
     width: '90%',
     height: '500px',
@@ -122,7 +123,6 @@ class NavBar extends Component {
             <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/random'>Random</NavLink>
             <NavLink style={style.navLinkStyle} to='/quiz'>Quiz</NavLink>
             <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/coderunner'>Repl</NavLink>
-            <NavLink style={style.navLinkStyle} to='/roster'>Roster</NavLink>
           </ul>
         </div>
       </Fragment>
