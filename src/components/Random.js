@@ -24,11 +24,11 @@ class Random extends Component {
     this.props.randomPairsThunk();
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   this.props.student.results[0];
-  //   console.log('ASKJDSLJ', this.props.student.results[0]);
-  // }
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    this.props.randomStudentThunk();
+  }
 
   render() {
     return (
