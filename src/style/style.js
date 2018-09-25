@@ -43,7 +43,7 @@ const style = {
 
   center: {
     display: 'inline-block',
-    marginLeft: '25%',
+    marginLeft: '20%',
     color: 'white',
     fontSize: '36px',
   },
@@ -70,6 +70,16 @@ const style = {
     padding: '10px',
     width: '10%',
     height: '30px',
+    textDecoration: 'none',
+  },
+
+  active: {
+    background: '#9d1a02',
+    width: '13%',
+    height: '40px',
+    fontWeight: 'bold',
+    fontSize: '24px',
+    textDecoration: 'none',
   },
 
   borderStyle: {
@@ -90,7 +100,7 @@ class HeaderBar extends Component {
     return (
       <Fragment>
         <div style={style.main}>
-          <img src='/images/code-fellows.png' alt='Code Fellows' style = {style.logoSize} />
+          <img src='/images/code-fellows.png' alt='Code Fellows' style={style.logoSize} />
           <h1 style={style.imgStyle}>Code Fellows</h1>
           <p style={style.center}>Code Commando</p>
           <NavLink style={style.linkStyle} to='/signin'>Sign Out</NavLink>
@@ -101,36 +111,7 @@ class HeaderBar extends Component {
 }
 
 class NavBar extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.defaultState = {
-  //     dashboard: {
-  //       active: true,
-  //       color: '',
-  //     },
-  //     random: {
-  //       active: false,
-  //       color: '',
-  //     },
-  //     quiz: {
-  //       active: false,
-  //       color: '',
-  //     },
-  //     coderunner: {
-  //       active: false,
-  //       color: '',
-  //     },
-  //   };
 
-  //   this.state = {...this.defaultState};
-
-  //   highLighted = e => {
-  //     if() {
-
-  //     }
-  //   };
-  // }
-  
   render() {
     return (
       <Fragment>
@@ -138,9 +119,9 @@ class NavBar extends Component {
         <div style={style.navBarStyle}>
           <ul className='navbar'>
             <NavLink style={style.navLinkStyle} to='/dashboard'>Slides</NavLink>
-            <NavLink style={style.navLinkStyle} to='/random'>Random Pairs</NavLink>
+            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/random'>Random</NavLink>
             <NavLink style={style.navLinkStyle} to='/quiz'>Quiz</NavLink>
-            <NavLink style={style.navLinkStyle} to='/coderunner'>Repl</NavLink>
+            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/coderunner'>Repl</NavLink>
             <NavLink style={style.navLinkStyle} to='/roster'>Roster</NavLink>
           </ul>
         </div>
