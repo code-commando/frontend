@@ -8,7 +8,9 @@ state = {
 }
 
 renderAnswer = () => {
-    this.setState({ showAnswer: true})
+    this.setState({ 
+        showAnswer: true 
+    })
 }
 
 hideAnswers = () => {
@@ -23,12 +25,12 @@ componentDidMount() {
         <ul>
                 {this.props.quiz.map((question, i) => 
                 <li key={i}>
-                    {question.questions}<br/>
+                    {question.questions}<br />
                     <ol>Choices: {question.possibleAnswers}</ol>
-                    <br/>
+                    <br />
                     <p>Answer: {this.state.showAnswer && question.correctAnswer}</p>
+                    <button onClick={this.renderAnswer}>Show answers</button><br />
                 </li>)}
-                    <button onClick={this.renderAnswer}>Show answers</button>
                     <button onClick={this.hideAnswers}>Hide Answers</button>
         </ul>
     )
