@@ -60,9 +60,6 @@ const style = {
     display: 'inline-block',
     color: 'white',
     background: '#D23833',
-    // borderStyle: 'solid',
-    // borderColor: 'black',
-    // borderWidth: '2px',
     borderRadius: '5px',
     marginRight: '5vw',
     marginTop: '2vh',
@@ -129,46 +126,5 @@ class NavBar extends Component {
     );
   }
 }
-
-// class Preference extends Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.basic = {
-//       background: '#D6D6D6',
-//       borderColor: '#9d1a02',
-//       navColor: '#D23833',
-//       textColor: 'black',
-//     };
-
-//     this.dark = {
-//       background: '#22222a',
-//       borderColor: '#0f1743',
-//       navColor: '#242947',
-//       textColor: 'white',
-//     };
-
-//     this.state = { ...this.basic };
-//   }
-
-//   basicTheme = () => {
-//     this.setState({ ...this.basic });
-//   }
-
-//   darkTheme = () => {
-//     this.setState({ ...this.dark });
-//   }
-
-//   render() {
-//     return (
-//       <Fragment>
-//         <div>
-//           <button onClick={this.state.basicTheme}>Basic</button>
-//           <button onClick={this.state.darkTheme}>Dark</button>
-//         </div>
-//       </Fragment>
-//     );
-//   }
-// }
 
 export default { style, HeaderBar, NavBar };

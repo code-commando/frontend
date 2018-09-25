@@ -1,7 +1,4 @@
 import React, { Fragment, Component } from 'react';
-// import NavBar from './NavBar.js';
-// import Roster from './Roster.js';
-// import HeaderBar from './HeaderBar.js';
 import style from '../style/style.js';
 
 
@@ -35,9 +32,6 @@ class Random extends Component {
     return (
       <Fragment>
         <style.NavBar />
-        {/* <div style={style.NavBar}> */}
-        {/* <HeaderBar /> */}
-        {/* <NavBar /> */}
         <div style={style.style.borderStyle}>
           <h1>Random Title</h1>
           <input type='submit'  value='Random Student' onClick={this.handleSubmit}/>
