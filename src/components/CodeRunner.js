@@ -21,13 +21,41 @@ export default class CodeRunner extends Component {
       options: {},
     };
   }
+  editorWillMount(monaco) {
+    monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+      schemas: [
+        {
+          uri: 'http://myserver/foo-schema.json',
+          schema: {
+            type: 'object',
+            properties: {
+              p1: {
+                enum: ['v1', 'v2'],
+              },
+              p2: {
+                $ref: 'http://myserver/bar-schema.json',
+              },
+            },
+          },
+        },
+      ],
+    });
+  }
+
   editorDidMount(editor, monaco) {
+    // const model = this.refs.monaco.editor.getModel();
+    console.log('monaco', monaco);
     console.log('editorDidMount', editor);
     editor.focus();
+
     //
   }
-  onChange(newValue, e) {
-    console.log('onChange', newValue, e);
+  onChange(event) {
+    // let newState = { ...this.state.code };
+    // newState[event.target.name] = event.target.value;
+    // this.setState(newState);
+    // this.setState({ code: event.target.value });
+    console.log('onChange', event);
   }
 
   render() {
