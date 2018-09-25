@@ -24,10 +24,15 @@ class Random extends Component {
     this.props.randomPairsThunk();
   }
 
-  handleSubmit = (e) => {
+  submitRandom = (e) => {
     e.preventDefault();
 
     this.props.randomStudentThunk();
+  }
+
+  submitPairs = (e) => {
+    e.preventDefault();
+    this.props.randomPairsThunk();
   }
 
   render() {
@@ -37,19 +42,28 @@ class Random extends Component {
           <HeaderBar />
           <NavBar />
           <h1>Random Title</h1>
-          <input type='submit'  value='Random Student' onClick={this.handleSubmit}/>
+          <input type='submit'  value='Random Student' onClick={this.submitRandom}/>
         
-          <input type='submit' value='Random Pairs'/>
+          <input type='submit' value='Random Pairs' onClick={this.submitPairs}/>
 
-          {this.props.student.results}
+          <ul>
 
-          {this.props.pairs.results.map(pair => {
-            return <li key={pair}>
-              <p>{pair[0]}</p> 
-              <p>{pair[1]}</p> 
-              <p>{pair[2]}</p>
-            </li>;
-          })}
+            <li>{this.props.student.results}</li>
+
+            {/* <li>{this.props.pairs.results}</li> */}
+
+          
+
+
+            {this.props.pairs.results.map(pair => {
+              return <li key={pair}>
+                <p>{pair[0]}</p> 
+                <p>{pair[1]}</p> 
+                <p>{pair[2]}</p>
+              </li>;
+            })}
+
+          </ul>
 
         </div>
       </Fragment>
