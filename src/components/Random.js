@@ -1,7 +1,5 @@
 import React, { Fragment, Component } from 'react';
-import NavBar from './NavBar.js';
-// import Roster from './Roster.js';
-import HeaderBar from './HeaderBar.js';
+import style from '../style/style.js';
 
 
 import {randomStudentThunk, randomStudent} from '../actions/random-student-action.js';
@@ -33,9 +31,8 @@ class Random extends Component {
   render() {
     return (
       <Fragment>
-        <div style={main}>
-          <HeaderBar />
-          <NavBar />
+        <style.NavBar />
+        <div style={style.style.borderStyle}>
           <h1>Random Title</h1>
           <input type='submit'  value='Random Student' onClick={this.handleSubmit}/>
         
