@@ -14,13 +14,42 @@ export const randomStudent = (student) => ({
 
 // Thunk action returns a function that dispatches an action.
 
+
+const roster = ["Brittany Bolstad",
+"Anna Boyatyuk",
+"Tyler Confalone",
+"Autumn Curtis",
+"Khoa Huynh",
+"Phillip Kim",
+"Michael Lennerblom",
+"Josh McClung",
+"James McDaniel",
+"Aaron Meade",
+"Haley Mendoza",
+"Madhu Rebbana",
+"Maxwell Rediker",
+"Richard Tae",
+"Tama Rushin",
+"Ariel Altaras"];
+
 export const randomStudentThunk = () => {
   return dispatch => {
-    superagent
-      .get(`${apiURL}/random?classCode=401n5`)
-      .then(student => {
-        console.log('student', student);
-        dispatch(randomStudent(student.body));
-      });
+
+    const rando = Math.floor(Math.random() * roster.length);
+
+    let studentInfo = {
+      "count": 1,
+      "results":roster[rando],
+      "classCode": "401n5"
+      }
+
+    dispatch(randomStudent(studentInfo));
+
+    // superagent
+    //   .get(`${apiURL}/random?classCode=401n5`)
+    //   .then(student => {
+    //     console.log('student', student);
+    //     dispatch(randomStudent(student.body));
+    //   });
   };
 };

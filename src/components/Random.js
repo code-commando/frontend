@@ -1,7 +1,4 @@
 import React, { Fragment, Component } from 'react';
-import NavBar from './NavBar.js';
-// import Roster from './Roster.js';
-import HeaderBar from './HeaderBar.js';
 import style from '../style/style.js';
 
 
@@ -25,19 +22,17 @@ class Random extends Component {
     this.props.randomPairsThunk();
   }
 
-  // handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   this.props.student.results[0];
-  //   console.log('ASKJDSLJ', this.props.student.results[0]);
-  // }
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    this.props.randomStudentThunk();
+  }
 
   render() {
     return (
       <Fragment>
-        <style.NavBar/>
+        <style.NavBar />
         <div style={style.style.borderStyle}>
-          {/* <HeaderBar />
-          <NavBar /> */}
           <h1>Random Title</h1>
           <input type='submit'  value='Random Student' onClick={this.handleSubmit}/>
         

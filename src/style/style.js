@@ -1,29 +1,29 @@
 'use strict';
-import React, {Component, Fragment} from 'react';
+import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 
+
 const style = {
-  test: {
-    width: '100%',
-    heigth: '20%',
-    backgroundColor: 'black',
-    color: 'white',
-    margin: 'auto',
-    fontSize: '48px',
-  },
 
   main: {
     background: 'black',
     margin: 0,
     width: '100%',
   },
-  
+
   imgStyle: {
     display: 'inline-block',
     float: 'left',
     color: 'white',
   },
-  
+
+  logoSize: {
+    display: 'inline-block',
+    float: 'left',
+    height: '75px',
+    margin: '15px',
+  },
+
   linkStyle: {
     display: 'inline-block',
     float: 'right',
@@ -32,7 +32,7 @@ const style = {
     borderStyle: 'solid',
     borderColor: 'black',
     borderWidth: '2px',
-    borderRadius: '15%',
+    borderRadius: '5px',
     marginRight: '1vw',
     marginTop: '2vh',
     paddingLeft: '1vw',
@@ -40,18 +40,16 @@ const style = {
     paddingTop: '1vh',
     paddingBottom: '1vh',
   },
-  
+
   center: {
     display: 'inline-block',
-    marginLeft: '25%',
+    marginLeft: '20%',
     color: 'white',
     fontSize: '36px',
   },
 
   navBarStyle: {
     display: 'inline-block',
-    background: '#D23833',
-    color: 'black',
     height: '90px',
     width: '100%',
     textAlign: 'center',
@@ -60,29 +58,38 @@ const style = {
 
   navLinkStyle: {
     display: 'inline-block',
-    color: 'black',
-    background: '#D6D6D6',
-    borderStyle: 'solid',
-    borderColor: 'black',
-    borderWidth: '2px',
-    borderRadius: '15%',
+    color: 'white',
+    background: '#D23833',
+    borderRadius: '5px',
     marginRight: '5vw',
     marginTop: '2vh',
-    marginBottom: '1vh',
-    paddingLeft: '1vw',
-    paddingRight: '1vw',
-    paddingTop: '1vh',
-    paddingBottom: '1vh',
+    marginBottom: '.5vh',
+    padding: '10px',
+    width: '10%',
+    height: '30px',
+    textDecoration: 'none',
+  },
+
+  active: {
+    background: '#9d1a02',
+    width: '13%',
+    height: '40px',
+    fontWeight: 'bold',
+    fontSize: '24px',
+    textDecoration: 'none',
   },
 
   borderStyle: {
     margin: 'auto',
+    marginBottom: '2%',
+    padding: '25px',
     width: '90%',
-    height: '500px',
+    height: '600px',
     background: '#D6D6D6',
     borderColor: '#9d1a02',
     borderStyle: 'solid',
     borderWidth: '5px',
+    borderRadius: '10px',
   },
 };
 
@@ -91,7 +98,8 @@ class HeaderBar extends Component {
     return (
       <Fragment>
         <div style={style.main}>
-          <p style={style.imgStyle}>placeholder for image</p>
+          <img src='/images/code-fellows.png' alt='Code Fellows' style={style.logoSize} />
+          <h1 style={style.imgStyle}>Code Fellows</h1>
           <p style={style.center}>Code Commando</p>
           <NavLink style={style.linkStyle} to='/signin'>Sign Out</NavLink>
         </div>
@@ -101,22 +109,22 @@ class HeaderBar extends Component {
 }
 
 class NavBar extends Component {
+
   render() {
     return (
       <Fragment>
         <HeaderBar />
         <div style={style.navBarStyle}>
           <ul className='navbar'>
-            <NavLink style={style.navLinkStyle} to='/dashboard'>Slides</NavLink>
-            <NavLink style={style.navLinkStyle} to='/random'>Random Pairs</NavLink>
-            <NavLink style={style.navLinkStyle} to='/quiz'>Quiz</NavLink>
-            <NavLink style={style.navLinkStyle} to='/coderunner'>Repl</NavLink>
-            <NavLink style={style.navLinkStyle} to='/roster'>Roster</NavLink>
+            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/dashboard'>Slides</NavLink>
+            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/random'>Random</NavLink>
+            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/quiz'>Quiz</NavLink>
+            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/coderunner'>Repl</NavLink>
           </ul>
         </div>
       </Fragment>
     );
   }
-} 
+}
 
-export default {style, HeaderBar, NavBar};
+export default { style, HeaderBar, NavBar };
