@@ -26,6 +26,7 @@ export const fetchAll = (roster) => ({
 
 
 // Thunk action returns a function that dispatches an action.
+// API actions
 export const fetchAllRosterThunk = () => {
   return dispatch => {
     superagent
