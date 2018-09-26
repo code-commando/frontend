@@ -15,25 +15,24 @@ const mainStyle = {
 const logIn = {
   width: '40vw',
   fontSize: '28px',
-  margin: '30px auto',
+  margin: '10px auto',
   minHeight: '8vh',
   background: '#D90000',
   borderRadius: '20px',
   boxShadow: '10px 5px 5px black',
 };
 
-const githubImgStyle = {
+const githubImgLogo = {
   display: 'block',
-  padding: '25px',
-  margin: '25px',
-  color: 'purple',
+  padding: '10px',
+  margin: 'auto',
 };
 
 const imgStyle = {
   display: 'block',
   height: '700px',
-  padding: '25px',
-  bottomMargin: '75px',
+  width: '600px',
+  margin: '25px auto',
   color: 'purple',
 };
 class SignIn extends Component {
@@ -83,8 +82,8 @@ class SignIn extends Component {
         <div style={mainStyle}>
           <HeaderBar />
           <h1>Please Sign In</h1>
-          <p style={githubImgStyle}>github icon photo</p>
-          <img src='/images/GitHub-Mark-64px.png'/>
+          {/* <p style={githubImgStyle}></p> */}
+          <img style={githubImgLogo} src='/images/GitHub-Mark-64px.png'/>
 
           <button style={logIn} onClick={this.handleClick}>Login with Github
           </button>
