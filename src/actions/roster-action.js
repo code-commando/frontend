@@ -5,6 +5,8 @@ export const FETCH_ALL='FETCH_ALL';
 
 let API_URL = 'data/roster.json';
 
+// let API_URL = 'http://api.commando.ccs.net/api/v1/roster';
+
 // let apiURL = 'http://api.commando.ccs.net/api/v1/roster';
 
 export const fetchAll = (roster) => ({
