@@ -41,7 +41,7 @@ class Roster extends Component {
   onChange = event => {
     const val = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     const changedBit = {
-      [event.target.name]: val
+      [event.target.name]: val,
     };
     this.setState(changedBit);
   };
