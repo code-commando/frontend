@@ -7,7 +7,7 @@ import HeaderBar from './HeaderBar.js';
 
 const mainStyle = {
   background: '#D6D6D6',
-  height: '100vh',
+  height: '100%',
   width: '100%',
   textAlign: 'center',
 };
@@ -31,6 +31,7 @@ const githubImgStyle = {
 
 const imgStyle = {
   display: 'block',
+  height: '700px',
   padding: '25px',
   bottomMargin: '75px',
   color: 'purple',
@@ -76,10 +77,11 @@ class SignIn extends Component {
           <HeaderBar />
           <h1>Please Sign In</h1>
           <p style={githubImgStyle}>github icon photo</p>
+          <img src='/images/GitHub-Mark-64px.png'/>
 
           <button style={logIn} onClick={this.handleClick}>Login with Github
           </button>
-          <p style={imgStyle}>stock photo of laptop</p>
+          <img src='/images/freeImage.png' style= {imgStyle}/>
         </div>
       </Fragment>
     );
