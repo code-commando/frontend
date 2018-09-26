@@ -6,11 +6,26 @@ import QuizData from './QuizData.js';
 import style from '../style/style.js';
 
 const main = {
+  display: 'inline-block',
   background: '#D6D6D6',
   minHeight: '100vh',
   height: '100%',
   width: '100%',
   textAlign: 'center',
+};
+
+const quizStyle = {
+  display: 'inline-block',
+  borderStyle: 'solid',
+  borderWidth: '5px',
+  borderColor: 'blue',
+  height: '80%',
+  width: '80%',
+};
+
+const buttonStyle = {
+  display: 'block',
+  margin: 'auto',
 };
 
 class Quiz extends Component {
