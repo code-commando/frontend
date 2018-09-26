@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react';
 import NavBar from './NavBar.js';
 import HeaderBar from './HeaderBar.js';
 import QuizData from './QuizData.js';
+import style from '../style/style.js';
 
 const main = {
   display: 'inline-block',
@@ -39,12 +40,13 @@ class Quiz extends Component {
   render() {
     return (
       <Fragment>
-        <div style={main}>
-          <HeaderBar />
-          <NavBar />
+        <style.NavBar />
+        <div style={style.style.borderStyle}>
           <h1>Quiz</h1>
-          <button style={buttonStyle} onClick={this.renderQuiz}>Generate Quiz</button>
-          <ul style={quizStyle}>
+          <p>display questions</p>
+          <p>display answers</p>
+          <button onClick={this.renderQuiz}>Generate Quiz</button>
+          <ul>
             {this.state.showQuiz && < QuizData />}
           </ul>
         </div>
