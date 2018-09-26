@@ -5,11 +5,15 @@ import cookies from 'react-cookies';
 
 import HeaderBar from './HeaderBar.js';
 
+
 const mainStyle = {
-  background: '#D6D6D6',
-  height: '100%',
-  width: '100%',
-  textAlign: 'center',
+  backgroundImage: 'url(/images/freeImage.png)',
+  backgroundSize: '100%',
+  backgroundPosition: 'contains', 
+  height: '100vw',
+  width: '100vw',
+  backgroundRepeat: 'no-repeat',
+  
 };
 
 const logIn = {
@@ -20,21 +24,20 @@ const logIn = {
   background: '#D90000',
   borderRadius: '20px',
   boxShadow: '10px 5px 5px black',
+  
+
 };
 
 const githubImgLogo = {
   display: 'block',
   padding: '10px',
   margin: 'auto',
+  
+
 };
 
-const imgStyle = {
-  display: 'block',
-  height: '700px',
-  width: '600px',
-  margin: '25px auto',
-  color: 'purple',
-};
+
+
 class SignIn extends Component {
 
 
@@ -79,15 +82,17 @@ class SignIn extends Component {
 
     return (
       <Fragment>
+        
         <div style={mainStyle}>
           <HeaderBar />
           <h1>Please Sign In</h1>
-          {/* <p style={githubImgStyle}></p> */}
+          
           <img style={githubImgLogo} src='/images/GitHub-Mark-64px.png'/>
 
           <button style={logIn} onClick={this.handleClick}>Login with Github
           </button>
-          <img src='/images/freeImage.png' style= {imgStyle}/>
+
+          
         </div>
       </Fragment>
     );
