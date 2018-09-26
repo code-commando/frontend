@@ -84,7 +84,7 @@ const style = {
     marginBottom: '2%',
     padding: '25px',
     width: '90%',
-    height: '500px',
+    height: '600px',
     background: '#D6D6D6',
     borderColor: '#9d1a02',
     borderStyle: 'solid',
@@ -116,9 +116,9 @@ class NavBar extends Component {
         <HeaderBar />
         <div style={style.navBarStyle}>
           <ul className='navbar'>
-            <NavLink style={style.navLinkStyle} to='/dashboard'>Slides</NavLink>
+            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/dashboard'>Slides</NavLink>
             <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/random'>Random</NavLink>
-            <NavLink style={style.navLinkStyle} to='/quiz'>Quiz</NavLink>
+            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/quiz'>Quiz</NavLink>
             <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/coderunner'>Repl</NavLink>
           </ul>
         </div>
