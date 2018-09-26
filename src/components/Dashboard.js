@@ -163,7 +163,7 @@ class Dashboard extends Component {
       <Fragment>
         <div type="main" style={main}>
           <HeaderBar />
-          <h1 style={h1Style}>{this.props.course.classCode}</h1>
+          <h1>{this.props.course.classCode}</h1>
           <NavBar />
           <div className="outerContainer" style={outerContainer}>
             <div>{sidebar}</div>
