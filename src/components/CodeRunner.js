@@ -21,44 +21,60 @@ export default class CodeRunner extends Component {
       options: {},
     };
   }
-  editorWillMount(monaco) {
-    monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
-      schemas: [
-        {
-          uri: 'http://myserver/foo-schema.json',
-          schema: {
-            type: 'object',
-            properties: {
-              p1: {
-                enum: ['v1', 'v2'],
-              },
-              p2: {
-                $ref: 'http://myserver/bar-schema.json',
-              },
-            },
-          },
-        },
-      ],
-    });
-  }
-
-  editorDidMount(editor, monaco) {
+  editorWillMount(editor, monaco) {
     // const model = this.refs.monaco.editor.getModel();
-    console.log('monaco', monaco);
+    // const value = model.getValue();
+    // console.log('value', value);
+    // console.log(editor);
+    //   monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
+    //     schemas: [
+    //       {
+    //         uri: 'http://myserver/foo-schema.json',
+    //         schema: {
+    //           type: 'object',
+    //           properties: {
+    //             p1: {
+    //               enum: ['v1', 'v2'],
+    //             },
+    //             p2: {
+    //               $ref: 'http://myserver/bar-schema.json',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     ],
+    //   });
+    // }
+  }
+  editorDidMount(editor, monaco) {
     console.log('editorDidMount', editor);
     editor.focus();
+  }
+  onChange(newValue, e) {
+    console.log('onChange', newValue, e);
+  }
 
-    //
-  }
-  onChange(event) {
-    // let newState = { ...this.state.code };
-    // newState[event.target.name] = event.target.value;
-    // this.setState(newState);
-    // this.setState({ code: event.target.value });
-    console.log('onChange', event);
-  }
+  // editorDidMount(editor, monaco) {
+  //   // const model = this.refs.monaco.editor.getModel();
+  //   console.log('monaco', monaco);
+  //   console.log('editorDidMount', editor);
+  //   editor.focus();
+
+  //   //
+  // }
+  // onChange(event) {
+  //   // let newState = { ...this.state.code };
+  //   // newState[event.target.name] = event.target.value;
+  //   // this.setState(newState);
+  //   // this.setState({ code: event.target.value });
+  //   console.log('onChange', event);
+  // }
 
   render() {
+    const code = this.state.code;
+    const options = {
+      selectOnLineNumbers: true,
+    };
     return (
       <Fragment>
         <div>
@@ -66,14 +82,16 @@ export default class CodeRunner extends Component {
           <NavBar />
           <h1>Code runner</h1>
           <MonacoEditor
+            ref="monaco"
             style={editorFormat}
-            width="800"
-            height="600"
+            width="500"
+            height="500"
             language="javascript"
             theme="vs-dark"
             value={this.state.code}
             onChange={this.onChange.bind(this)}
             editorDidMount={this.editorDidMount.bind(this)}
+            editorWillMount={this.editorWillMount.bind(this)}
           />
         </div>
       </Fragment>
