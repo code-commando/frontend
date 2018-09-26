@@ -3,11 +3,12 @@ import thunk from 'redux-thunk';
 import rosterReducer from '../reducer/roster-reducer.js';
 import randomStudentReducer from '../reducer/random-student-reducer.js';
 import randomPairsReducer from '../reducer/random-pairs-reducer.js';
+import quizReducer from '../reducer/quiz-reducer.js';
 
 import logger from '../middleware/logger.js';
 
 const appReducer = combineReducers({
-  rosterReducer, randomStudentReducer, randomPairsReducer,
+  rosterReducer, randomStudentReducer, randomPairsReducer, quizReducer, 
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

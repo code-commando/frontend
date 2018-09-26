@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
+import cookies from 'react-cookies';
 
 
 const main = {
@@ -37,13 +38,19 @@ const center = {
 };
 
 export default class HeaderBar extends Component {
+
+  onSignOut() {
+    cookies.remove('githubtoken');
+    cookies.remove('token');
+  }
+
   render() {
     return (
       <Fragment>
         <div style={main}>
           <p style={imgStyle}>placeholder for image</p>
           <p style={center}>Code Commando</p>
-          <NavLink style={linkStyle} to='/signin'>Sign Out</NavLink>
+          <NavLink style={linkStyle} onClick={this.onSignOut} to='/signin'>Sign Out</NavLink>
         </div>
       </Fragment>
     );
