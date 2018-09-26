@@ -39,34 +39,34 @@ class SignIn extends Component {
 
 
   handleClick = () => {
-    // let githubURL = 'https://github.com/login/oauth/authorize';
+    let githubURL = 'https://github.com/login/oauth/authorize';
 
-    // let options = {
-    //   // local
-    //   client_id: 'd6c0defbd80f3979493a',
-    //   //live
-    //   // client_id: 'f749977a8455b627dc56',
-    //   redirect_uri: 'http://localhost:3000/oauth',
-    //   // redirect_uri: 'https://code-commando.herokuapp.com/oauth',
-    //   scope: 'read:user repo',
-    //   state: 'autumn',
-    //   allow_signup: 'true',
-    // };
+    let options = {
+      // local
+      client_id: 'd6c0defbd80f3979493a',
+      //live
+      // client_id: 'f749977a8455b627dc56',
+      redirect_uri: 'http://localhost:3000/oauth',
+      // redirect_uri: 'https://code-commando.herokuapp.com/oauth',
+      scope: 'read:user repo',
+      state: 'autumn',
+      allow_signup: 'true',
+    };
 
-    // let QueryString = Object.keys(options).map((key) => {
-    //   return `${key}=` + encodeURIComponent(options[key]);
-    // }).join('&');
+    let QueryString = Object.keys(options).map((key) => {
+      return `${key}=` + encodeURIComponent(options[key]);
+    }).join('&');
 
-    // let authURL = `${githubURL}?${QueryString}`;
+    let authURL = `${githubURL}?${QueryString}`;
 
-    // window.location = authURL;
+    window.location = authURL;
 
 
     // fetch all the stuff from api
     
 
 
-    this.props.history.push('/dashboard');
+    // this.props.history.push('/dashboard');
   }
 
 

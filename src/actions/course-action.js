@@ -2,15 +2,21 @@
 import superagent from 'superagent';
 
 export const FETCH_COURSE='FETCH_COURSE';
+export const POST_COURSE='POST_COURSE';
 
 
-// let apiURL = 'http://localhost:3000/api/v1/roster';
+let apiURL = 'http://localhost:3000/api/v1';
 // let fetchCourseURL = 
 
 export const fetchCourseInfo = (course) => ({
   type: FETCH_COURSE,
   payload: course,
 });
+
+export const postCourseInfo = () => {
+  type: POST_COURSE,
+  payload: 
+}
 
 
 // Thunk action returns a function that dispatches an action.
@@ -24,7 +30,7 @@ export const fetchCourseThunk = () => {
       classCode: '401n5',
       lectureTitle: '03: Asynchronous Callbacks',
       labTitle: 'Lab 04: Bitmap Transformer',
-      lectureLink: 'http://placecage.com/200/200',
+      lectureLink: 'https://github.com/codefellows/seattle-javascript-401n5/blob/master/06-tcp-server/README.md',
       labLink: 'http://placekitten.com/200/200',
     };
 
@@ -37,5 +43,18 @@ export const fetchCourseThunk = () => {
     //     console.log('student', student);
     //     dispatch(randomStudent(student.body));
     //   });
+  };
+};
+
+
+
+export const postCourse = () => {
+  return dispatch => {
+    superagent
+      .post(`${apiURL}/classes`)
+      .auth()
+      .then(response => {
+        console.log('post course', response);
+      });
   };
 };

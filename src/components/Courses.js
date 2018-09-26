@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderBar from './HeaderBar.js';
 import style from '../style/style.js';
+import { connect } from 'react-redux';
+import {postCourse} from '../actions/course-action.js';
 
 const main = {
   textAlign: 'center',
@@ -46,7 +48,16 @@ const imageStyle = {
 
 
 //  jlm Links are to /dashboard, will need to be to /dashboard/:id or something
-export default class Courses extends Component {
+class Courses extends Component {
+
+  
+
+  submitCourse = e => {
+    e.preventDefault();
+    this.props.postCourse();
+  }
+
+
   render() {
     return (
       <Fragment>
@@ -55,6 +66,20 @@ export default class Courses extends Component {
           <HeaderBar />
           <br></br>
           <h1 style={titleStyle}>Welcome [user]</h1>
+
+
+
+          <form>
+            <label>Class Code</label>
+            <input type="text" placeholder='401n5'/>
+
+            <label>GitHub Repo Link</label>
+            <input type="text" placeholder='https://github.com/codefellows/seattle-javascript-401n5'/>
+
+            <input type="submit"/>
+          </form>
+
+
           <Link to='/dashboard'>
             <div style={coursesStyle}>
               <p style={imageStyle}>placeholder for image</p>
@@ -68,7 +93,18 @@ export default class Courses extends Component {
             </div>
           </Link>
         </div>
+
+
+
       </Fragment>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  postCourse: state.postCourse,
+});
+
+const mapDispatchToProps = {postCourse};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Courses);
