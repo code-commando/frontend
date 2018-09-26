@@ -2,6 +2,8 @@
 import superagent from 'superagent';
 
 export const FETCH_ALL='FETCH_ALL';
+export const ADD = 'ADD';
+export const DELETE = 'DELETE'
 // export const RANDOM_STUDENT='RANDOM_STUDENT';
 // export const RANDOM_PAIRS='RANDOM_PAIRS';
 
@@ -14,16 +16,17 @@ export const fetchAll = (roster) => ({
   payload: roster,
 });
 
-// export const randomStudent = (student) => ({
-//   type: RANDOM_STUDENT,
-//   payload: student,
-// });
+export const addStudent = (student) => ({
+  type : ADD,
+  payload: student,
+})
 
-// export const randomPairs = (pairs) => ({
-//   type: RANDOM_PAIRS,
-//   payload: pairs,
-// });
-
+export const deleteOneStudent = (student) => {
+  return {
+    type: DELETE,
+    payload: student,
+  }
+}
 
 // Thunk action returns a function that dispatches an action.
 // API actions
@@ -38,25 +41,21 @@ export const fetchAllRosterThunk = () => {
   };
 };
 
-// export const randomStudentThunk = () => {
+// export const postStudent = (student) => {
 //   return dispatch => {
-//     superagent
-//       .get(`${apiURL}/random?classCode=401n5`)
-//       .then(student => {
-//         console.log('student', student);
-//         dispatch(randomStudent(student.body));
-//       });
+//     superagent.post(`${API_URL}`).then(response => {
+//       dispatch(addStudent(student));
+//       console.log('!!!!!')
+//       return response.body
+//     });
 //   };
-// };
+// }
 
-// export const randomPairsThunk = () => {
+// export const deleteStudent = (student) => {
 //   return dispatch => {
-//     superagent
-//       .get(`${apiURL}/pairs?classCode=401n5`)
-//       .then(pairs => {
-//         console.log('pairs', pairs);
-//         dispatch(randomPairs(pairs.body));
-//       });
-//   };
-// };
-
+//       superagent.delete(`${API_URL}/${student}`)
+//         .then(function(response){
+//           dispatch(deleteOneStudent(student));
+//         })
+//   }
+// }
