@@ -9,7 +9,9 @@ export const DELETE = 'DELETE'
 
 let API_URL = 'data/roster.json';
 
-// let apiURL = 'http://localhost:3000/api/v1/roster';
+// let API_URL = 'http://api.commando.ccs.net/api/v1/roster';
+
+// let apiURL = 'http://api.commando.ccs.net/api/v1/roster';
 
 export const fetchAll = (roster) => ({
   type: FETCH_ALL,
