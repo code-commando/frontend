@@ -7,7 +7,7 @@ import { fetchCourseThunk } from '../actions/course-action.js';
 
 const main = {
   display: 'inline-block',
-  background: '#D6D6D6',
+  background: 'black',
   textAlign: 'center',
   minHeight: '100vh',
   width: '100%',
@@ -15,14 +15,12 @@ const main = {
 
 const outerContainer = {
   height: '75%',
-  minHeight: '100vh',
+  minHeight: '130vh',
+  background: '#929495',
 };
 
 const innerContainer = {
   display: 'inline-block',
-  borderStyle: 'solid',
-  borderWidth: '9px',
-  borderColor: '#90000A',
   height: '70vh',
   width: '75%',
   float: 'right',
@@ -31,7 +29,7 @@ const innerContainer = {
 
 const title = {
   color: '#181818',
-  textAlign: 'left',
+  textAlign: 'center',
   marginLeft: '5%',
 };
 
@@ -40,6 +38,8 @@ const bottomLeft = {
   borderStyle: 'solid',
   borderWidth: '5px',
   borderColor: '#90000A',
+  background: '#F0F3F4',
+  fontSize: '1.5vw',
   height: '25vh',
   width: '30%',
   float: 'left',
@@ -58,10 +58,6 @@ const bottomRight = {
   marginTop: '5vh',
 };
 
-const h1Style = {
-  height: '4vh',
-};
-
 const enBiggen = {
   fontSize: '22pt',
 };
@@ -69,6 +65,7 @@ const enBiggen = {
 const openButtonStyle = {
   display: 'inline-block',
   marginTop: '25vh',
+  marginLeft: '2vw',
   float: 'left',
   height: '20vh',
   width: '7%',
@@ -81,27 +78,39 @@ const openButtonStyle = {
 };
 
 const closeButtonStyle = {
-  height: '50px',
-  width: '50px',
+  display: 'block',
+  height: '5.5vh',
+  width: '11vw',
   borderStyle: 'solid',
   borderWidth: '5px',
-  borderColor: 'red',
-};
-
-const listStyle = {
-  height: '50px',
-  width: '50px',
-  borderStyle: 'solid',
-  borderWidth: '5px',
-  borderColor: 'blue',
+  borderColor: '#1E1E1E',
+  borderRadius: '17%',
+  boxShadow: '4px 4px 13px #D5D5D5',
+  marginTop: '1vh',
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  marginBottom: '2.5vh',
+  fontSize: '2.2vh',
 };
 
 const sidebarBox = {
-  height: '100vh',
+  height: '100%',
   float: 'left',
+  textAlign: 'left',
   borderStyle: 'solid',
   borderWidth: '5px',
-  borderColor: 'purple',
+  borderColor: '#1E1E1E',
+  background: '#333333',
+  color: '#C4C4C4',
+  width: '20vw',
+  padding: '5px',
+};
+
+const rosterStyle = {
+  display: 'inline-block',
+  borderStyle: 'solid',
+  borderColor: 'blue',
+  borderWidth: '5px',
 };
 
 function OpenSidebar(props) {
@@ -142,7 +151,7 @@ class Dashboard extends Component {
         <Fragment>
           <div style={sidebarBox}>
             <CloseSidebar onClick={this.handleCloseSidebar} />
-            <Roster />
+            <Roster style={rosterStyle}></Roster>
           </div>
         </Fragment>
       );
@@ -154,7 +163,7 @@ class Dashboard extends Component {
       <Fragment>
         <div type="main" style={main}>
           <HeaderBar />
-          <h1 style={h1Style}>{this.props.course.classCode}</h1>
+          <h1>{this.props.course.classCode}</h1>
           <NavBar />
           <div className="outerContainer" style={outerContainer}>
             <div>{sidebar}</div>
