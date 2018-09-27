@@ -71,6 +71,7 @@ class Quiz extends Component {
       return <Redirect to='/signin'/>;
 
     }
+
   }
 }
 

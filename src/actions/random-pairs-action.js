@@ -28,6 +28,7 @@ export const randomPairsThunk = (classCode) => {
         console.log('pairs', pairs);
         dispatch(randomPairs(pairs.body));
       });
+
   };
 };
 

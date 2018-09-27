@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 export const FETCH_ALL='FETCH_ALL';
 
 // let apiURL = 'data/roster.json';
+// let API_URL = 'http://localhost:3000/api/v1/roster?classCode';
 
 // let apiURL = 'http://localhost:3000/api/v1/roster';
 
