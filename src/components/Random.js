@@ -37,7 +37,7 @@ class Random extends Component {
     return (
       <Fragment>
         <style.NavBar />
-        <div style={style.style.borderStyle}>
+        <div>
           <h1>Random Title</h1>
           <input type='submit'  value='Random Student' onClick={this.submitRandom}/>
         

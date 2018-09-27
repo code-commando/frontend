@@ -24,8 +24,8 @@ const style = {
     margin: '15px',
   },
 
-  linkStyle: {
-    display: 'inline-block',
+  signOutStyle: {
+    display: 'hidden',
     float: 'right',
     color: 'black',
     background: '#D6D6D6',
@@ -49,11 +49,12 @@ const style = {
   },
 
   navBarStyle: {
-    display: 'inline-block',
     height: '90px',
     width: '100%',
     textAlign: 'center',
-    margin: 0,
+    margin: 'auto',
+    paddingRight: '10%',
+    background: 'black',
   },
 
   navLinkStyle: {
@@ -61,9 +62,10 @@ const style = {
     color: 'white',
     background: '#D23833',
     borderRadius: '5px',
-    marginRight: '5vw',
+    marginRight: '3vw',
     marginTop: '2vh',
     marginBottom: '.5vh',
+    marginLeft: '2.5vw',
     padding: '10px',
     width: '10%',
     height: '30px',
@@ -83,7 +85,7 @@ const style = {
     margin: 'auto',
     marginBottom: '2%',
     padding: '25px',
-    width: '90%',
+    width: '75%',
     height: '600px',
     background: '#D6D6D6',
     borderColor: '#9d1a02',
@@ -101,7 +103,7 @@ class HeaderBar extends Component {
           <img src='/images/code-fellows.png' alt='Code Fellows' style={style.logoSize} />
           <h1 style={style.imgStyle}>Code Fellows</h1>
           <p style={style.center}>Code Commando</p>
-          <NavLink style={style.linkStyle} to='/signin'>Sign Out</NavLink>
+          <NavLink style={style.signOutStyle} to='/signin'>Sign Out</NavLink>
         </div>
       </Fragment>
     );
@@ -115,12 +117,11 @@ class NavBar extends Component {
       <Fragment>
         <HeaderBar />
         <div style={style.navBarStyle}>
-          <ul className='navbar'>
-            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/dashboard'>Slides</NavLink>
-            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/random'>Random</NavLink>
-            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/quiz'>Quiz</NavLink>
-            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/coderunner'>Repl</NavLink>
-          </ul>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/dashboard'>Slides</NavLink>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/roster'>Roster</NavLink>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/random'>Random</NavLink>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/quiz'>Quiz</NavLink>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/coderunner'>Repl</NavLink>
         </div>
       </Fragment>
     );
