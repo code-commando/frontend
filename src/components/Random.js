@@ -107,31 +107,30 @@ class Random extends Component {
     return (
       <Fragment>
         <style.NavBar />
-        <div style={style.style.borderStyle}>
-          <h1 style={h1Style}>Quicker Picker</h1>
-          <div className='buttonBox' style={buttonBoxStyle}>
-            <input type='submit' value='Random Student' onClick={this.submitRandom} />
+        <div>
+          <h1>Random Title</h1>
+          <input type='submit' value='Random Student' onClick={this.submitRandom} />
 
-            <input type='submit' value='Random Pairs' onClick={this.submitPairs} />
-          </div>
-          <ul style={studentsStyle}>
+          <input type='submit' value='Random Pairs' onClick={this.submitPairs} />
 
-            <li style={studentLiStyle}>{this.props.student.results}</li>
-
-            {/* <li>{this.props.pairs.results}</li> */}
-
-          </ul>
-          <ul style={pairStyle}>
-            {this.props.pairs.results.map(pair => {
-              return <li key={pair} style={pairLiStyle}>
-                <p>{pair[0]}</p>
-                <p>{pair[1]}</p>
-                <p>{pair[2]}</p>
-              </li>;
-            })}
-          </ul>
-
+          <input type='submit' value='Random Pairs' onClick={this.submitPairs} />
         </div>
+        <ul style={studentsStyle}>
+
+          <li style={studentLiStyle}>{this.props.student.results}</li>
+
+          {/* <li>{this.props.pairs.results}</li> */}
+
+        </ul>
+        <ul style={pairStyle}>
+          {this.props.pairs.results.map(pair => {
+            return <li key={pair} style={pairLiStyle}>
+              <p>{pair[0]}</p>
+              <p>{pair[1]}</p>
+              <p>{pair[2]}</p>
+            </li>;
+          })}
+        </ul>
       </Fragment>
     );
   }
