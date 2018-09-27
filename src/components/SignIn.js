@@ -7,12 +7,13 @@ import HeaderBar from './HeaderBar.js';
 
 
 const mainStyle = {
-  backgroundImage: 'url(/images/freeImage.png)',
+  backgroundImage: 'url(/images/seattle.png)',
   backgroundSize: '100%',
   backgroundPosition: 'contains', 
   height: '100vw',
   width: '100vw',
   backgroundRepeat: 'no-repeat',
+  backgroundColor: 'black',
   
 };
 
