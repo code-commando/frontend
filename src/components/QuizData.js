@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchQuizData } from '../actions/quiz-action.js';
 
 const answerStyle = {
-    color: 'blue',
+  color: 'blue',
 };
 
 class QuizData extends Component {
@@ -11,18 +11,18 @@ class QuizData extends Component {
 
 
     state = {
-        showAnswer: false,
+      showAnswer: false,
     }
 
     renderAnswer = () => {
-        this.setState({ showAnswer: true })
+      this.setState({ showAnswer: true });
     }
 
     hideAnswers = () => {
-        this.setState({ showAnswer: false })
+      this.setState({ showAnswer: false });
     }
     componentDidMount() {
-        this.props.fetchQuizData();
+      this.props.fetchQuizData();
     }
 
     render() {
@@ -44,9 +44,9 @@ class QuizData extends Component {
 }
 
 const mapStateToProps = state => ({
-    quiz: state.quizReducer,
-})
+  quiz: state.quizReducer,
+});
 
-const mapDispatchToProps = { fetchQuizData }
+const mapDispatchToProps = { fetchQuizData };
 
 export default connect(mapStateToProps, mapDispatchToProps)(QuizData);
