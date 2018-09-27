@@ -22,7 +22,7 @@ import MonacoEditor from 'react-monaco-editor';
 // const editorFormat = {
 //   textAlign: 'left',
 // };
-export default class CodeRunner extends Component {
+class CodeRunner extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -84,11 +84,11 @@ export default class CodeRunner extends Component {
     console.log('run code');
   }
 
-    // // const code = this.state.code;
-    // // const options = {
-    // //   selectOnLineNumbers: true,
-    // const makeNeat = {
-    //   textAlign: 'left',
+  // // const code = this.state.code;
+  // // const options = {
+  // //   selectOnLineNumbers: true,
+  // const makeNeat = {
+  //   textAlign: 'left',
   
 
   
@@ -107,29 +107,27 @@ export default class CodeRunner extends Component {
     };
     
     if(cookies.load('token')) {
-    return (
-      <Fragment>
+      return (
+        <Fragment>
 
-        <style.NavBar />
+          <style.NavBar />
 
-        <div>
-          <HeaderBar />
-          <NavBar />
-
-          <h1>Code runner</h1>
-          <MonacoEditor
-            ref="monaco"
-            style={editorFormat}
-            width="500"
-            height="500"
-            language="javascript"
-            theme="vs-dark"
-            value={this.state.code}
-            onChange={this.onChange.bind(this)}
-            editorDidMount={this.editorDidMount.bind(this)}
-            editorWillMount={this.editorWillMount.bind(this)}
-          />
-        </div>
+          <div>
+            <h1>Code runner</h1>
+            <MonacoEditor
+              ref="monaco"
+              // style={makeNeat}
+              width="500"
+              height="500"
+              language="javascript"
+              theme="vs-dark"
+              value={this.state.code}
+              onChange={this.onChange.bind(this)}
+              editorDidMount={this.editorDidMount.bind(this)}
+              editorWillMount={this.editorWillMount.bind(this)}
+            />
+            <button onClick={this.handleOnClick}>run code</button>
+          </div>
         </Fragment>
       );
     }
@@ -139,29 +137,6 @@ export default class CodeRunner extends Component {
     }
   }
 }
-return (
-  <Fragment>
-    <div>
-      <HeaderBar />
-      <NavBar />
-      <h1>Code runner</h1>
-      <MonacoEditor
-        ref="monaco"
-        style={makeNeat}
-        width="500"
-        height="500"
-        language="javascript"
-        theme="vs-dark"
-        value={this.state.code}
-        onChange={this.onChange.bind(this)}
-        editorDidMount={this.editorDidMount.bind(this)}
-        editorWillMount={this.editorWillMount.bind(this)}
-      />
-      <button onClick={this.handleOnClick}>run code</button>
-    </div>
-  </Fragment>
-});
-
 
 const mapStateToProps = state => ({
   loggedIn: state.loginReducer.loggedIn,
