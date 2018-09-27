@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import cookies from 'react-cookies';
-import {login} from '../actions/login-action.js';
-import {Redirect} from 'react-router-dom';
 
 
 const main = {

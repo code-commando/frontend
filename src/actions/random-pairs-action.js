@@ -6,7 +6,7 @@ export const RANDOM_PAIRS='RANDOM_PAIRS';
 
 
 // let apiURL = 'http://localhost:3000/api/v1/roster';
-let apiURL = 'http://api.commando.ccs.net/api/v1/roster/random';
+let apiURL = 'http://api.commando.ccs.net/api/v1/roster/pairs';
 
 
 

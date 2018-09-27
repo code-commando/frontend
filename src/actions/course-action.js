@@ -32,7 +32,7 @@ export const fetchCourseThunk = () => {
       lectureTitle: '03: Asynchronous Callbacks',
       labTitle: 'Lab 04: Bitmap Transformer',
       lectureLink: 'https://github.com/codefellows/seattle-javascript-401n5/blob/master/06-tcp-server/README.md',
-      labLink: 'http://placekitten.com/200/200',
+      labLink: 'https://github.com/codefellows-seattle-javascript-401n5/04-data-modeling-and-binary',
     };
 
 

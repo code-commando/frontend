@@ -79,7 +79,7 @@ class Courses extends Component {
 
   render() {
 
-    if(this.props.loggedIn) {
+    if(cookies.load('token')) {
 
       return (
         <Fragment>

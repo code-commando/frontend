@@ -22,6 +22,9 @@ class Random extends Component {
 
   async componentDidMount() {
     await this.props.fetchCourseThunk();
+    if(cookies.load('token')) {
+      this.props.login();
+    }
     this.props.randomStudentThunk(this.props.course.classCode);
     this.props.randomPairsThunk(this.props.course.classCode);
   }
@@ -38,39 +41,39 @@ class Random extends Component {
   }
 
   render() {
-    return (
-      <Fragment>
-        <style.NavBar />
-        <div style={style.style.borderStyle}>
-          <h1>Random Title</h1>
-          <input type='submit'  value='Random Student' onClick={this.submitRandom}/>
+
+    if(cookies.load('token')) {
+      return (
+        <Fragment>
+          <style.NavBar />
+          <div style={style.style.borderStyle}>
+            <h1>Random Title</h1>
+            <input type='submit'  value='Random Student' onClick={this.submitRandom}/>
         
-          <input type='submit' value='Random Pairs' onClick={this.submitPairs}/>
+            <input type='submit' value='Random Pairs' onClick={this.submitPairs}/>
 
-          <ul>
+            <ul>
 
-            <li>{this.props.student.results}</li>
+              <li>{this.props.student.results}</li>
 
-            {/* <li>{this.props.pairs.results}</li> */}
+              {this.props.pairs.results.map(pair => {
+                return <li key={pair}>
+                  <p>{pair[0]}</p> 
+                  <p>{pair[1]}</p> 
+                  <p>{pair[2]}</p>
+                </li>;
+              })}
 
-            <ul>{this.props.pairs.results.map(pairs => {
-              return <li key={pairs}>{pairs}</li>;
-            })}</ul>
+            </ul>
 
+          </div>
+        </Fragment>
+      );
+    }
+    else {
+      return <Redirect to='/signin'/>;
 
-            {/* {this.props.pairs.results.map(pair => {
-              return <li key={pair}>
-                <p>{pair[0]}</p> 
-                <p>{pair[1]}</p> 
-                <p>{pair[2]}</p>
-              </li>;
-            })} */}
-
-          </ul>
-
-        </div>
-      </Fragment>
-    );
+    }
   }
 }
 
@@ -81,7 +84,7 @@ const mapStateToProps = (state) => ({
   pairs: state.randomPairsReducer,
 });
 
-const mapDispatchToProps = {randomStudentThunk, randomStudent, randomPairsThunk, fetchCourseThunk};
+const mapDispatchToProps = {randomStudentThunk, randomStudent, randomPairsThunk, fetchCourseThunk, login};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Random);

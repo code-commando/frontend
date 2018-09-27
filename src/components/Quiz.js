@@ -51,7 +51,7 @@ class Quiz extends Component {
 
   
   render() {
-    if(this.props.loggedIn) {
+    if(cookies.load('token')) {
       return (
         <Fragment>
           <style.NavBar />

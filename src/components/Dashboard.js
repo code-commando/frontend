@@ -167,7 +167,7 @@ class Dashboard extends Component {
     }
 
 
-    if(this.props.loggedIn) {
+    if(cookies.load('token')) {
 
       return (
         <Fragment>
@@ -179,15 +179,7 @@ class Dashboard extends Component {
               <div>{sidebar}</div>
               <div className="innerContainer" style={innerContainer}>
                 <h1 style={title}>Day {this.props.course.dayNumber}</h1>
-                {/* <div type="bottom left" style={bottomLeft} >
-                <ul>
-                  <li>Learn the blah blah blahs</li>
-                  <li>Take a Quiz</li>
-                  <li>Pick on a student</li>
-                  <li>Work in pairs</li>
-                  <li>Demo code the blahs</li>
-                </ul>
-              </div> */}
+
                 <div type="bottom right" style={bottomRight} >
                   <ul>
                     <li style={enBiggen}>Lecture: <a href={this.props.course.lectureLink}>{this.props.course.lectureTitle}</a></li>
