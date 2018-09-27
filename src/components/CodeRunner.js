@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import NavBar from './NavBar';
-import HeaderBar from './HeaderBar';
+import style from '../style/style.js';
 
 const main = {
   background: '#D6D6D6',
@@ -14,9 +13,8 @@ export default class CodeRunner extends Component {
   render() {
     return (
       <Fragment>
-        <div style={main}>
-          <HeaderBar />
-          <NavBar />
+        <style.NavBar />
+        <div>
           <h1>Code runner</h1>
         </div>
       </Fragment>
