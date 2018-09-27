@@ -10,9 +10,9 @@ import MonacoEditor from 'react-monaco-editor';
 //   width: '100%',
 //   textAlign: 'center',
 // };
-const editorFormat = {
-  textAlign: 'left',
-};
+// const editorFormat = {
+//   textAlign: 'left',
+// };
 export default class CodeRunner extends Component {
   constructor(props) {
     super(props);
@@ -22,6 +22,7 @@ export default class CodeRunner extends Component {
     };
   }
   editorWillMount(editor, monaco) {
+    console.log('editor mounnted', editor, monaco);
     // const model = this.refs.monaco.editor.getModel();
     // const value = model.getValue();
     // console.log('value', value);
@@ -69,36 +70,41 @@ export default class CodeRunner extends Component {
   //   // this.setState({ code: event.target.value });
   //   console.log('onChange', event);
   // }
+  handleOnClick(event) {
+    event.preventDefault();
+    console.log('run code');
+  }
 
   render() {
-    const code = this.state.code;
-    const options = {
-      selectOnLineNumbers: true,
-    };
-    return (
-      <Fragment>
-        <div>
-          <HeaderBar />
-          <NavBar />
-          <h1>Code runner</h1>
-          <MonacoEditor
-            ref="monaco"
-            style={editorFormat}
-            width="500"
-            height="500"
-            language="javascript"
-            theme="vs-dark"
-            value={this.state.code}
-            onChange={this.onChange.bind(this)}
-            editorDidMount={this.editorDidMount.bind(this)}
-            editorWillMount={this.editorWillMount.bind(this)}
-          />
-          <button>run code</button>
-        </div>
-      </Fragment>
-    );
-  }
+    // // const code = this.state.code;
+    // // const options = {
+    // //   selectOnLineNumbers: true,
+    // const makeNeat = {
+    //   textAlign: 'left',
+  
 }
+return (
+  <Fragment>
+    <div>
+      <HeaderBar />
+      <NavBar />
+      <h1>Code runner</h1>
+      <MonacoEditor
+        ref="monaco"
+        style={makeNeat}
+        width="500"
+        height="500"
+        language="javascript"
+        theme="vs-dark"
+        value={this.state.code}
+        onChange={this.onChange.bind(this)}
+        editorDidMount={this.editorDidMount.bind(this)}
+        editorWillMount={this.editorWillMount.bind(this)}
+      />
+      <button onClick={this.handleOnClick}>run code</button>
+    </div>
+  </Fragment>
+});
 
 // handleClick = event => {
 //   event.preventDefault();
