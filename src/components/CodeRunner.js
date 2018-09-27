@@ -14,7 +14,7 @@ export default class CodeRunner extends Component {
     return (
       <Fragment>
         <style.NavBar />
-        <div style={style.style.borderStyle}>
+        <div>
           <h1>Code runner</h1>
         </div>
       </Fragment>

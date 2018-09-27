@@ -4,20 +4,21 @@ import HeaderBar from './HeaderBar.js';
 import Roster from './Roster.js';
 import { connect } from 'react-redux';
 import { fetchCourseThunk } from '../actions/course-action.js';
+import style from '../style/style.js';
 
-const main = {
-  display: 'inline-block',
-  background: 'black',
-  textAlign: 'center',
-  minHeight: '100vh',
-  width: '100%',
-};
+// const main = {
+//   display: 'inline-block',
+//   background: 'black',
+//   textAlign: 'center',
+//   minHeight: '100vh',
+//   width: '100%',
+// };
 
-const outerContainer = {
-  height: '75%',
-  minHeight: '130vh',
-  background: '#929495',
-};
+// const outerContainer = {
+//   height: '75%',
+//   minHeight: '130vh',
+//   background: '#929495',
+// };
 
 const innerContainer = {
   display: 'inline-block',
@@ -33,6 +34,7 @@ const title = {
   marginLeft: '5%',
 };
 
+//for teacher text box
 const bottomLeft = {
   display: 'inline-block',
   borderStyle: 'solid',
@@ -63,7 +65,7 @@ const enBiggen = {
 };
 
 const openButtonStyle = {
-  display: 'inline-block',
+  // display: 'block',
   marginTop: '25vh',
   marginLeft: '2vw',
   float: 'left',
@@ -93,37 +95,40 @@ const closeButtonStyle = {
   fontSize: '2.2vh',
 };
 
-const sidebarBox = {
-  height: '100%',
-  float: 'left',
-  textAlign: 'left',
-  borderStyle: 'solid',
-  borderWidth: '5px',
-  borderColor: '#1E1E1E',
-  background: '#333333',
-  color: '#C4C4C4',
-  width: '20vw',
-  padding: '5px',
-};
+// const sidebarBox = {
+//   // display: 'inline-block',
+//   marginRight: '2%',
+//   height: '100%',
+//   float: 'left',
+//   textAlign: 'left',
+//   borderStyle: 'solid',
+//   borderWidth: '5px',
+//   borderColor: '#1E1E1E',
+//   background: '#333333',
+//   color: '#C4C4C4',
+//   width: '20vw',
+//   padding: '5px',
+// };
 
-const rosterStyle = {
-  display: 'inline-block',
-  borderStyle: 'solid',
-  borderColor: 'blue',
-  borderWidth: '5px',
-};
 
-function OpenSidebar(props) {
-  return (
-    <button style={openButtonStyle} onClick={props.onClick}>Roster</button>
-  );
-}
+// const rosterStyle = {
+//   display: 'inline-block',
+//   borderStyle: 'solid',
+//   borderColor: 'blue',
+//   borderWidth: '5px',
+// };
 
-function CloseSidebar(props) {
-  return (
-    <button style={closeButtonStyle} onClick={props.onClick}>close sidebar</button>
-  );
-}
+// function OpenSidebar(props) {
+//   return (
+//     <button style={openButtonStyle} onClick={props.onClick}>Roster</button>
+//   );
+// }
+
+// function CloseSidebar(props) {
+//   return (
+//     <button style={closeButtonStyle} onClick={props.onClick}>close sidebar</button>
+//   );
+// }
 
 class Dashboard extends Component {
   constructor(props) {
@@ -145,31 +150,35 @@ class Dashboard extends Component {
     this.setState({ open: false });
   }
   render() {
-    let sidebar;
-    if (this.state.open) {
-      sidebar = (
-        <Fragment>
-          <div style={sidebarBox}>
-            <CloseSidebar onClick={this.handleCloseSidebar} />
-            <Roster style={rosterStyle}></Roster>
-          </div>
-        </Fragment>
-      );
-    } else {
-      sidebar = <OpenSidebar onClick={this.handleOpenSidebar} />;
-    }
+    // let sidebar;
+    // if (this.state.open) {
+    //   sidebar = (
+    //     <Fragment>
+    //       <div style={sidebarBox}>
+    //         <CloseSidebar onClick={this.handleCloseSidebar} />
+    //         <Roster style={rosterStyle}></Roster>
+    //       </div>
+    //     </Fragment>
+    //   );
+    // } else {
+    //   sidebar = <OpenSidebar onClick={this.handleOpenSidebar} />;
+    // }
 
     return (
       <Fragment>
-        <div type="main" style={main}>
-          <HeaderBar />
+        <style.NavBar />
+        <div>
+          {/* <div>{sidebar}</div> */}
+          {/* <div> */}
+          {/* <style.NavBar /> */}
+          {/* <div type="main" style={style.style.borderStyle}> */}
+          {/* <HeaderBar /> */}
           <h1>{this.props.course.classCode}</h1>
-          <NavBar />
-          <div className="outerContainer" style={outerContainer}>
-            <div>{sidebar}</div>
-            <div className="innerContainer" style={innerContainer}>
-              <h1 style={title}>Day {this.props.course.dayNumber}</h1>
-              {/* <div type="bottom left" style={bottomLeft} >
+          {/* <NavBar /> */}
+          {/* <div className="outerContainer" style={outerContainer}> */}
+          <div className="innerContainer" style={innerContainer}>
+            <h1 style={title}>Day {this.props.course.dayNumber}</h1>
+            {/* <div type="bottom left" style={bottomLeft} >
                 <ul>
                   <li>Learn the blah blah blahs</li>
                   <li>Take a Quiz</li>
@@ -178,16 +187,18 @@ class Dashboard extends Component {
                   <li>Demo code the blahs</li>
                 </ul>
               </div> */}
-              <div type="bottom right" style={bottomRight} >
-                <ul>
-                  <li style={enBiggen}>Lecture: <a href={this.props.course.lectureLink}>{this.props.course.lectureTitle}</a></li>
-                  <li style={enBiggen}>Lab: <a href={this.props.course.labLink}>{this.props.course.labTitle}</a></li>
-                  <li style={enBiggen}>Canvas</li>
-                </ul>
-              </div>
+            <div type="bottom right" style={bottomRight} >
+              <ul>
+                <li style={enBiggen}>Lecture: <a href={this.props.course.lectureLink}>{this.props.course.lectureTitle}</a></li>
+                <li style={enBiggen}>Lab: <a href={this.props.course.labLink}>{this.props.course.labTitle}</a></li>
+                <li style={enBiggen}>Canvas</li>
+              </ul>
             </div>
           </div>
+          {/* </div> */}
         </div>
+        {/* </div> */}
+        {/* </div> */}
       </Fragment>
     );
   }
