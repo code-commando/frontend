@@ -56,6 +56,7 @@ class SignIn extends Component {
       // redirect_uri: 'https://code-commando.herokuapp.com/oauth',
       scope: 'read:user repo',
       state: 'autumn',
+
       allow_signup: 'false',
     };
 
@@ -70,7 +71,6 @@ class SignIn extends Component {
 
     // fetch all the stuff from api
     
-
 
     // this.props.history.push('/dashboard');
   }

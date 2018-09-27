@@ -4,6 +4,9 @@ import HeaderBar from './HeaderBar.js';
 import Roster from './Roster.js';
 import { connect } from 'react-redux';
 import { fetchCourseThunk } from '../actions/course-action.js';
+import cookies from 'react-cookies';
+import {login} from '../actions/login-action.js';
+import {Redirect} from 'react-router-dom';
 import style from '../style/style.js';
 
 // const main = {
@@ -149,7 +152,11 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+    document.title = 'Dashboard';
     this.props.fetchCourseThunk();
+    if(cookies.load('token')) {
+      this.props.login();
+    }
   }
 
   handleOpenSidebar() {
@@ -173,6 +180,9 @@ class Dashboard extends Component {
     //   sidebar = <OpenSidebar onClick={this.handleOpenSidebar} />;
     // }
 
+
+  
+    if(cookies.load('token')) {
     return (
       <Fragment>
         <style.NavBar />
@@ -198,14 +208,24 @@ class Dashboard extends Component {
             </div>
           </div>
         </div>
-      </Fragment>
-    );
+        {/* </div> */}
+        {/* </div> */}
+        </Fragment>
+      );
+    }
+    else {
+      return <Redirect to='/signin'/>;
+
+    }
   }
 }
 
-const mapDispatchToProps = { fetchCourseThunk };
 
 const mapStateToProps = state => ({
   course: state.courseReducer,
+  loggedIn: state.loginReducer.loggedIn,
 });
+
+const mapDispatchToProps = { fetchCourseThunk, login };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
