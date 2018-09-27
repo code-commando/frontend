@@ -1,5 +1,6 @@
 //action creators
 import superagent from 'superagent';
+import cookies from 'react-cookies';
 
 export const FETCH_COURSE='FETCH_COURSE';
 export const POST_COURSE='POST_COURSE';
@@ -13,10 +14,10 @@ export const fetchCourseInfo = (course) => ({
   payload: course,
 });
 
-export const postCourseInfo = () => {
+export const postCourseInfo = (course) => ({
   type: POST_COURSE,
-  payload: 
-}
+  payload: course,
+});
 
 
 // Thunk action returns a function that dispatches an action.
@@ -48,11 +49,13 @@ export const fetchCourseThunk = () => {
 
 
 
-export const postCourse = () => {
+export const postCourse = (classCode, githubRepo) => {
+  // console.log(cookies.load('token'));
   return dispatch => {
     superagent
       .post(`${apiURL}/classes`)
-      .auth()
+      .set({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${cookies.load('token')}` })
+      .send({classCode, githubRepo})
       .then(response => {
         console.log('post course', response);
       });

@@ -4,6 +4,9 @@ import HeaderBar from './HeaderBar.js';
 import Roster from './Roster.js';
 import { connect } from 'react-redux';
 import { fetchCourseThunk } from '../actions/course-action.js';
+import cookies from 'react-cookies';
+import {login} from '../actions/login-action.js';
+import {Redirect} from 'react-router-dom';
 
 const main = {
   display: 'inline-block',
@@ -135,7 +138,11 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+    document.title = 'Dashboard';
     this.props.fetchCourseThunk();
+    if(cookies.load('token')) {
+      this.props.login();
+    }
   }
 
   handleOpenSidebar() {
@@ -159,17 +166,20 @@ class Dashboard extends Component {
       sidebar = <OpenSidebar onClick={this.handleOpenSidebar} />;
     }
 
-    return (
-      <Fragment>
-        <div type="main" style={main}>
-          <HeaderBar />
-          <h1>{this.props.course.classCode}</h1>
-          <NavBar />
-          <div className="outerContainer" style={outerContainer}>
-            <div>{sidebar}</div>
-            <div className="innerContainer" style={innerContainer}>
-              <h1 style={title}>Day {this.props.course.dayNumber}</h1>
-              {/* <div type="bottom left" style={bottomLeft} >
+
+    if(this.props.loggedIn) {
+
+      return (
+        <Fragment>
+          <div type="main" style={main}>
+            <HeaderBar />
+            <h1>{this.props.course.classCode}</h1>
+            <NavBar />
+            <div className="outerContainer" style={outerContainer}>
+              <div>{sidebar}</div>
+              <div className="innerContainer" style={innerContainer}>
+                <h1 style={title}>Day {this.props.course.dayNumber}</h1>
+                {/* <div type="bottom left" style={bottomLeft} >
                 <ul>
                   <li>Learn the blah blah blahs</li>
                   <li>Take a Quiz</li>
@@ -178,24 +188,32 @@ class Dashboard extends Component {
                   <li>Demo code the blahs</li>
                 </ul>
               </div> */}
-              <div type="bottom right" style={bottomRight} >
-                <ul>
-                  <li style={enBiggen}>Lecture: <a href={this.props.course.lectureLink}>{this.props.course.lectureTitle}</a></li>
-                  <li style={enBiggen}>Lab: <a href={this.props.course.labLink}>{this.props.course.labTitle}</a></li>
-                  <li style={enBiggen}>Canvas</li>
-                </ul>
+                <div type="bottom right" style={bottomRight} >
+                  <ul>
+                    <li style={enBiggen}>Lecture: <a href={this.props.course.lectureLink}>{this.props.course.lectureTitle}</a></li>
+                    <li style={enBiggen}>Lab: <a href={this.props.course.labLink}>{this.props.course.labTitle}</a></li>
+                    <li style={enBiggen}>Canvas</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </Fragment>
-    );
+        </Fragment>
+      );
+    }
+    else {
+      return <Redirect to='/signin'/>;
+
+    }
   }
 }
 
-const mapDispatchToProps = { fetchCourseThunk };
 
 const mapStateToProps = state => ({
   course: state.courseReducer,
+  loggedIn: state.loginReducer.loggedIn,
 });
+
+const mapDispatchToProps = { fetchCourseThunk, login };
+
 export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
