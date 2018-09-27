@@ -23,8 +23,8 @@ import style from '../style/style.js';
 const innerContainer = {
   display: 'inline-block',
   height: '70vh',
-  width: '75%',
-  float: 'right',
+  width: '90%',
+  // float: 'right',
   paddingBottom: '5vh',
 };
 
@@ -37,18 +37,13 @@ const title = {
 //for teacher text box
 const bottomLeft = {
   display: 'inline-block',
-  borderStyle: 'solid',
-  borderWidth: '5px',
-  borderColor: '#90000A',
+  border: '1px solid black',
   background: '#F0F3F4',
   fontSize: '1.5vw',
-  height: '25vh',
-  width: '30%',
-  float: 'left',
-  marginLeft: '10%',
-  marginTop: '5vh',
-  paddingTop: '5vh',
-  boxShadow: '3px 5px #252526',
+  height: '50vh',
+  width: '45%',
+  // marginTop: '5vh',
+  paddingTop: '2vh',
 };
 
 const bottomRight = {
@@ -64,36 +59,36 @@ const enBiggen = {
   fontSize: '22pt',
 };
 
-const openButtonStyle = {
-  // display: 'block',
-  marginTop: '25vh',
-  marginLeft: '2vw',
-  float: 'left',
-  height: '20vh',
-  width: '7%',
-  borderStyle: 'solid',
-  borderWidth: '3px',
-  borderColor: 'black',
-  color: 'black',
-  borderRadius: '15%',
-  boxShadow: '5px 10px #5C534C',
-};
+// const openButtonStyle = {
+//   // display: 'block',
+//   marginTop: '25vh',
+//   marginLeft: '2vw',
+//   float: 'left',
+//   height: '20vh',
+//   width: '7%',
+//   borderStyle: 'solid',
+//   borderWidth: '3px',
+//   borderColor: 'black',
+//   color: 'black',
+//   borderRadius: '15%',
+//   boxShadow: '5px 10px #5C534C',
+// };
 
-const closeButtonStyle = {
-  display: 'block',
-  height: '5.5vh',
-  width: '11vw',
-  borderStyle: 'solid',
-  borderWidth: '5px',
-  borderColor: '#1E1E1E',
-  borderRadius: '17%',
-  boxShadow: '4px 4px 13px #D5D5D5',
-  marginTop: '1vh',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  marginBottom: '2.5vh',
-  fontSize: '2.2vh',
-};
+// const closeButtonStyle = {
+//   display: 'block',
+//   height: '5.5vh',
+//   width: '11vw',
+//   borderStyle: 'solid',
+//   borderWidth: '5px',
+//   borderColor: '#1E1E1E',
+//   borderRadius: '17%',
+//   boxShadow: '4px 4px 13px #D5D5D5',
+//   marginTop: '1vh',
+//   marginLeft: 'auto',
+//   marginRight: 'auto',
+//   marginBottom: '2.5vh',
+//   fontSize: '2.2vh',
+// };
 
 // const sidebarBox = {
 //   // display: 'inline-block',
@@ -129,6 +124,11 @@ const closeButtonStyle = {
 //     <button style={closeButtonStyle} onClick={props.onClick}>close sidebar</button>
 //   );
 // }
+
+const textArea = {
+  width: '90%',
+  height: '300px',
+};
 
 class Dashboard extends Component {
   constructor(props) {
@@ -169,24 +169,15 @@ class Dashboard extends Component {
         <style.NavBar />
         <div>
           {/* <div>{sidebar}</div> */}
-          {/* <div> */}
-          {/* <style.NavBar /> */}
-          {/* <div type="main" style={style.style.borderStyle}> */}
-          {/* <HeaderBar /> */}
           <h1>{this.props.course.classCode}</h1>
-          {/* <NavBar /> */}
-          {/* <div className="outerContainer" style={outerContainer}> */}
-          <div className="innerContainer" style={innerContainer}>
+          <div className='innerContainer' style={innerContainer}>
             <h1 style={title}>Day {this.props.course.dayNumber}</h1>
-            {/* <div type="bottom left" style={bottomLeft} >
-                <ul>
-                  <li>Learn the blah blah blahs</li>
-                  <li>Take a Quiz</li>
-                  <li>Pick on a student</li>
-                  <li>Work in pairs</li>
-                  <li>Demo code the blahs</li>
-                </ul>
-              </div> */}
+            <div type='bottom left' style={bottomLeft} >
+              <form>
+                Notes
+                <textarea style={textArea} name='notes'>Topics for the Day</textarea>
+              </form>
+            </div>
             <div type="bottom right" style={bottomRight} >
               <ul>
                 <li style={enBiggen}>Lecture: <a href={this.props.course.lectureLink}>{this.props.course.lectureTitle}</a></li>
