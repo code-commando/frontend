@@ -1,13 +1,9 @@
 import React, { Component, Fragment } from 'react';
-
-
 import style from '../style/style.js';
 import cookies from 'react-cookies';
-import {login} from '../actions/login-action.js';
-import {Redirect} from 'react-router-dom';
-import {connect} from 'react-redux';
-
-
+import { login } from '../actions/login-action.js';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import NavBar from './NavBar';
 import HeaderBar from './HeaderBar';
 import MonacoEditor from 'react-monaco-editor';
@@ -19,9 +15,10 @@ import MonacoEditor from 'react-monaco-editor';
 //   width: '100%',
 //   textAlign: 'center',
 // };
-// const editorFormat = {
-//   textAlign: 'left',
-// };
+
+const makeNeat = {
+  textAlign: 'left',
+};
 class CodeRunner extends Component {
   constructor(props) {
     super(props);
@@ -83,40 +80,30 @@ class CodeRunner extends Component {
     event.preventDefault();
     console.log('run code');
   }
-
-  // // const code = this.state.code;
-  // // const options = {
-  // //   selectOnLineNumbers: true,
-  // const makeNeat = {
-  //   textAlign: 'left',
-  
-
-  
-  
   componentDidMount() {
     document.title = 'Code Runner';
-    if(cookies.load('token')) {
+    if (cookies.load('token')) {
       this.props.login();
     }
   }
 
   render() {
-    const code = this.state.code;
-    const options = {
-      selectOnLineNumbers: true,
-    };
-    
-    if(cookies.load('token')) {
+    // // const code = this.state.code;
+    // // const options = {
+    // //   selectOnLineNumbers: true,
+
+    if (cookies.load('token')) {
       return (
         <Fragment>
-
           <style.NavBar />
 
           <div>
+            <HeaderBar />
+            <NavBar />
             <h1>Code runner</h1>
             <MonacoEditor
               ref="monaco"
-              // style={makeNeat}
+              style={makeNeat}
               width="500"
               height="500"
               language="javascript"
@@ -130,10 +117,8 @@ class CodeRunner extends Component {
           </div>
         </Fragment>
       );
-    }
-    else {
-      return <Redirect to='/signin'/>;
-
+    } else {
+      return <Redirect to="/signin" />;
     }
   }
 }
@@ -144,8 +129,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = { login };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CodeRunner);
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CodeRunner);
 // handleClick = event => {
 //   event.preventDefault();
 //   let githubURL = 'https://github.com/login/oauth/authorize';
