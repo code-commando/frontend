@@ -34,10 +34,11 @@ class QuizData extends Component {
                         <ol>Choices: {question.possibleAnswers}</ol>
                         <br />
                         <p style={answerStyle}>Answer: {this.state.showAnswer && question.correctAnswer}</p>
-                    </li>)}
                 <button onClick={this.renderAnswer}>Show answers</button>
+                    </li>)}
                 <button onClick={this.hideAnswers}>Hide Answers</button>
             </ul>
+            //make seperate question component
         )
     }
 }

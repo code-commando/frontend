@@ -7,7 +7,8 @@ export const DELETE = 'DELETE'
 // export const RANDOM_STUDENT='RANDOM_STUDENT';
 // export const RANDOM_PAIRS='RANDOM_PAIRS';
 
-let API_URL = 'data/roster.json';
+let API_URL = 'http://localhost:3000/api/v1/roster?classCode';
+let QUIZ_API = '';
 
 // let API_URL = 'http://api.commando.ccs.net/api/v1/roster';
 
