@@ -2,17 +2,19 @@ import React, { Component, Fragment } from 'react';
 import {Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import cookies from 'react-cookies';
+import style from '../style/style.js';
 
-import HeaderBar from './HeaderBar.js';
+// import HeaderBar from './HeaderBar.js';
 
 
 const mainStyle = {
-  backgroundImage: 'url(/images/freeImage.png)',
+  backgroundImage: 'url(/images/seattle.png)',
   backgroundSize: '100%',
   backgroundPosition: 'contains', 
   height: '100vw',
   width: '100vw',
   backgroundRepeat: 'no-repeat',
+  backgroundColor: 'black',
   
 };
 
@@ -54,6 +56,7 @@ class SignIn extends Component {
       // redirect_uri: 'https://code-commando.herokuapp.com/oauth',
       scope: 'read:user repo',
       state: 'autumn',
+
       allow_signup: 'false',
     };
 
@@ -68,7 +71,6 @@ class SignIn extends Component {
 
     // fetch all the stuff from api
     
-
 
     // this.props.history.push('/dashboard');
   }
@@ -85,7 +87,8 @@ class SignIn extends Component {
       <Fragment>
         
         <div style={mainStyle}>
-          <HeaderBar />
+          <style.HeaderBar/>
+          {/* <HeaderBar /> */}
           <h1>Please Sign In</h1>
           
           <img style={githubImgLogo} src='/images/GitHub-Mark-64px.png'/>

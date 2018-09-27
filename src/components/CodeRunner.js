@@ -1,4 +1,13 @@
 import React, { Component, Fragment } from 'react';
+
+
+import style from '../style/style.js';
+import cookies from 'react-cookies';
+import {login} from '../actions/login-action.js';
+import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+
 import NavBar from './NavBar';
 import HeaderBar from './HeaderBar';
 import MonacoEditor from 'react-monaco-editor';
@@ -75,13 +84,60 @@ export default class CodeRunner extends Component {
     console.log('run code');
   }
 
-  render() {
     // // const code = this.state.code;
     // // const options = {
     // //   selectOnLineNumbers: true,
     // const makeNeat = {
     //   textAlign: 'left',
   
+
+  
+  
+  componentDidMount() {
+    document.title = 'Code Runner';
+    if(cookies.load('token')) {
+      this.props.login();
+    }
+  }
+
+  render() {
+    const code = this.state.code;
+    const options = {
+      selectOnLineNumbers: true,
+    };
+    
+    if(cookies.load('token')) {
+    return (
+      <Fragment>
+
+        <style.NavBar />
+
+        <div>
+          <HeaderBar />
+          <NavBar />
+
+          <h1>Code runner</h1>
+          <MonacoEditor
+            ref="monaco"
+            style={editorFormat}
+            width="500"
+            height="500"
+            language="javascript"
+            theme="vs-dark"
+            value={this.state.code}
+            onChange={this.onChange.bind(this)}
+            editorDidMount={this.editorDidMount.bind(this)}
+            editorWillMount={this.editorWillMount.bind(this)}
+          />
+        </div>
+        </Fragment>
+      );
+    }
+    else {
+      return <Redirect to='/signin'/>;
+
+    }
+  }
 }
 return (
   <Fragment>
@@ -105,6 +161,15 @@ return (
     </div>
   </Fragment>
 });
+
+
+const mapStateToProps = state => ({
+  loggedIn: state.loginReducer.loggedIn,
+});
+
+const mapDispatchToProps = { login };
+
+export default connect(mapStateToProps, mapDispatchToProps)(CodeRunner);
 
 // handleClick = event => {
 //   event.preventDefault();
