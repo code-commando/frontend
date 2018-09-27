@@ -24,36 +24,32 @@ const style = {
     margin: '15px',
   },
 
-  linkStyle: {
-    display: 'inline-block',
+  signOutStyle: {
+    display: 'hidden',
     float: 'right',
     color: 'black',
     background: '#D6D6D6',
-    borderStyle: 'solid',
-    borderColor: 'black',
-    borderWidth: '2px',
+    border: '2px solid black',
     borderRadius: '5px',
     marginRight: '1vw',
     marginTop: '2vh',
-    paddingLeft: '1vw',
-    paddingRight: '1vw',
-    paddingTop: '1vh',
-    paddingBottom: '1vh',
+    padding: '1vh 1vw 1vh 1vw',
   },
 
   center: {
     display: 'inline-block',
-    marginLeft: '20%',
+    marginRight: '20%',
     color: 'white',
     fontSize: '36px',
   },
 
   navBarStyle: {
-    display: 'inline-block',
     height: '90px',
     width: '100%',
     textAlign: 'center',
-    margin: 0,
+    margin: 'auto',
+    paddingRight: '10%',
+    background: 'black',
   },
 
   navLinkStyle: {
@@ -61,9 +57,7 @@ const style = {
     color: 'white',
     background: '#D23833',
     borderRadius: '5px',
-    marginRight: '5vw',
-    marginTop: '2vh',
-    marginBottom: '.5vh',
+    margin: '2vh 3vw .5vh 2vw',
     padding: '10px',
     width: '10%',
     height: '30px',
@@ -79,17 +73,22 @@ const style = {
     textDecoration: 'none',
   },
 
-  borderStyle: {
-    margin: 'auto',
-    marginBottom: '2%',
-    padding: '25px',
-    width: '90%',
-    height: '600px',
-    background: '#D6D6D6',
-    borderColor: '#9d1a02',
-    borderStyle: 'solid',
-    borderWidth: '5px',
-    borderRadius: '10px',
+  // borderStyle: {
+  //   margin: 'auto',
+  //   marginBottom: '2%',
+  //   padding: '25px',
+  //   width: '75%',
+  //   height: '600px',
+  //   background: '#D6D6D6',
+  //   borderColor: '#9d1a02',
+  //   borderStyle: 'solid',
+  //   borderWidth: '5px',
+  //   borderRadius: '10px',
+  // },
+
+  noBullets: {
+    listStyle: 'none',
+    textAlign: 'left',
   },
 };
 
@@ -101,7 +100,7 @@ class HeaderBar extends Component {
           <img src='/images/code-fellows.png' alt='Code Fellows' style={style.logoSize} />
           <h1 style={style.imgStyle}>Code Fellows</h1>
           <p style={style.center}>Code Commando</p>
-          <NavLink style={style.linkStyle} to='/signin'>Sign Out</NavLink>
+          <NavLink style={style.signOutStyle} to='/signin'>Sign Out</NavLink>
         </div>
       </Fragment>
     );
@@ -115,12 +114,11 @@ class NavBar extends Component {
       <Fragment>
         <HeaderBar />
         <div style={style.navBarStyle}>
-          <ul className='navbar'>
-            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/dashboard'>Slides</NavLink>
-            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/random'>Random</NavLink>
-            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/quiz'>Quiz</NavLink>
-            <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/coderunner'>Repl</NavLink>
-          </ul>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/dashboard'>Slides</NavLink>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/roster'>Roster</NavLink>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/random'>Random</NavLink>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/quiz'>Quiz</NavLink>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/coderunner'>Repl</NavLink>
         </div>
       </Fragment>
     );
