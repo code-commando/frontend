@@ -1,15 +1,16 @@
 import React, { Component, Fragment } from 'react';
 
+
 import style from '../style/style.js';
 import cookies from 'react-cookies';
 import {login} from '../actions/login-action.js';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
+
 import NavBar from './NavBar';
 import HeaderBar from './HeaderBar';
 import MonacoEditor from 'react-monaco-editor';
-
 
 // const main = {
 //   background: '#D6D6D6',
@@ -18,9 +19,9 @@ import MonacoEditor from 'react-monaco-editor';
 //   width: '100%',
 //   textAlign: 'center',
 // };
-const editorFormat = {
-  textAlign: 'left',
-};
+// const editorFormat = {
+//   textAlign: 'left',
+// };
 export default class CodeRunner extends Component {
   constructor(props) {
     super(props);
@@ -30,6 +31,7 @@ export default class CodeRunner extends Component {
     };
   }
   editorWillMount(editor, monaco) {
+    console.log('editor mounnted', editor, monaco);
     // const model = this.refs.monaco.editor.getModel();
     // const value = model.getValue();
     // console.log('value', value);
@@ -77,6 +79,18 @@ export default class CodeRunner extends Component {
   //   // this.setState({ code: event.target.value });
   //   console.log('onChange', event);
   // }
+  handleOnClick(event) {
+    event.preventDefault();
+    console.log('run code');
+  }
+
+    // // const code = this.state.code;
+    // // const options = {
+    // //   selectOnLineNumbers: true,
+    // const makeNeat = {
+    //   textAlign: 'left',
+  
+
   
   
   componentDidMount() {
@@ -125,6 +139,28 @@ export default class CodeRunner extends Component {
     }
   }
 }
+return (
+  <Fragment>
+    <div>
+      <HeaderBar />
+      <NavBar />
+      <h1>Code runner</h1>
+      <MonacoEditor
+        ref="monaco"
+        style={makeNeat}
+        width="500"
+        height="500"
+        language="javascript"
+        theme="vs-dark"
+        value={this.state.code}
+        onChange={this.onChange.bind(this)}
+        editorDidMount={this.editorDidMount.bind(this)}
+        editorWillMount={this.editorWillMount.bind(this)}
+      />
+      <button onClick={this.handleOnClick}>run code</button>
+    </div>
+  </Fragment>
+});
 
 
 const mapStateToProps = state => ({
