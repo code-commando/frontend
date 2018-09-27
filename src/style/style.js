@@ -43,7 +43,7 @@ const style = {
 
   center: {
     display: 'inline-block',
-    marginLeft: '20%',
+    marginRight: '20%',
     color: 'white',
     fontSize: '36px',
   },

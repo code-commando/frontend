@@ -95,40 +95,40 @@ const closeButtonStyle = {
   fontSize: '2.2vh',
 };
 
-const sidebarBox = {
-  // display: 'inline-block',
-  marginRight: '2%',
-  height: '100%',
-  float: 'left',
-  textAlign: 'left',
-  borderStyle: 'solid',
-  borderWidth: '5px',
-  borderColor: '#1E1E1E',
-  background: '#333333',
-  color: '#C4C4C4',
-  width: '20vw',
-  padding: '5px',
-};
+// const sidebarBox = {
+//   // display: 'inline-block',
+//   marginRight: '2%',
+//   height: '100%',
+//   float: 'left',
+//   textAlign: 'left',
+//   borderStyle: 'solid',
+//   borderWidth: '5px',
+//   borderColor: '#1E1E1E',
+//   background: '#333333',
+//   color: '#C4C4C4',
+//   width: '20vw',
+//   padding: '5px',
+// };
 
 
-const rosterStyle = {
-  display: 'inline-block',
-  borderStyle: 'solid',
-  borderColor: 'blue',
-  borderWidth: '5px',
-};
+// const rosterStyle = {
+//   display: 'inline-block',
+//   borderStyle: 'solid',
+//   borderColor: 'blue',
+//   borderWidth: '5px',
+// };
 
-function OpenSidebar(props) {
-  return (
-    <button style={openButtonStyle} onClick={props.onClick}>Roster</button>
-  );
-}
+// function OpenSidebar(props) {
+//   return (
+//     <button style={openButtonStyle} onClick={props.onClick}>Roster</button>
+//   );
+// }
 
-function CloseSidebar(props) {
-  return (
-    <button style={closeButtonStyle} onClick={props.onClick}>close sidebar</button>
-  );
-}
+// function CloseSidebar(props) {
+//   return (
+//     <button style={closeButtonStyle} onClick={props.onClick}>close sidebar</button>
+//   );
+// }
 
 class Dashboard extends Component {
   constructor(props) {
@@ -150,19 +150,19 @@ class Dashboard extends Component {
     this.setState({ open: false });
   }
   render() {
-    let sidebar;
-    if (this.state.open) {
-      sidebar = (
-        <Fragment>
-          <div style={sidebarBox}>
-            <CloseSidebar onClick={this.handleCloseSidebar} />
-            <Roster style={rosterStyle}></Roster>
-          </div>
-        </Fragment>
-      );
-    } else {
-      sidebar = <OpenSidebar onClick={this.handleOpenSidebar} />;
-    }
+    // let sidebar;
+    // if (this.state.open) {
+    //   sidebar = (
+    //     <Fragment>
+    //       <div style={sidebarBox}>
+    //         <CloseSidebar onClick={this.handleCloseSidebar} />
+    //         <Roster style={rosterStyle}></Roster>
+    //       </div>
+    //     </Fragment>
+    //   );
+    // } else {
+    //   sidebar = <OpenSidebar onClick={this.handleOpenSidebar} />;
+    // }
 
     return (
       <Fragment>
