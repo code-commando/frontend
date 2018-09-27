@@ -5,36 +5,39 @@ import cookies from 'react-cookies';
 
 import HeaderBar from './HeaderBar.js';
 
+
 const mainStyle = {
-  background: '#D6D6D6',
-  height: '100vh',
-  width: '100%',
-  textAlign: 'center',
+  backgroundImage: 'url(/images/freeImage.png)',
+  backgroundSize: '100%',
+  backgroundPosition: 'contains', 
+  height: '100vw',
+  width: '100vw',
+  backgroundRepeat: 'no-repeat',
+  
 };
 
 const logIn = {
   width: '40vw',
   fontSize: '28px',
-  margin: '30px auto',
+  margin: '10px auto',
   minHeight: '8vh',
   background: '#D90000',
   borderRadius: '20px',
   boxShadow: '10px 5px 5px black',
+  
+
 };
 
-const githubImgStyle = {
+const githubImgLogo = {
   display: 'block',
-  padding: '25px',
-  margin: '25px',
-  color: 'purple',
+  padding: '10px',
+  margin: 'auto',
+  
+
 };
 
-const imgStyle = {
-  display: 'block',
-  padding: '25px',
-  bottomMargin: '75px',
-  color: 'purple',
-};
+
+
 class SignIn extends Component {
 
 
@@ -43,14 +46,15 @@ class SignIn extends Component {
 
     let options = {
       // local
-      client_id: 'd6c0defbd80f3979493a',
+      // client_id: 'd6c0defbd80f3979493a',
       //live
-      // client_id: 'f749977a8455b627dc56',
-      redirect_uri: 'http://localhost:3000/oauth',
+      client_id: 'f749977a8455b627dc56',
+      // redirect_uri: 'http://localhost:3000/oauth',
+      redirect_uri: 'http://api.commando.ccs.net/oauth',
       // redirect_uri: 'https://code-commando.herokuapp.com/oauth',
       scope: 'read:user repo',
       state: 'autumn',
-      allow_signup: 'true',
+      allow_signup: 'false',
     };
 
     let QueryString = Object.keys(options).map((key) => {
@@ -60,6 +64,13 @@ class SignIn extends Component {
     let authURL = `${githubURL}?${QueryString}`;
 
     window.location = authURL;
+
+
+    // fetch all the stuff from api
+    
+
+
+    // this.props.history.push('/dashboard');
   }
 
 
@@ -72,14 +83,17 @@ class SignIn extends Component {
 
     return (
       <Fragment>
+        
         <div style={mainStyle}>
           <HeaderBar />
           <h1>Please Sign In</h1>
-          <p style={githubImgStyle}>github icon photo</p>
+          
+          <img style={githubImgLogo} src='/images/GitHub-Mark-64px.png'/>
 
           <button style={logIn} onClick={this.handleClick}>Login with Github
           </button>
-          <p style={imgStyle}>stock photo of laptop</p>
+
+          
         </div>
       </Fragment>
     );
@@ -92,4 +106,5 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, null)(SignIn);
+
+export default connect(mapStateToProps)(SignIn);

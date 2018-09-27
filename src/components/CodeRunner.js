@@ -1,7 +1,11 @@
 import React, { Component, Fragment } from 'react';
+
+import style from '../style/style.js';
+
 import NavBar from './NavBar';
 import HeaderBar from './HeaderBar';
 import MonacoEditor from 'react-monaco-editor';
+
 
 // const main = {
 //   background: '#D6D6D6',
@@ -77,9 +81,14 @@ export default class CodeRunner extends Component {
     };
     return (
       <Fragment>
+
+        <style.NavBar />
+        <div>
+
         <div>
           <HeaderBar />
           <NavBar />
+
           <h1>Code runner</h1>
           <MonacoEditor
             ref="monaco"
