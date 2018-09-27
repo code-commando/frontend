@@ -78,6 +78,7 @@ function randomize(roster) {
 export const randomPairsThunk = () => {
   return dispatch => {
 
+
     // const rando = Math.floor(Math.random() * roster.length);
 
     let pairsInfo = {
@@ -95,6 +96,7 @@ export const randomPairsThunk = () => {
     //     console.log('pairs', pairs);
     //     dispatch(randomPairs(pairs.body));
     //   });
+
   };
 };
 
