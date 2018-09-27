@@ -2,8 +2,9 @@ import React, { Component, Fragment } from 'react';
 import {Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import cookies from 'react-cookies';
+import style from '../style/style.js';
 
-import HeaderBar from './HeaderBar.js';
+// import HeaderBar from './HeaderBar.js';
 
 
 const mainStyle = {
@@ -86,7 +87,8 @@ class SignIn extends Component {
       <Fragment>
         
         <div style={mainStyle}>
-          <HeaderBar />
+          <style.HeaderBar/>
+          {/* <HeaderBar /> */}
           <h1>Please Sign In</h1>
           
           <img style={githubImgLogo} src='/images/GitHub-Mark-64px.png'/>

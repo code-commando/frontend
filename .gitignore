@@ -64,3 +64,5 @@ typings/
 # javascript react files settings
 .vscode
 
+/node_modules
+/package-lock.json
