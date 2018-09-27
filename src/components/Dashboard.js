@@ -58,7 +58,6 @@ const bottomRight = {
 const enBiggen = {
   fontSize: '22pt',
 };
-
 // const openButtonStyle = {
 //   // display: 'block',
 //   marginTop: '25vh',
@@ -130,6 +129,16 @@ const textArea = {
   height: '300px',
 };
 
+const clearButton = {
+  float: 'right',
+  marginRight: '10%',
+  width: '20%',
+  height: '20%',
+  background: 'black',
+  color: 'white',
+  fontSize: '16px',
+};
+
 class Dashboard extends Component {
   constructor(props) {
     super(props);
@@ -176,20 +185,19 @@ class Dashboard extends Component {
               <form>
                 Notes
                 <textarea style={textArea} name='notes'>Topics for the Day</textarea>
+                <br/>
+                <button style={clearButton}>Clear</button>
               </form>
             </div>
             <div type="bottom right" style={bottomRight} >
-              <ul>
+              <ul style={style.style.noBullets}>
                 <li style={enBiggen}>Lecture: <a href={this.props.course.lectureLink}>{this.props.course.lectureTitle}</a></li>
                 <li style={enBiggen}>Lab: <a href={this.props.course.labLink}>{this.props.course.labTitle}</a></li>
                 <li style={enBiggen}>Canvas</li>
               </ul>
             </div>
           </div>
-          {/* </div> */}
         </div>
-        {/* </div> */}
-        {/* </div> */}
       </Fragment>
     );
   }
