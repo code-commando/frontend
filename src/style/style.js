@@ -1,6 +1,7 @@
 'use strict';
 import React, { Component, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
+import cookies from 'react-cookies';
 
 
 const style = {
@@ -93,6 +94,12 @@ const style = {
 };
 
 class HeaderBar extends Component {
+
+  onSignOut() {
+    cookies.remove('githubtoken');
+    cookies.remove('token');
+  }
+
   render() {
     return (
       <Fragment>
@@ -100,7 +107,7 @@ class HeaderBar extends Component {
           <img src='/images/code-fellows.png' alt='Code Fellows' style={style.logoSize} />
           <h1 style={style.imgStyle}>Code Fellows</h1>
           <p style={style.center}>Code Commando</p>
-          <NavLink style={style.signOutStyle} to='/signin'>Sign Out</NavLink>
+          <NavLink style={style.signOutStyle} onClick={this.onSignOut} to='/signin'>Sign Out</NavLink>
         </div>
       </Fragment>
     );
