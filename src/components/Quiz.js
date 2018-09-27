@@ -9,27 +9,20 @@ import {login} from '../actions/login-action.js';
 import {Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-const main = {
+// const main = {
+//   display: 'inline-block',
+//   background: '#D6D6D6',
+//   minHeight: '100vh',
+//   height: '100%',
+//   width: '100%',
+//   textAlign: 'center',
+// };
+
+const listStyle = {
   display: 'inline-block',
-  background: '#D6D6D6',
-  minHeight: '100vh',
+  border: '5px solid green',
   height: '100%',
-  width: '100%',
-  textAlign: 'center',
-};
-
-const quizStyle = {
-  display: 'inline-block',
-  borderStyle: 'solid',
-  borderWidth: '5px',
-  borderColor: 'blue',
-  height: '80%',
   width: '80%',
-};
-
-const buttonStyle = {
-  display: 'block',
-  margin: 'auto',
 };
 
 class Quiz extends Component {
@@ -51,6 +44,20 @@ class Quiz extends Component {
 
   
   render() {
+<<<<<<< HEAD
+    return (
+      <Fragment>
+        <style.NavBar />
+        <div>
+          <h1>Quiz</h1>
+          <button onClick={this.renderQuiz}>Generate Quiz</button>
+          <ul style={listStyle}>
+            {this.state.showQuiz && < QuizData />}
+          </ul>
+        </div>
+      </Fragment>
+    );
+=======
     if(cookies.load('token')) {
       return (
         <Fragment>
@@ -72,6 +79,7 @@ class Quiz extends Component {
 
     }
 
+>>>>>>> 9bf9bb4ec59a1577cae19fa5ca02f8e70a0546e5
   }
 }
 

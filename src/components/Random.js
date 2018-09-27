@@ -12,30 +12,30 @@ import {Redirect} from 'react-router-dom';
 const pairLiStyle = {
   display: 'inline-block',
   textAlign: 'center',
-  color: 'blue',
-  border: '5px solid red',
-  width: '27%',
-  marginLeft: '1%',
-  marginRight: '1%',
-  marginTop: '2%',
-  marginBottom: '2%',
+  color: 'white',
+  borderRadius: '5px',
+  background: '#D23833',
+  width: '35%',
+  marginRight: '3vw',
+  marginTop: '2vh',
+  marginBottom: '1.5vh',
+  marginLeft: '2.5vw',
+  boxShadow: '5px 8px #888888',
 };
 
 const studentLiStyle = {
   display: 'inline-block',
   textAlign: 'center',
-  width: '65%',
-  border: '5px solid green',
-};
-
-const h1Style = {
-  textAlign: 'center',
-};
-
-const buttonBoxStyle = {
-  display: 'block',
-  margin: 'auto',
-  textAlign: 'center',
+  color: 'white',
+  background: '#D23833',
+  borderRadius: '5px',
+  marginRight: '3vw',
+  marginTop: '2.5vh',
+  marginBottom: '2.5vh',
+  marginLeft: '2.5vw',
+  padding: '10px',
+  width: '7vw',
+  boxShadow: '5px 8px #888888',
 };
 
 class Random extends Component {
@@ -123,7 +123,6 @@ class Random extends Component {
       pairStyle = {
         visibility: 'visible',
         display: 'inline-block',
-        border: '5px solid orange',
         height: '76%',
         width: '85%',
       };
@@ -136,7 +135,6 @@ class Random extends Component {
     if (this.state.studentsOpen) {
       studentsStyle = {
         visibility: 'visible',
-        border: '5px solid blue',
         height: '15%',
         margin: 'auto',
         paddingLeft: '40%',
@@ -149,6 +147,32 @@ class Random extends Component {
         height: 0,
       };
     }
+<<<<<<< HEAD
+    return (
+      <Fragment>
+        <style.NavBar />
+        <div>
+          <h1>Quicker Picker</h1>
+          <input type='submit' value='Random Student' onClick={this.submitRandom} />
+          <input type='submit' value='Random Pairs' onClick={this.submitPairs} />
+        </div>
+        <ul style={studentsStyle}>
+
+          <li style={studentLiStyle}>{this.props.student.results}</li>
+
+        </ul>
+        <ul style={pairStyle}>
+          {this.props.pairs.results.map(pair => {
+            return <li key={pair} style={pairLiStyle}>
+              <p>{pair[0]}</p>
+              <p>{pair[1]}</p>
+              <p>{pair[2]}</p>
+            </li>;
+          })}
+        </ul>
+      </Fragment>
+    );
+=======
 
         if(cookies.load('token')) {
       return (
@@ -182,6 +206,7 @@ class Random extends Component {
       return <Redirect to='/signin'/>;
 
     }
+>>>>>>> 9bf9bb4ec59a1577cae19fa5ca02f8e70a0546e5
   }
 }
 
