@@ -83,7 +83,7 @@ export default class CodeRunner extends Component {
       <Fragment>
 
         <style.NavBar />
-        <div>
+
 
         <div>
           <HeaderBar />
