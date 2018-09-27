@@ -43,10 +43,11 @@ class SignIn extends Component {
 
     let options = {
       // local
-      client_id: 'd6c0defbd80f3979493a',
+      // client_id: 'd6c0defbd80f3979493a',
       //live
-      // client_id: 'f749977a8455b627dc56',
-      redirect_uri: 'http://localhost:3000/oauth',
+      client_id: 'f749977a8455b627dc56',
+      // redirect_uri: 'http://localhost:3000/oauth',
+      redirect_uri: 'http://api.commando.ccs.net/oauth',
       // redirect_uri: 'https://code-commando.herokuapp.com/oauth',
       scope: 'read:user repo',
       state: 'autumn',
@@ -64,8 +65,6 @@ class SignIn extends Component {
 
     // fetch all the stuff from api
     
-
-
     // this.props.history.push('/dashboard');
   }
 

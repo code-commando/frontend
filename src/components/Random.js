@@ -1,10 +1,13 @@
 import React, { Fragment, Component } from 'react';
 import style from '../style/style.js';
 
-
+import { fetchCourseThunk } from '../actions/course-action.js';
 import {randomStudentThunk, randomStudent} from '../actions/random-student-action.js';
 import {randomPairsThunk} from '../actions/random-pairs-action.js';
 import { connect } from 'react-redux';
+import cookies from 'react-cookies';
+import {login} from '../actions/login-action.js';
+import {Redirect} from 'react-router-dom';
 
 
 const main = {
@@ -17,20 +20,21 @@ const main = {
 
 class Random extends Component {
 
-  componentDidMount() {
-    this.props.randomStudentThunk();
-    this.props.randomPairsThunk();
+  async componentDidMount() {
+    await this.props.fetchCourseThunk();
+    this.props.randomStudentThunk(this.props.course.classCode);
+    this.props.randomPairsThunk(this.props.course.classCode);
   }
 
   submitRandom = (e) => {
     e.preventDefault();
 
-    this.props.randomStudentThunk();
+    this.props.randomStudentThunk(this.props.course.classCode);
   }
 
   submitPairs = (e) => {
     e.preventDefault();
-    this.props.randomPairsThunk();
+    this.props.randomPairsThunk(this.props.course.classCode);
   }
 
   render() {
@@ -49,16 +53,18 @@ class Random extends Component {
 
             {/* <li>{this.props.pairs.results}</li> */}
 
-          
+            <ul>{this.props.pairs.results.map(pairs => {
+              return <li key={pairs}>{pairs}</li>;
+            })}</ul>
 
 
-            {this.props.pairs.results.map(pair => {
+            {/* {this.props.pairs.results.map(pair => {
               return <li key={pair}>
                 <p>{pair[0]}</p> 
                 <p>{pair[1]}</p> 
                 <p>{pair[2]}</p>
               </li>;
-            })}
+            })} */}
 
           </ul>
 
@@ -70,11 +76,12 @@ class Random extends Component {
 
 const mapStateToProps = (state) => ({
   roster: state.rosterReducer,
+  course: state.courseReducer,
   student: state.randomStudentReducer,
   pairs: state.randomPairsReducer,
 });
 
-const mapDispatchToProps = {randomStudentThunk, randomStudent, randomPairsThunk};
+const mapDispatchToProps = {randomStudentThunk, randomStudent, randomPairsThunk, fetchCourseThunk};
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Random);
