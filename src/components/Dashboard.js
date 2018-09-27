@@ -183,33 +183,33 @@ class Dashboard extends Component {
 
   
     if(cookies.load('token')) {
-    return (
-      <Fragment>
-        <style.NavBar />
-        <div>
-          {/* <div>{sidebar}</div> */}
-          <h1>{this.props.course.classCode}</h1>
-          <div className='innerContainer' style={innerContainer}>
-            <h1 style={title}>Day {this.props.course.dayNumber}</h1>
-            <div type='bottom left' style={bottomLeft} >
-              <form>
+      return (
+        <Fragment>
+          <style.NavBar />
+          <div>
+            {/* <div>{sidebar}</div> */}
+            <h1>{this.props.course.classCode}</h1>
+            <div className='innerContainer' style={innerContainer}>
+              <h1 style={title}>Day {this.props.course.dayNumber}</h1>
+              <div type='bottom left' style={bottomLeft} >
+                <form>
                 Notes
-                <textarea style={textArea} name='notes'>Topics for the Day</textarea>
-                <br/>
-                <button style={clearButton}>Clear</button>
-              </form>
-            </div>
-            <div type="bottom right" style={bottomRight} >
-              <ul style={style.style.noBullets}>
-                <li style={enBiggen}>Lecture: <a href={this.props.course.lectureLink}>{this.props.course.lectureTitle}</a></li>
-                <li style={enBiggen}>Lab: <a href={this.props.course.labLink}>{this.props.course.labTitle}</a></li>
-                <li style={enBiggen}>Canvas</li>
-              </ul>
+                  <textarea style={textArea} name='notes'>Topics for the Day</textarea>
+                  <br/>
+                  <button style={clearButton}>Clear</button>
+                </form>
+              </div>
+              <div type="bottom right" style={bottomRight} >
+                <ul style={style.style.noBullets}>
+                  <li style={enBiggen}>Lecture: <a href={this.props.course.lectureLink}>{this.props.course.lectureTitle}</a></li>
+                  <li style={enBiggen}>Lab: <a href={this.props.course.labLink}>{this.props.course.labTitle}</a></li>
+                  <li style={enBiggen}>Canvas</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        {/* </div> */}
-        {/* </div> */}
+          {/* </div> */}
+          {/* </div> */}
         </Fragment>
       );
     }

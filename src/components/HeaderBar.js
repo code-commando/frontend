@@ -40,8 +40,8 @@ const center = {
 export default class HeaderBar extends Component {
 
   onSignOut() {
-    cookies.remove('githubtoken', { path: '/'});
-    cookies.remove('token', { path: '/' });
+    cookies.remove('githubtoken');
+    cookies.remove('token');
   }
 
   render() {
