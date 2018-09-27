@@ -3,7 +3,7 @@ import superagent from 'superagent';
 
 export const FETCH_ALL='FETCH_ALL';
 
-let API_URL = 'data/roster.json';
+let API_URL = 'http://localhost:3000/api/v1/roster?classCode';
 
 // let API_URL = 'http://api.commando.ccs.net/api/v1/roster';
 

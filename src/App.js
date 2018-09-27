@@ -13,6 +13,7 @@ import Roster from './components/Roster.js';
 import Random from './components/Random.js';
 import Quiz from './components/Quiz.js';
 import CodeRunner from './components/CodeRunner.js';
+import Oauth from './components/Oauth.js';
 
 
 
@@ -30,7 +31,8 @@ class App extends Component {
             <Route path='/quiz' component={Quiz} />
             <Route path='/coderunner' component={CodeRunner} />
             <Route path='/signin' component={SignIn} />
-          </Fragment>
+            <Route path='/oauth' component={Oauth} />
+           </Fragment>
         </BrowserRouter>
       </Provider>
     );
