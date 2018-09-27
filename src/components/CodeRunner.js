@@ -1,6 +1,10 @@
 import React, { Component, Fragment } from 'react';
 
 import style from '../style/style.js';
+import cookies from 'react-cookies';
+import {login} from '../actions/login-action.js';
+import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import NavBar from './NavBar';
 import HeaderBar from './HeaderBar';
@@ -73,12 +77,22 @@ export default class CodeRunner extends Component {
   //   // this.setState({ code: event.target.value });
   //   console.log('onChange', event);
   // }
+  
+  
+  componentDidMount() {
+    document.title = 'Code Runner';
+    if(cookies.load('token')) {
+      this.props.login();
+    }
+  }
 
   render() {
     const code = this.state.code;
     const options = {
       selectOnLineNumbers: true,
     };
+    
+    if(cookies.load('token')) {
     return (
       <Fragment>
 
@@ -103,10 +117,24 @@ export default class CodeRunner extends Component {
             editorWillMount={this.editorWillMount.bind(this)}
           />
         </div>
-      </Fragment>
-    );
+        </Fragment>
+      );
+    }
+    else {
+      return <Redirect to='/signin'/>;
+
+    }
   }
 }
+
+
+const mapStateToProps = state => ({
+  loggedIn: state.loginReducer.loggedIn,
+});
+
+const mapDispatchToProps = { login };
+
+export default connect(mapStateToProps, mapDispatchToProps)(CodeRunner);
 
 // handleClick = event => {
 //   event.preventDefault();
