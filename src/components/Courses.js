@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import HeaderBar from './HeaderBar.js';
-import style from '../style/style.js';
 
 const main = {
   textAlign: 'center',

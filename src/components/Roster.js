@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchAllRosterThunk } from '../actions/roster-action.js';
-import style from '../style/style.js';
 
 const inputStyle = {
   display: 'relative',
@@ -48,12 +47,9 @@ class Roster extends Component {
     };
     this.setState(changedBit);
   };
-
   render() {
     return (
       <Fragment>
-        <style.NavBar />
-        
         <div className="RosterMain">
 
           <form onSubmit={this.addToRoster} onChange={this.onChange}>
