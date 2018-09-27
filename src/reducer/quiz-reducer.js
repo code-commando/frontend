@@ -4,10 +4,10 @@ let initialState = [];
 
 export default (state = initialState, action) => {
 
-    let {type, payload} = action;
+  let {type, payload} = action;
 
-    switch(type) {
-        case FETCH_QUIZ: return[...state, ...payload];
-        default: return state;
-    }
-}
+  switch(type) {
+    case FETCH_QUIZ: return[...state, ...payload];
+    default: return state;
+  }
+};
