@@ -46,7 +46,7 @@ const style = {
 
   navBarStyle: {
     height: '90px',
-    width: '100%',
+    // width: '100%',
     textAlign: 'center',
     margin: 'auto',
     paddingRight: '10%',
@@ -74,18 +74,41 @@ const style = {
     textDecoration: 'none',
   },
 
-  borderStyle: {
+  buttonStyle: {
+    display: 'block',
     margin: 'auto',
-    marginBottom: '2%',
-    padding: '25px',
-    width: '75%',
-    height: '600px',
-    background: '#D6D6D6',
-    borderColor: '#9d1a02',
-    borderStyle: 'solid',
-    borderWidth: '5px',
-    borderRadius: '10px',
   },
+
+  fancyInputStyle: {
+    display: 'inline-block',
+    margin: 'auto',
+    border: '1px solid black',
+    borderRadius: '12px',
+    background: '#A60000',
+    color: 'white',
+    fontSize: '18pt',
+    height: '10vh',
+    width: '15vw',
+    boxShadow: '4px 4px #32001D',
+    marginLeft: '2vw',
+    marginRight: '2vw',
+  },
+
+  ulStyle: {
+    padding: 0,
+  },
+  // borderStyle: {
+  //   margin: 'auto',
+  //   marginBottom: '2%',
+  //   padding: '25px',
+  //   width: '75%',
+  //   height: '600px',
+  //   background: '#D6D6D6',
+  //   borderColor: '#9d1a02',
+  //   borderStyle: 'solid',
+  //   borderWidth: '5px',
+  //   borderRadius: '10px',
+  // },
 
   noBullets: {
     listStyle: 'none',
