@@ -15,6 +15,7 @@ const style = {
   imgStyle: {
     display: 'inline-block',
     float: 'left',
+    textAlign: 'center',
     color: 'white',
   },
 
@@ -46,10 +47,8 @@ const style = {
 
   navBarStyle: {
     height: '90px',
-    width: '100%',
     textAlign: 'center',
     margin: 'auto',
-    paddingRight: '10%',
     background: 'black',
   },
 
@@ -58,10 +57,11 @@ const style = {
     color: 'white',
     background: '#D23833',
     borderRadius: '5px',
-    margin: '2vh 3vw .5vh 2vw',
+    margin: '0 2vw .5vh 2vw',
     padding: '10px',
     width: '10%',
     height: '30px',
+    textAlign: 'center',
     textDecoration: 'none',
   },
 
@@ -72,6 +72,30 @@ const style = {
     fontWeight: 'bold',
     fontSize: '24px',
     textDecoration: 'none',
+  },
+
+  buttonStyle: {
+    display: 'block',
+    margin: 'auto',
+  },
+
+  fancyInputStyle: {
+    display: 'inline-block',
+    margin: 'auto',
+    border: '1px solid black',
+    borderRadius: '12px',
+    background: '#A60000',
+    color: 'white',
+    fontSize: '18pt',
+    height: '10vh',
+    width: '15vw',
+    boxShadow: '4px 4px #32001D',
+    marginLeft: '2vw',
+    marginRight: '2vw',
+  },
+
+  ulStyle: {
+    padding: 0,
   },
 
   // borderStyle: {
@@ -86,6 +110,13 @@ const style = {
   //   borderWidth: '5px',
   //   borderRadius: '10px',
   // },
+
+  h3: {
+    fontSize: '36px',
+    textDecoration: 'none',
+    margin: '0',
+    marginTop: '30px',
+  },
 
   noBullets: {
     listStyle: 'none',
@@ -117,11 +148,13 @@ class HeaderBar extends Component {
 class NavBar extends Component {
 
   render() {
+
+
     return (
       <Fragment>
         <HeaderBar />
         <div style={style.navBarStyle}>
-          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/dashboard'>Slides</NavLink>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/dashboard'>Home</NavLink>
           <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/roster'>Roster</NavLink>
           <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/random'>Random</NavLink>
           <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/quiz'>Quiz</NavLink>

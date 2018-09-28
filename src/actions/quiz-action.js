@@ -25,3 +25,13 @@ export const fetchQuizData = () => {
       });
   };
 };
+    console.log('!!!!!!');
+    return dispatch => {
+        superagent
+            .get(QUIZ_API)
+            .then(response => {
+                console.log(response.body)
+                dispatch(fetchQuiz(response.body));
+            });
+    }
+}
