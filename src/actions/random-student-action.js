@@ -4,8 +4,6 @@ import cookie from 'react-cookies';
 
 export const RANDOM_STUDENT='RANDOM_STUDENT';
 
-
-// let apiURL = 'http://localhost:3000/api/v1/roster';
 let apiURL = 'http://api.commando.ccs.net/api/v1/roster/random';
 
 
