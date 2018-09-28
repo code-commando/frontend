@@ -37,7 +37,7 @@ const textStyle = {
   textAlign: 'center',
   fontSize: '3em',
   paddingTop: '4vh',
-  paddingLeft: '10vw',
+  paddingLeft: '1vw',
   paddingRight: '10vw',
 };
 
