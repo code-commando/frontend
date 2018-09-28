@@ -15,6 +15,7 @@ const style = {
   imgStyle: {
     display: 'inline-block',
     float: 'left',
+    textAlign: 'center',
     color: 'white',
   },
 
@@ -73,18 +74,18 @@ const style = {
     textDecoration: 'none',
   },
 
-  borderStyle: {
-    margin: 'auto',
-    marginBottom: '2%',
-    padding: '25px',
-    width: '75%',
-    height: '600px',
-    background: '#D6D6D6',
-    borderColor: '#9d1a02',
-    borderStyle: 'solid',
-    borderWidth: '5px',
-    borderRadius: '10px',
-  },
+  // borderStyle: {
+  //   margin: 'auto',
+  //   marginBottom: '2%',
+  //   padding: '25px',
+  //   width: '75%',
+  //   height: '600px',
+  //   background: '#D6D6D6',
+  //   borderColor: '#9d1a02',
+  //   borderStyle: 'solid',
+  //   borderWidth: '5px',
+  //   borderRadius: '10px',
+  // },
 
   // noBullets: {
   //   listStyle: 'none',
@@ -129,7 +130,7 @@ class NavBar extends Component {
       <Fragment>
         <HeaderBar />
         <div style={style.navBarStyle}>
-          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/dashboard'>Slides</NavLink>
+          <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/dashboard'>Home</NavLink>
           <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/roster'>Roster</NavLink>
           <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/random'>Random</NavLink>
           <NavLink style={style.navLinkStyle} activeStyle={style.active} to='/quiz'>Quiz</NavLink>
