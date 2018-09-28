@@ -194,7 +194,7 @@ class Dashboard extends Component {
               <div type='bottom left' style={bottomLeft} >
                 <form>
                 Notes
-                  <textarea style={textArea} name='notes'>Topics for the Day</textarea>
+                  <textarea style={textArea} name='notes' placeholder='Topics for the Day'/>
                   <br/>
                   <button style={clearButton}>Clear</button>
                 </form>

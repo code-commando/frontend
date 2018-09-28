@@ -50,6 +50,7 @@ class Random extends Component {
 
 
   async componentDidMount() {
+    document.title = 'Random';
     await this.props.fetchCourseThunk();
     if(cookies.load('token')) {
       this.props.login();
