@@ -23,22 +23,22 @@ describe('Quiz generator actions', () => {
   });
 });
 
-// describe('Quiz reducer', () => {
+describe('Quiz reducer', () => {
 
-//   it('should update state', () => {
-//     let action = fetchQuiz([
-//       {
-//         questions: 'NPM is a dependency manager',
-//         possibleAnswers: [
-//           'True, ',
-//           'False',
-//         ],
-//         correctAnswer: 'True',
-//       },
-//     ]);
-//     let state = quizReducer([], action);
+  it('should update state', () => {
+    let action = fetchQuiz([
+      {
+        questions: 'NPM is a dependency manager',
+        possibleAnswers: [
+          'True, ',
+          'False',
+        ],
+        correctAnswer: 'True',
+      },
+    ]);
+    let state = quizReducer([], action);
 
-//     expect(state.results).toBe(1);
-//   });
-// });
+    expect(state.length).toBe(1);
+  });
+});
 

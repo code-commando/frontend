@@ -5,9 +5,8 @@ import cookies from 'react-cookies';
 export const FETCH_COURSE='FETCH_COURSE';
 export const POST_COURSE='POST_COURSE';
 
-
-let apiURL = 'http://localhost:3000/api/v1';
-// let fetchCourseURL = 
+let apiURL = 'http://api.commando.ccs.net/api/v1';
+// let apiURL = 'http://localhost:3000/api/v1';
 
 export const fetchCourseInfo = (course) => ({
   type: FETCH_COURSE,
