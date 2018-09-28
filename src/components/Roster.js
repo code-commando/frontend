@@ -7,6 +7,13 @@ import { login } from '../actions/login-action.js';
 import { Redirect } from 'react-router-dom';
 import style from '../style/style.js';
 
+const formStyle = {
+  width: '20%',
+  height: '20%',
+  margin: 'auto',
+  marginTop: '30px',
+};
+
 const inputStyle = {
   display: 'relative',
   width: '100%',
@@ -16,6 +23,8 @@ const inputStyle = {
 const buttonStyle = {
   display: 'block',
   margin: 'auto',
+  background: '#D23833',
+  color: 'white',
 };
 
 const studentStyle = {
@@ -28,7 +37,7 @@ const studentStyle = {
   padding: '10px',
   listStyle: 'none',
   textAlign: 'center',
-  boxShadow: '3px 5px 5px black',
+  boxShadow: '3px 5px 5px #888888',
 };
 
 const titleStyle = {
@@ -81,14 +90,14 @@ class Roster extends Component {
 
           <div className="RosterMain">
 
-            <form onSubmit={this.addToRoster} onChange={this.onChange}>
+            {/* <form onSubmit={this.addToRoster} onChange={this.onChange} style={formStyle}>
               <input name='name' style={inputStyle} placeholder='New Student' value={this.props.value} /><br />
               <button style={buttonStyle}>Add New Student</button><br />
             </form>
-            <form onSubmit={this.deleteFromRoster} onChange={this.onChangeId}>
+            <form onSubmit={this.deleteFromRoster} onChange={this.onChangeId} style={formStyle}>
               <input name='name' style={inputStyle} placeholder='Student ID' value={this.props.value} /><br />
               <button style={buttonStyle}>Delete By ID</button><br />
-            </form>
+            </form> */}
 
             <div type="main" >
 
@@ -113,6 +122,14 @@ class Roster extends Component {
 
               {/* </form> */}
 
+              <form onSubmit={this.addToRoster} onChange={this.onChange} style={formStyle}>
+                <input name='name' style={inputStyle} placeholder='New Student' value={this.props.value} /><br />
+                <button style={buttonStyle}>Add New Student</button><br />
+              </form>
+              <form onSubmit={this.deleteFromRoster} onChange={this.onChangeId} style={formStyle}>
+                <input name='name' style={inputStyle} placeholder='Student ID' value={this.props.value} /><br />
+                <button style={buttonStyle}>Delete By ID</button><br />
+              </form>
             </div>
           </div>
         </Fragment >

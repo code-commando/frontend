@@ -116,7 +116,7 @@ const bottomRight = {
 
 const textArea = {
   width: '90%',
-  height: '400px',
+  height: '300px',
 };
 
 const clearButton = {

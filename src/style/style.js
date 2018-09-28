@@ -138,7 +138,7 @@ class HeaderBar extends Component {
           <img src='/images/code-fellows.png' alt='Code Fellows' style={style.logoSize} />
           <h1 style={style.imgStyle}>Code Fellows</h1>
           <p style={style.center}>Code Commando</p>
-          <NavLink style={style.signOutStyle} onClick={this.onSignOut} to='/signin'>Sign Out</NavLink>
+          {cookies.load('token') && <NavLink style={style.signOutStyle} onClick={this.onSignOut} to='/signin'>Sign Out</NavLink>}
         </div>
       </Fragment>
     );
