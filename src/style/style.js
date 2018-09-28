@@ -74,6 +74,30 @@ const style = {
     textDecoration: 'none',
   },
 
+  buttonStyle: {
+    display: 'block',
+    margin: 'auto',
+  },
+
+  fancyInputStyle: {
+    display: 'inline-block',
+    margin: 'auto',
+    border: '1px solid black',
+    borderRadius: '12px',
+    background: '#A60000',
+    color: 'white',
+    fontSize: '18pt',
+    height: '10vh',
+    width: '15vw',
+    boxShadow: '4px 4px #32001D',
+    marginLeft: '2vw',
+    marginRight: '2vw',
+  },
+
+  ulStyle: {
+    padding: 0,
+  },
+
   // borderStyle: {
   //   margin: 'auto',
   //   marginBottom: '2%',
@@ -87,16 +111,15 @@ const style = {
   //   borderRadius: '10px',
   // },
 
-  // noBullets: {
-  //   listStyle: 'none',
-  //   textAlign: 'left',
-  // },
-
   h3: {
     fontSize: '36px',
     textDecoration: 'none',
     margin: '0',
     marginTop: '30px',
+
+  noBullets: {
+    listStyle: 'none',
+    textAlign: 'left',
   },
 };
 

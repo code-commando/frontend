@@ -8,35 +8,6 @@ import cookies from 'react-cookies';
 import { login } from '../actions/login-action.js';
 import { Redirect } from 'react-router-dom';
 
-const pairLiStyle = {
-  display: 'inline-block',
-  textAlign: 'center',
-  color: 'white',
-  borderRadius: '5px',
-  background: '#D23833',
-  width: '35%',
-  marginRight: '3vw',
-  marginTop: '2vh',
-  marginBottom: '1.5vh',
-  marginLeft: '2.5vw',
-  boxShadow: '5px 8px #888888',
-};
-
-const studentLiStyle = {
-  display: 'inline-block',
-  textAlign: 'center',
-  color: 'white',
-  background: '#D23833',
-  borderRadius: '5px',
-  marginRight: '3vw',
-  marginTop: '2.5vh',
-  marginBottom: '2.5vh',
-  marginLeft: '2.5vw',
-  padding: '10px',
-  width: '7vw',
-  boxShadow: '5px 8px #888888',
-};
-
 class Random extends Component {
   constructor(props) {
     super(props);
@@ -124,11 +95,11 @@ class Random extends Component {
           <style.NavBar />
           <div>
             <h1>Quicker Picker</h1>
-            <input type='submit' value='Random Student' onClick={this.submitRandom} />
+            <input style={style.style.fancyInputStyle} type='submit' value='Random Student' onClick={this.submitRandom} />
 
-            <input type='submit' value='Random Pairs' onClick={this.submitPairs} />
+            <input style={style.style.fancyInputStyle} type='submit' value='Random Pairs' onClick={this.submitPairs} />
 
-            <ul>
+            <ul style={style.style.ulStyle}>
 
               <li style={studentStyle}>{this.props.student.results}</li>
 
@@ -161,7 +132,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = { randomStudentThunk, randomStudent, randomPairsThunk, fetchCourseThunk, login };
-
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Random);

@@ -1,29 +1,28 @@
 import React, { Component, Fragment } from 'react';
 
-import NavBar from './NavBar.js';
-import HeaderBar from './HeaderBar.js';
+
 import QuizData from './QuizData.js';
 import style from '../style/style.js';
 import cookies from 'react-cookies';
-import {login} from '../actions/login-action.js';
-import {Redirect} from 'react-router-dom';
-import {connect} from 'react-redux';
+import { login } from '../actions/login-action.js';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-// const main = {
-//   display: 'inline-block',
-//   background: '#D6D6D6',
-//   minHeight: '100vh',
-//   height: '100%',
-//   width: '100%',
-//   textAlign: 'center',
-// };
-
-const listStyle = {
+const fancyButtonStyle = {
   display: 'inline-block',
-  border: '5px solid green',
-  height: '100%',
-  width: '80%',
+  width: '20vw',
+  height: '5vh',
+  border: 'none',
+  borderRadius: '12px',
+  boxShadow: '3px 3px #2B0000',
+  background: '#A60000',
+  color: '#D5D5D5',
+  paddingTop: '2vh',
+  paddingBottom: '10vh',
+  fontSize: '18pt',
 };
+
+
 
 class Quiz extends Component {
   state = {
@@ -33,7 +32,7 @@ class Quiz extends Component {
 
   componentDidMount() {
     document.title = 'Quiz';
-    if(cookies.load('token')) {
+    if (cookies.load('token')) {
       this.props.login();
     }
   }
@@ -42,26 +41,22 @@ class Quiz extends Component {
     this.setState({ showQuiz: true });
   }
 
-  
+
   render() {
-    if(cookies.load('token')) {
+    if (cookies.load('token')) {
       return (
         <Fragment>
           <style.NavBar />
-          <div>
-            <h1>Quiz</h1>
-            <p>display questions</p>
-            <p>display answers</p>
-            <button onClick={this.renderQuiz}>Generate Quiz</button>
-            <ul>
-              {this.state.showQuiz && < QuizData />}
-            </ul>
-          </div>
+          <h1>Quiz</h1>
+          <button style={fancyButtonStyle} onClick={this.renderQuiz} > Generate Quiz </button>
+          <ul style={style.style.ulStyle}>
+            {this.state.showQuiz && < QuizData />}
+          </ul>
         </Fragment>
       );
     }
     else {
-      return <Redirect to='/signin'/>;
+      return <Redirect to='/signin' />;
 
     }
 
