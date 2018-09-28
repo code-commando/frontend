@@ -74,18 +74,18 @@ const style = {
     textDecoration: 'none',
   },
 
-  // borderStyle: {
-  //   margin: 'auto',
-  //   marginBottom: '2%',
-  //   padding: '25px',
-  //   width: '75%',
-  //   height: '600px',
-  //   background: '#D6D6D6',
-  //   borderColor: '#9d1a02',
-  //   borderStyle: 'solid',
-  //   borderWidth: '5px',
-  //   borderRadius: '10px',
-  // },
+  borderStyle: {
+    margin: 'auto',
+    marginBottom: '2%',
+    padding: '25px',
+    width: '75%',
+    height: '600px',
+    background: '#D6D6D6',
+    borderColor: '#9d1a02',
+    borderStyle: 'solid',
+    borderWidth: '5px',
+    borderRadius: '10px',
+  },
 
   noBullets: {
     listStyle: 'none',

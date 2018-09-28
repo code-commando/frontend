@@ -13,7 +13,7 @@ export const fetchQuiz = (quiz) => ({
 
 //API actions
 export const fetchQuizData = () => {
-    console.log('!!!!!!')
+    console.log('!!!!!!');
     return dispatch => {
         superagent
             .get(QUIZ_API)
