@@ -3,14 +3,22 @@ import React, { Component, Fragment } from 'react';
 
 import style from '../style/style.js';
 import cookies from 'react-cookies';
-import {login} from '../actions/login-action.js';
-import {Redirect} from 'react-router-dom';
-import {connect} from 'react-redux';
+import { login } from '../actions/login-action.js';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
+import superagent from 'superagent';
 
 
 import NavBar from './NavBar';
 import HeaderBar from './HeaderBar';
 import MonacoEditor from 'react-monaco-editor';
+
+// // const code = this.state.code;
+// // const options = {
+// //   selectOnLineNumbers: true,
+const makeNeat = {
+  textAlign: 'left',
+};
 
 // const main = {
 //   background: '#D6D6D6',
@@ -27,6 +35,7 @@ class CodeRunner extends Component {
     super(props);
     this.state = {
       code: '',
+      codeResult: '',
       options: {},
     };
   }
@@ -61,7 +70,8 @@ class CodeRunner extends Component {
     editor.focus();
   }
   onChange(newValue, e) {
-    console.log('onChange', newValue, e);
+    // console.log('onChange', newValue, e);
+    this.setState({ code: newValue });
   }
 
   // editorDidMount(editor, monaco) {
@@ -82,20 +92,52 @@ class CodeRunner extends Component {
   handleOnClick(event) {
     event.preventDefault();
     console.log('run code');
+
+
+    const token = cookies.load('token');
+
+    const classCode = '401n5';
+
+    let obj = {};
+    obj.code = this.state.code;
+
+    obj.day = 2;
+    obj.language = 'javascript';
+    obj.event = 'run';
+
+    // superagent.post(`http://localhost:3000/api/v1/code?classCode=${classCode}`)
+    superagent.post(`http://api.commando.ccs.net/api/v1/code?classCode=${classCode}`)
+      .auth(token, { type: 'bearer' })
+      .send(obj)
+      .then(data => {
+        console.log('this is the body', data.body)
+        let codeResult = '';
+
+        if (data.body.error) {
+          if (obj.language === 'javascript') {
+            codeResult = JSON.stringify(data.body.error)
+          } else {
+            // $('#resultWindow').text(data.body.error);
+            codeResult = data.body.error;
+          }
+        } else if (data.body.return && !data.body.log) {
+          codeResult = data.body.return;
+        } else {
+          codeResult = data.body.output;
+        }
+
+        this.setState({ codeResult });
+      });
+
   }
 
-  // // const code = this.state.code;
-  // // const options = {
-  // //   selectOnLineNumbers: true,
-  // const makeNeat = {
-  //   textAlign: 'left',
-  
 
-  
-  
+
+
+
   componentDidMount() {
     document.title = 'Code Runner';
-    if(cookies.load('token')) {
+    if (cookies.load('token')) {
       this.props.login();
     }
   }
@@ -105,18 +147,17 @@ class CodeRunner extends Component {
     const options = {
       selectOnLineNumbers: true,
     };
-    
-    if(cookies.load('token')) {
+
+    if (cookies.load('token')) {
       return (
         <Fragment>
 
           <style.NavBar />
 
-          <div>
+          <div style={makeNeat}>
             <h1>Code runner</h1>
             <MonacoEditor
               ref="monaco"
-              // style={makeNeat}
               width="500"
               height="500"
               language="javascript"
@@ -126,13 +167,14 @@ class CodeRunner extends Component {
               editorDidMount={this.editorDidMount.bind(this)}
               editorWillMount={this.editorWillMount.bind(this)}
             />
-            <button onClick={this.handleOnClick}>run code</button>
+            <p>{this.state.codeResult}</p>
+            <button onClick={this.handleOnClick.bind(this)}>run code</button>
           </div>
         </Fragment>
       );
     }
     else {
-      return <Redirect to='/signin'/>;
+      return <Redirect to='/signin' />;
 
     }
   }
