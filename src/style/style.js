@@ -48,7 +48,6 @@ const style = {
     height: '90px',
     textAlign: 'center',
     margin: 'auto',
-    paddingRight: '10%',
     background: 'black',
   },
 
@@ -57,10 +56,11 @@ const style = {
     color: 'white',
     background: '#D23833',
     borderRadius: '5px',
-    margin: '2vh 3vw .5vh 2vw',
+    margin: '0 2vw .5vh 2vw',
     padding: '10px',
     width: '10%',
     height: '30px',
+    textAlign: 'center',
     textDecoration: 'none',
   },
 
@@ -86,9 +86,16 @@ const style = {
     borderRadius: '10px',
   },
 
-  noBullets: {
-    listStyle: 'none',
-    textAlign: 'left',
+  // noBullets: {
+  //   listStyle: 'none',
+  //   textAlign: 'left',
+  // },
+
+  h3: {
+    fontSize: '36px',
+    textDecoration: 'none',
+    margin: '0',
+    marginTop: '30px',
   },
 };
 
@@ -116,6 +123,8 @@ class HeaderBar extends Component {
 class NavBar extends Component {
 
   render() {
+
+
     return (
       <Fragment>
         <HeaderBar />
