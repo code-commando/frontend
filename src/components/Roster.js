@@ -47,12 +47,12 @@ class Roster extends Component {
 
   addToRoster = (event) => {
     event.preventDefault();
-    this.props.postStudent(this.state);
+    // this.props.postStudent();
   }
 
   deleteFromRoster = (event) => {
     event.preventDefault();
-    this.props.deleteStudent(this.state.id);
+    // this.props.deleteStudent();
   }
 
   onChange = event => {
@@ -114,8 +114,7 @@ class Roster extends Component {
               {/* </form> */}
 
             </div>
-          </div>
-        </Fragment >
+
       );
     }
     else {

@@ -23,6 +23,8 @@ const questionStyle = {
   marginTop: '5px',
 };
 
+import Question from './Question.js';
+
 const answerStyle = {
   display: 'inline-block',
   background: '#E5E5E5',
@@ -39,43 +41,29 @@ const answerStyle = {
 
 class QuizData extends Component {
 
+    state = {
+      showAnswer: false,
+    }
 
+    renderAnswers = () => {
+      console.log('!!!')
+      this.setState({ showAnswer: true });
+    }
 
-  state = {
-    showAnswer: false,
-  }
-
-  renderAnswer = () => {
-    this.setState({ showAnswer: true });
-  }
-
-  hideAnswers = () => {
-    this.setState({ showAnswer: false });
-  }
-  componentDidMount() {
-    this.props.fetchQuizData();
-  }
-
-  render() {
-    return (
-      <Fragment>
-
-        <button onClick={this.renderAnswer}  >Show answers</button>
-        <button onClick={this.hideAnswers} style={style.style.buttonStyle} >Hide Answers</button>
-        <ul style={ulStyle}>
-          {this.props.quiz.map((question, i) =>
-            <li key={i} style={questionStyle}>
-              {question.questions}<br />
-              <ol>Choices: {question.possibleAnswers}</ol>
-              <br />
-              <p style={answerStyle}>{this.state.showAnswer && question.correctAnswer}</p>
-            </li>)}
-        </ul>
-
-      </Fragment>
-    );
-  }
-}
+    hideAnswers = () => {
+      this.setState({ showAnswer: false });
+    }
+    
+    render() {
+        return (
+          <Fragment>
+            <ul>
+              <Question />
+            </ul>
+          </Fragment>
+        )
+    }
+ }
 
 const mapStateToProps = state => ({
   quiz: state.quizReducer,
