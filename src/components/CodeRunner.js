@@ -5,8 +5,6 @@ import cookies from 'react-cookies';
 import { login } from '../actions/login-action.js';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import NavBar from './NavBar';
-import HeaderBar from './HeaderBar';
 import MonacoEditor from 'react-monaco-editor';
 
 class CodeRunner extends Component {
@@ -103,9 +101,6 @@ class CodeRunner extends Component {
       return (
         <Fragment>
           <style.NavBar />
-
-          <HeaderBar />
-          <NavBar />
           <h1>Code runner</h1>
           <div id="wrap" style={makeWrapFly}>
             <div className="left" style={makeLeftFly}>
