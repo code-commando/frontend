@@ -96,6 +96,7 @@ const style = {
 
   ulStyle: {
     padding: 0,
+    listStyle: 'none',
   },
 
   // borderStyle: {
