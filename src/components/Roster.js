@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { fetchAllRosterThunk } from '../actions/roster-action.js';
 import { fetchCourseThunk } from '../actions/course-action.js';
 import cookies from 'react-cookies';
-import {login} from '../actions/login-action.js';
-import {Redirect} from 'react-router-dom';
+import { login } from '../actions/login-action.js';
+import { Redirect } from 'react-router-dom';
 import style from '../style/style.js';
 
 const inputStyle = {
@@ -18,6 +18,19 @@ const buttonStyle = {
   margin: 'auto',
 };
 
+const studentStyle = {
+  display: 'inline-block',
+  margin: '3%',
+  width: '15%',
+  height: '10%',
+  color: 'white',
+  background: '#D23833',
+  padding: '10px',
+  listStyle: 'none',
+  textAlign: 'center',
+  boxShadow: '3px 5px 5px black',
+};
+
 const titleStyle = {
   color: '#B29973',
 };
@@ -26,7 +39,7 @@ class Roster extends Component {
   async componentDidMount() {
     document.title = 'Roster';
     await this.props.fetchCourseThunk();
-    if(cookies.load('token')) {
+    if (cookies.load('token')) {
       this.props.login();
     }
     this.props.fetchAllRosterThunk(this.props.course.classCode);
@@ -59,13 +72,13 @@ class Roster extends Component {
   };
 
   render() {
-    
-    if(cookies.load('token')) {
-     
+
+    if (cookies.load('token')) {
+
       return (
         <Fragment>
           <style.NavBar />
-        
+
           <div className="RosterMain">
 
             <form onSubmit={this.addToRoster} onChange={this.onChange}>
@@ -78,15 +91,15 @@ class Roster extends Component {
             </form>
 
             <div type="main" >
-            
+
               <h1 style={titleStyle}>Roster</h1>
               <ul>
                 {this.props.roster && this.props.roster.results.map(student => {
-                  return <li key={student}>{student}</li>;
+                  return <li key={student} style={studentStyle}>{student}</li>;
                 })}
               </ul>
 
-              <form style={inputStyle}>
+              {/* <form style={inputStyle}>
                 <h2 style={titleStyle}>Edit Student</h2>
                 <label>name</label>
                 <input style={inputStyle} type="text" />
@@ -96,17 +109,16 @@ class Roster extends Component {
                 <input style={inputStyle} type="text" />
 
                 <input type="button" value="edit" />
-                <input type="button" value="delete" />
+                <input type="button" value="delete" /> */}
 
-              </form>
+              {/* </form> */}
 
             </div>
-            </div>
-        </Fragment>
+
       );
     }
     else {
-      return <Redirect to='/signin'/>;
+      return <Redirect to='/signin' />;
 
     }
   }

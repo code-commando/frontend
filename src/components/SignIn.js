@@ -8,10 +8,10 @@ import style from '../style/style.js';
 
 
 const mainStyle = {
-  backgroundImage: 'url(/images/seattle.png)',
+  backgroundImage: 'url(/images/SignIn-image.png)',
   backgroundSize: '100%',
   backgroundPosition: 'contains', 
-  height: '100vw',
+  height: '100vh',
   width: '100vw',
   backgroundRepeat: 'no-repeat',
   backgroundColor: 'black',

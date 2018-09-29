@@ -1,16 +1,45 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchQuizData } from '../actions/quiz-action.js';
+import style from '../style/style.js';
+
+
+const ulStyle = {
+  display: 'block',
+  height: '85%',
+  margin: 'auto',
+  padding: '15px',
+  width: '75%',
+
+};
+
+const questionStyle = {
+  display: 'inline-block',
+  background: '#F3F3F3',
+  borderRadius: '8px',
+  width: '90%',
+  fontSize: '22pt',
+  color: '#1E1E1E',
+  marginTop: '5px',
+};
 
 import Question from './Question.js';
 
 const answerStyle = {
-  color: 'blue',
+  display: 'inline-block',
+  background: '#E5E5E5',
+  borderRadius: '8px',
+  width: '65%',
+  fontSize: '18pt',
+  color: '#1E1E1E',
+  boxShadow: '2px 2px #2D2D2D',
+  paddingLeft: '.5vw',
+  paddingRight: '.5vw',
+  paddingTop: '.5vh',
+  paddingBottom: '.5vh',
 };
 
 class QuizData extends Component {
-
-
 
     state = {
       showAnswer: false,
@@ -34,7 +63,7 @@ class QuizData extends Component {
           </Fragment>
         )
     }
-}
+ }
 
 const mapStateToProps = state => ({
   quiz: state.quizReducer,
