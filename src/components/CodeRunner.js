@@ -6,7 +6,7 @@ import { login } from '../actions/login-action.js';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MonacoEditor from 'react-monaco-editor';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 class CodeRunner extends Component {
   constructor(props) {
@@ -115,6 +115,9 @@ class CodeRunner extends Component {
       fontSize: 'small',
       wordWrap: 'break-word',
     };
+    const monacoStyle = {
+      textAlign: 'left',
+    };
     // // const code = this.state.code;
     // // const options = {
     // //   selectOnLineNumbers:, true
@@ -131,7 +134,7 @@ class CodeRunner extends Component {
 
             <div className="row">
               <div className="col-md-6">
-                <div className="row">
+                <div className="row" style={monacoStyle}>
                   <MonacoEditor
                     name="code"
                     ref="monaco"
