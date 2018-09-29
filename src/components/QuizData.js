@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchQuizData } from '../actions/quiz-action.js';
 
+import Question from './Question.js';
+
 const answerStyle = {
   color: 'blue',
 };
@@ -14,31 +16,22 @@ class QuizData extends Component {
       showAnswer: false,
     }
 
-    renderAnswer = () => {
+    renderAnswers = () => {
+      console.log('!!!')
       this.setState({ showAnswer: true });
     }
 
     hideAnswers = () => {
       this.setState({ showAnswer: false });
     }
-    componentDidMount() {
-      this.props.fetchQuizData();
-    }
-
+    
     render() {
         return (
+          <Fragment>
             <ul>
-                {this.props.quiz.map((question, i) =>
-                    <li key={i}>
-                        {question.questions}<br />
-                        <ol>Choices: {question.possibleAnswers}</ol>
-                        <br />
-                        <p style={answerStyle}>Answer: {this.state.showAnswer && question.correctAnswer}</p>
-                <button onClick={this.renderAnswer}>Show answers</button>
-                    </li>)}
-                <button onClick={this.hideAnswers}>Hide Answers</button>
+              <Question />
             </ul>
-            //make seperate question component
+          </Fragment>
         )
     }
 }

@@ -9,13 +9,8 @@ export const DELETE = 'DELETE'
 // export const RANDOM_STUDENT='RANDOM_STUDENT';
 // export const RANDOM_PAIRS='RANDOM_PAIRS';
 
-<<<<<<< HEAD
-let API_URL = 'http://localhost:3000/api/v1/roster?classCode';
-let QUIZ_API = '';
-=======
 // let apiURL = 'data/roster.json';
 // let API_URL = 'http://localhost:3000/api/v1/roster?classCode';
->>>>>>> 9bf9bb4ec59a1577cae19fa5ca02f8e70a0546e5
 
 // let apiURL = 'http://localhost:3000/api/v1/roster';
 
@@ -56,24 +51,3 @@ export const fetchAllRosterThunk = (classCode) => {
   };
 };
 
-<<<<<<< HEAD
-// export const postStudent = (student) => {
-//   return dispatch => {
-//     superagent.post(`${API_URL}`).then(response => {
-//       dispatch(addStudent(student));
-//       console.log('!!!!!')
-//       return response.body
-//     });
-//   };
-// }
-
-// export const deleteStudent = (student) => {
-//   return dispatch => {
-//       superagent.delete(`${API_URL}/${student}`)
-//         .then(function(response){
-//           dispatch(deleteOneStudent(student));
-//         })
-//   }
-// }
-=======
->>>>>>> 9bf9bb4ec59a1577cae19fa5ca02f8e70a0546e5

@@ -62,42 +62,15 @@ class Roster extends Component {
     
     if(cookies.load('token')) {
      
-    return (
-      <Fragment>
-        <style.NavBar />
+      return (
+        <Fragment>
+          <style.NavBar />
         
-        <div className="RosterMain">
+          <div className="RosterMain">
 
-          <form onSubmit={this.addToRoster} onChange={this.onChange}>
-            <input name='name' style={inputStyle} placeholder='New Student' value={this.props.value} /><br />
-            <button style={buttonStyle}>Add New Student</button><br />
-          </form>
-          <form onSubmit={this.deleteFromRoster} onChange={this.onChangeId}>
-            <input name='name' style={inputStyle} placeholder='Student ID' value={this.props.value} /><br />
-            <button style={buttonStyle}>Delete By ID</button><br />
-          </form>
-
-          <div type="main" >
-            
-            <h1 style={titleStyle}>Roster</h1>
-            <ul>
-              {this.props.roster && this.props.roster.results.map(student => {
-                return <li key={student}>{student}</li>;
-              })}
-            </ul>
-
-            <form style={inputStyle}>
-              <h2 style={titleStyle}>Edit Student</h2>
-              <label>name</label>
-              <input style={inputStyle} type="text" />
-              <label>name</label>
-              <input style={inputStyle} type="text" />
-              <label>name</label>
-              <input style={inputStyle} type="text" />
-
-              <input type="button" value="edit" />
-              <input type="button" value="delete" />
-
+            <form onSubmit={this.addToRoster} onChange={this.onChange}>
+              <input name='name' style={inputStyle} placeholder='New Student' value={this.props.value} /><br />
+              <button style={buttonStyle}>Add New Student</button><br />
             </form>
             <form onSubmit={this.deleteFromRoster} onChange={this.onChangeId}>
               <input name='name' style={inputStyle} placeholder='Student ID' value={this.props.value} /><br />
@@ -126,9 +99,9 @@ class Roster extends Component {
                 <input type="button" value="delete" />
 
               </form>
+
             </div>
             </div>
-          </div>
         </Fragment>
       );
     }
