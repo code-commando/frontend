@@ -1,6 +1,10 @@
 import superagent from 'superagent';
 import cookies from 'react-cookies';
+
+
 export const FETCH_QUIZ = 'FETCH_QUIZ';
+
+// export const FETCH_QUIZ = 'FETCH_QUIZ';
 
 // let QUIZ_API = 'data/quiz.json';
 
@@ -13,6 +17,7 @@ export const fetchQuiz = (quiz) => ({
 
 //API actions
 export const fetchQuizData = () => {
+
   console.log('!!!!!!');
   const token = cookies.load('token');
   return dispatch => {
@@ -25,5 +30,4 @@ export const fetchQuizData = () => {
       });
   };
 };
-
 

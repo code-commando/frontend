@@ -135,7 +135,7 @@ class HeaderBar extends Component {
     return (
       <Fragment>
         <div style={style.main}>
-          <img src='/images/code-fellows.png' alt='Code Fellows' style={style.logoSize} />
+          <img src='/images/cfLogo.png' alt='Code Fellows' style={style.logoSize} />
           <h1 style={style.imgStyle}>Code Fellows</h1>
           <p style={style.center}>Code Commando</p>
           <NavLink style={style.signOutStyle} onClick={this.onSignOut} to='/signin'>Sign Out</NavLink>

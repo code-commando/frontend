@@ -7,6 +7,13 @@ import { login } from '../actions/login-action.js';
 import { Redirect } from 'react-router-dom';
 import style from '../style/style.js';
 
+const formStyle = {
+  width: '20%',
+  height: '20%',
+  margin: 'auto',
+  marginTop: '30px',
+};
+
 const inputStyle = {
   display: 'relative',
   width: '100%',
@@ -16,6 +23,12 @@ const inputStyle = {
 const buttonStyle = {
   display: 'block',
   margin: 'auto',
+  marginTop: '10px',
+  background: '#D23833',
+  color: 'white',
+  boxShadow: '3px 5px 8px black',
+  borderRadius: '5px',
+  fontSize: '16px',
 };
 
 const studentStyle = {
@@ -28,12 +41,10 @@ const studentStyle = {
   padding: '10px',
   listStyle: 'none',
   textAlign: 'center',
-  boxShadow: '3px 5px 5px black',
+  boxShadow: '5px 8px #888888',
+  borderRadius: '5px',
 };
 
-const titleStyle = {
-  color: '#B29973',
-};
 class Roster extends Component {
 
   async componentDidMount() {
@@ -47,12 +58,12 @@ class Roster extends Component {
 
   addToRoster = (event) => {
     event.preventDefault();
-    this.props.postStudent(this.state);
+    // this.props.postStudent();
   }
 
   deleteFromRoster = (event) => {
     event.preventDefault();
-    this.props.deleteStudent(this.state.id);
+    // this.props.deleteStudent();
   }
 
   onChange = event => {
@@ -81,18 +92,18 @@ class Roster extends Component {
 
           <div className="RosterMain">
 
-            <form onSubmit={this.addToRoster} onChange={this.onChange}>
+            {/* <form onSubmit={this.addToRoster} onChange={this.onChange}>
               <input name='name' style={inputStyle} placeholder='New Student' value={this.props.value} /><br />
               <button style={buttonStyle}>Add New Student</button><br />
             </form>
             <form onSubmit={this.deleteFromRoster} onChange={this.onChangeId}>
               <input name='name' style={inputStyle} placeholder='Student ID' value={this.props.value} /><br />
               <button style={buttonStyle}>Delete By ID</button><br />
-            </form>
+            </form> */}
 
             <div type="main" >
 
-              <h1 style={titleStyle}>Roster</h1>
+              <h1>Roster</h1>
               <ul>
                 {this.props.roster && this.props.roster.results.map(student => {
                   return <li key={student} style={studentStyle}>{student}</li>;
@@ -113,14 +124,22 @@ class Roster extends Component {
 
               {/* </form> */}
 
+              <form onSubmit={this.addToRoster} onChange={this.onChange} style={formStyle}>
+                <input name='name' style={inputStyle} placeholder='New Student' value={this.props.value} /><br />
+                <button style={buttonStyle}>Add New Student</button><br />
+              </form>
+              <form onSubmit={this.deleteFromRoster} onChange={this.onChangeId} style={formStyle}>
+                <input name='name' style={inputStyle} placeholder='Student ID' value={this.props.value} /><br />
+                <button style={buttonStyle}>Delete By ID</button><br />
+              </form>
+
             </div>
           </div>
-        </Fragment >
+        </Fragment>
       );
     }
     else {
       return <Redirect to='/signin' />;
-
     }
   }
 }
