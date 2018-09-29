@@ -1,178 +1,3 @@
-
-// import React, { Component, Fragment } from 'react';
-
-
-// import style from '../style/style.js';
-// import cookies from 'react-cookies';
-// import {login} from '../actions/login-action.js';
-// import {Redirect} from 'react-router-dom';
-// import {connect} from 'react-redux';
-
-
-// import NavBar from './NavBar';
-// import HeaderBar from './HeaderBar';
-// import MonacoEditor from 'react-monaco-editor';
-
-// // const main = {
-// //   background: '#D6D6D6',
-// //   minHeight: '100vh',
-// //   height: '100%',
-// //   width: '100%',
-// //   textAlign: 'center',
-// // };
-// // const editorFormat = {
-// //   textAlign: 'left',
-// // };
-// class CodeRunner extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       code: '',
-//       options: {},
-//     };
-//   }
-//   editorWillMount(editor, monaco) {
-//     console.log('editor mounnted', editor, monaco);
-//     // const model = this.refs.monaco.editor.getModel();
-//     // const value = model.getValue();
-//     // console.log('value', value);
-//     // console.log(editor);
-//     //   monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
-//     //     schemas: [
-//     //       {
-//     //         uri: 'http://myserver/foo-schema.json',
-//     //         schema: {
-//     //           type: 'object',
-//     //           properties: {
-//     //             p1: {
-//     //               enum: ['v1', 'v2'],
-//     //             },
-//     //             p2: {
-//     //               $ref: 'http://myserver/bar-schema.json',
-//     //             },
-//     //           },
-//     //         },
-//     //       },
-//     //     ],
-//     //   });
-//     // }
-//   }
-//   editorDidMount(editor, monaco) {
-//     console.log('editorDidMount', editor);
-//     editor.focus();
-//   }
-//   onChange(newValue, e) {
-//     console.log('onChange', newValue, e);
-//   }
-
-//   // editorDidMount(editor, monaco) {
-//   //   // const model = this.refs.monaco.editor.getModel();
-//   //   console.log('monaco', monaco);
-//   //   console.log('editorDidMount', editor);
-//   //   editor.focus();
-
-//   //   //
-//   // }
-//   // onChange(event) {
-//   //   // let newState = { ...this.state.code };
-//   //   // newState[event.target.name] = event.target.value;
-//   //   // this.setState(newState);
-//   //   // this.setState({ code: event.target.value });
-//   //   console.log('onChange', event);
-//   // }
-//   handleOnClick(event) {
-//     event.preventDefault();
-//     console.log('run code');
-//   }
-
-//   // // const code = this.state.code;
-//   // // const options = {
-//   // //   selectOnLineNumbers: true,
-//   // const makeNeat = {
-//   //   textAlign: 'left',
-  
-
-  
-  
-//   componentDidMount() {
-//     document.title = 'Code Runner';
-//     if(cookies.load('token')) {
-//       this.props.login();
-//     }
-//   }
-
-//   render() {
-//     const code = this.state.code;
-//     const options = {
-//       selectOnLineNumbers: true,
-//     };
-    
-//     if(cookies.load('token')) {
-//       return (
-//         <Fragment>
-
-//           <style.NavBar />
-
-//           <div>
-//             <h1>Code runner</h1>
-//             <MonacoEditor
-//               ref="monaco"
-//               // style={makeNeat}
-//               width="500"
-//               height="500"
-//               language="javascript"
-//               theme="vs-dark"
-//               value={this.state.code}
-//               onChange={this.onChange.bind(this)}
-//               editorDidMount={this.editorDidMount.bind(this)}
-//               editorWillMount={this.editorWillMount.bind(this)}
-//             />
-//             <button onClick={this.handleOnClick}>run code</button>
-//           </div>
-//         </Fragment>
-//       );
-//     }
-//     else {
-//       return <Redirect to='/signin'/>;
-
-//     }
-//   }
-// }
-
-// const mapStateToProps = state => ({
-//   loggedIn: state.loginReducer.loggedIn,
-// });
-
-// const mapDispatchToProps = { login };
-
-// export default connect(mapStateToProps, mapDispatchToProps)(CodeRunner);
-
-//   handleClick(event) {
-//     event.preventDefault();
-//     let githubURL = 'https://github.com/login/oauth/authorize';
-
-//     let options = {
-//     // local
-//     client_id: 'd6c0defbd80f3979493a',
-//     //live
-//     // client_id: 'f749977a8455b627dc56',
-//     redirect_uri: 'http://localhost:3000/oauth',
-//     // redirect_uri: 'https://code-commando.herokuapp.com/oauth',
-//     scope: 'read:user repo',
-//     state: 'autumn',
-//     allow_signup: 'true',
-//   };
-//   let QueryString = Object.keys(options)
-//     .map(key => {
-//       return `${key}=` + encodeURIComponent(options[key]);
-//     })
-//     .join('&');
-
-//   let authURL = `${githubURL}?${QueryString}`;
-
-//   window.location = authURL;
-// };
-
 import React, { Component, Fragment } from 'react';
 import superagent from 'superagent';
 import style from '../style/style.js';
@@ -181,7 +6,7 @@ import { login } from '../actions/login-action.js';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MonacoEditor from 'react-monaco-editor';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 class CodeRunner extends Component {
   constructor(props) {
@@ -266,19 +91,23 @@ class CodeRunner extends Component {
       );
     });
 
-    const makeWrapFly = {
-      width: '485px',
-    };
-    const makeLeftFly = {
-      width: '240px',
-      height: '123px',
-      float: 'left',
-    };
+    // const makeWrapFly = {
+    //   width: '485px',
+    // };
+    // const makeLeftFly = {
+    //   width: '240px',
+    //   height: '123px',
+    //   float: 'left',
+    // };
 
     const makeRightFly = {
       height: '300px',
       border: '1px solid black',
       overflowY: 'scroll',
+      width: '40%',
+      float: 'left',
+      textAlign: 'left',
+      // marginLeft: '0',
     };
     const makeListFly = {
       margin: '0',
@@ -290,6 +119,53 @@ class CodeRunner extends Component {
       fontSize: 'small',
       wordWrap: 'break-word',
     };
+
+    const monacoStyle = {
+      textAlign: 'left',
+      width: '40%',
+      float: 'left',
+      // marginRight: '0',
+      marginLeft: '10%',
+      // margin: 'auto',
+      height: '300px',
+    };
+
+    const containerWidth = {
+      width: '90%',
+      margin: 'auto',
+    };
+
+    const blockOut = {
+      display: 'inline-block',
+      width: '100%',
+    };
+    const runCodeButton = {
+      // display: 'block',
+      margin: 'auto',
+      marginTop: '10px',
+      background: '#D23833',
+      color: 'white',
+      boxShadow: '3px 5px 8px black',
+      borderRadius: '5px',
+      fontSize: '16px',
+    };
+    const outputButton = {
+      // display: 'inline-block',
+      margin: 'auto',
+      marginTop: '10px',
+      background: '#D23833',
+      color: 'white',
+      boxShadow: '3px 5px 8px black',
+      borderRadius: '5px',
+      fontSize: '16px',
+    };
+    const buttonWrapperStyle = {
+      marginTop: '10px',
+      display: 'inline',
+      // flexDirection: 'row',
+      // justifyContent: 'left',
+    };
+
     // // const code = this.state.code;
     // // const options = {
     // //   selectOnLineNumbers:, true
@@ -299,13 +175,13 @@ class CodeRunner extends Component {
       return (
         <Fragment>
           <style.NavBar />
-          <div className="container">
+          <div className="container" style={containerWidth}>
             <div className="row">
-              <h1>Code runner</h1>
+              <h1>Code Runner</h1>
             </div>
 
-            <div className="row">
-              <div className="col-md-6">
+            <div className="row" style={blockOut}>
+              <div className="col-md-6" style={monacoStyle}>
                 <div className="row">
                   <MonacoEditor
                     name="code"
@@ -320,7 +196,7 @@ class CodeRunner extends Component {
                   />
                 </div>
 
-                <div className="row" style={{ marginTop: '10px' }}>
+                <div className="row" style={buttonWrapperStyle}>
                   <button
                     onClick={this.handleOnClick}
                     type="button"
@@ -328,16 +204,18 @@ class CodeRunner extends Component {
                     data-toggle="button"
                     aria-pressed="false"
                     autoComplete="off"
+                    style={runCodeButton}
                   >
                     Run Code
                   </button>
                   <button
                     onClick={this.handleOnClearOutput.bind(this)}
                     type="button"
-                    className="btn btn-danger btn-sm"
+                    className="output"
                     data-toggle="button"
                     aria-pressed="false"
                     autoComplete="off"
+                    style={outputButton}
                   >
                     Clear Output
                   </button>
