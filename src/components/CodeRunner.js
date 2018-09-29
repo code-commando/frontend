@@ -6,13 +6,14 @@ import { login } from '../actions/login-action.js';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MonacoEditor from 'react-monaco-editor';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class CodeRunner extends Component {
   constructor(props) {
     super(props);
     this.state = {
       code: '',
-      codeResult: '',
+      codeResult: [],
       options: {},
     };
 
@@ -34,7 +35,12 @@ class CodeRunner extends Component {
       code,
     });
   }
-
+  handleOnClearOutput(event) {
+    this.setState({
+      ...this.state,
+      codeResult: [],
+    });
+  }
   handleOnClick(event) {
     event.preventDefault();
     console.log('run code');
@@ -51,19 +57,19 @@ class CodeRunner extends Component {
       .send(obj)
       .then(data => {
         console.log('this is the body', data.body);
-        let codeResult = '';
+        let codeResult = [];
         if (data.body.error) {
           if (obj.language === 'javascript') {
             console.log('data.body.error1', data.body.error);
-            codeResult = JSON.stringify(data.body.error);
+            codeResult = [JSON.stringify(data.body.error)];
           } else {
-            codeResult = data.body.error;
+            codeResult = [data.body.error];
             console.log('data.body.error2', data.body.error);
           }
         } else if (data.body.return && !data.body.log) {
-          codeResult = data.body.return;
+          codeResult = [...codeResult, data.body.return];
         } else {
-          codeResult = data.body.output;
+          codeResult = [...codeResult, data.body.output];
         }
         this.setState({ codeResult });
       });
@@ -77,6 +83,14 @@ class CodeRunner extends Component {
   }
 
   render() {
+    const updatedAnswers = this.state.codeResult.map((answer, index) => {
+      return (
+        <li key={index} style={makeOutputFly}>
+          {answer}
+        </li>
+      );
+    });
+
     const makeWrapFly = {
       width: '485px',
     };
@@ -87,11 +101,20 @@ class CodeRunner extends Component {
     };
 
     const makeRightFly = {
-      width: '240px',
-      height: '123px',
-      float: 'right',
+      height: '300px',
+      border: '1px solid black',
+      overflowY: 'scroll',
     };
-
+    const makeListFly = {
+      margin: '0',
+      padding: '5px',
+      listStyleType: 'none',
+      overflowX: 'hidden',
+    };
+    const makeOutputFly = {
+      fontSize: 'small',
+      wordWrap: 'break-word',
+    };
     // // const code = this.state.code;
     // // const options = {
     // //   selectOnLineNumbers:, true
@@ -101,25 +124,55 @@ class CodeRunner extends Component {
       return (
         <Fragment>
           <style.NavBar />
-          <h1>Code runner</h1>
-          <div id="wrap" style={makeWrapFly}>
-            <div className="left" style={makeLeftFly}>
-              <MonacoEditor
-                name="code"
-                ref="monaco"
-                width="200"
-                height="200"
-                language="javascript"
-                theme="vs-dark"
-                value={this.state.code}
-                onChange={this.onChange}
-                editorDidMount={this.editorDidMount.bind(this)}
-                editorWillMount={this.editorWillMount.bind(this)}
-              />
-              <button onClick={this.handleOnClick}>run code</button>
+          <div className="container">
+            <div className="row">
+              <h1>Code runner</h1>
             </div>
-            <div className="right" style={makeRightFly}>
-              <textarea className="output" value={this.state.codeResult} />
+
+            <div className="row">
+              <div className="col-md-6">
+                <div className="row">
+                  <MonacoEditor
+                    name="code"
+                    ref="monaco"
+                    height="300"
+                    language="javascript"
+                    theme="vs-dark"
+                    value={this.state.code}
+                    onChange={this.onChange}
+                    editorDidMount={this.editorDidMount.bind(this)}
+                    editorWillMount={this.editorWillMount.bind(this)}
+                  />
+                </div>
+
+                <div className="row" style={{ marginTop: '10px' }}>
+                  <button
+                    onClick={this.handleOnClick}
+                    type="button"
+                    className="btn btn-primary btn-sm"
+                    data-toggle="button"
+                    aria-pressed="false"
+                    autoComplete="off"
+                  >
+                    Run Code
+                  </button>
+                  <button
+                    onClick={this.handleOnClearOutput.bind(this)}
+                    type="button"
+                    className="btn btn-danger btn-sm"
+                    data-toggle="button"
+                    aria-pressed="false"
+                    autoComplete="off"
+                  >
+                    Clear Output
+                  </button>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div style={makeRightFly}>
+                  <ul style={makeListFly}>{updatedAnswers}</ul>
+                </div>
+              </div>
             </div>
           </div>
         </Fragment>
