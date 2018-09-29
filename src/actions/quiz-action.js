@@ -4,7 +4,7 @@ import cookies from 'react-cookies';
 
 export const FETCH_QUIZ = 'FETCH_QUIZ';
 
-export const FETCH_QUIZ = 'FETCH_QUIZ';
+// export const FETCH_QUIZ = 'FETCH_QUIZ';
 
 // let QUIZ_API = 'data/quiz.json';
 

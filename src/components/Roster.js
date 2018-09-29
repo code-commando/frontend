@@ -134,12 +134,12 @@ class Roster extends Component {
               </form>
 
             </div>
-
+          </div>
+        </Fragment>
       );
     }
     else {
       return <Redirect to='/signin' />;
-
     }
   }
 }

@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { fetchQuizData } from '../actions/quiz-action.js';
 import style from '../style/style.js';
-
+import Question from './Question.js';
 
 const ulStyle = {
   display: 'block',
@@ -23,7 +23,7 @@ const questionStyle = {
   marginTop: '5px',
 };
 
-import Question from './Question.js';
+// import Question from './Question.js';
 
 const answerStyle = {
   display: 'inline-block',
@@ -41,29 +41,29 @@ const answerStyle = {
 
 class QuizData extends Component {
 
-    state = {
-      showAnswer: false,
-    }
+  state = {
+    showAnswer: false,
+  }
 
-    renderAnswers = () => {
-      console.log('!!!')
-      this.setState({ showAnswer: true });
-    }
+  renderAnswers = () => {
+    console.log('!!!')
+    this.setState({ showAnswer: true });
+  }
 
-    hideAnswers = () => {
-      this.setState({ showAnswer: false });
-    }
-    
-    render() {
-        return (
-          <Fragment>
-            <ul>
-              <Question />
-            </ul>
-          </Fragment>
-        )
-    }
- }
+  hideAnswers = () => {
+    this.setState({ showAnswer: false });
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <ul>
+          <Question />
+        </ul>
+      </Fragment>
+    )
+  }
+}
 
 const mapStateToProps = state => ({
   quiz: state.quizReducer,

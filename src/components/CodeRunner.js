@@ -181,7 +181,7 @@ import { login } from '../actions/login-action.js';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MonacoEditor from 'react-monaco-editor';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 class CodeRunner extends Component {
   constructor(props) {
@@ -266,19 +266,22 @@ class CodeRunner extends Component {
       );
     });
 
-    const makeWrapFly = {
-      width: '485px',
-    };
-    const makeLeftFly = {
-      width: '240px',
-      height: '123px',
-      float: 'left',
-    };
+    // const makeWrapFly = {
+    //   width: '485px',
+    // };
+    // const makeLeftFly = {
+    //   width: '240px',
+    //   height: '123px',
+    //   float: 'left',
+    // };
 
     const makeRightFly = {
       height: '300px',
       border: '1px solid black',
       overflowY: 'scroll',
+      width: '40%',
+      float: 'left',
+      // marginLeft: '0',
     };
     const makeListFly = {
       margin: '0',
@@ -290,6 +293,27 @@ class CodeRunner extends Component {
       fontSize: 'small',
       wordWrap: 'break-word',
     };
+    
+    const monacoStyle = {
+      textAlign: 'left',
+      width: '40%',
+      float: 'left',
+      // marginRight: '0',
+      marginLeft: '10%',
+      // margin: 'auto',
+      height: '300px',
+    };
+
+    const containerWidth = {
+      width: '90%',
+      margin: 'auto',
+    };
+
+    const blockOut = {
+      display: 'inline-block',
+      width: '100%',
+    };
+
     // // const code = this.state.code;
     // // const options = {
     // //   selectOnLineNumbers:, true
@@ -299,13 +323,13 @@ class CodeRunner extends Component {
       return (
         <Fragment>
           <style.NavBar />
-          <div className="container">
+          <div className="container" style={containerWidth}>
             <div className="row">
               <h1>Code runner</h1>
             </div>
 
-            <div className="row">
-              <div className="col-md-6">
+            <div className="row" style={blockOut}>
+              <div className="col-md-6" style={monacoStyle}>
                 <div className="row">
                   <MonacoEditor
                     name="code"
