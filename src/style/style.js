@@ -88,7 +88,7 @@ const style = {
     color: 'white',
     fontSize: '18pt',
     height: '10vh',
-    width: '15vw',
+    width: '17vw',
     boxShadow: '4px 4px #32001D',
     marginLeft: '2vw',
     marginRight: '2vw',
