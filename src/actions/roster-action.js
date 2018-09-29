@@ -1,13 +1,11 @@
 //action creators
 import superagent from 'superagent';
+import cookie from 'react-cookies';
 
 export const FETCH_ALL='FETCH_ALL';
 
-let API_URL = 'data/roster.json';
+let apiURL = 'http://api.commando.ccs.net/api/v1/roster';
 
-// let API_URL = 'http://api.commando.ccs.net/api/v1/roster';
-
-// let apiURL = 'http://api.commando.ccs.net/api/v1/roster';
 
 export const fetchAll = (roster) => ({
   type: FETCH_ALL,
@@ -18,13 +16,35 @@ export const fetchAll = (roster) => ({
 
 // Thunk action returns a function that dispatches an action.
 // API actions
-export const fetchAllRosterThunk = () => {
+export const fetchAllRosterThunk = (classCode) => {
+
+  const token = cookie.load('token');
+
   return dispatch => {
     superagent
-      .get(`${API_URL}`)
+      .get(`${apiURL}?classCode=${classCode}`)
+      .auth(token, {type : 'bearer'})
       .then(response => {
-        console.log(response.body);
+        console.log(response);
         dispatch(fetchAll(response.body));
       });
   };
 };
+
+
+/*
+In the future, there should be full CRUD operations to add to, edit and delete students from the roster
+*/
+
+// export const postStudentThunk = () => {
+//   const token = cookie.load('token');
+
+//   return dispatch => {
+//     superagent
+//       .post(`${apiURL}`)
+//       .auth(token, {type : 'bearer'})
+//       .then(response => {
+//         console.log(response)
+//       })
+//   }
+// }

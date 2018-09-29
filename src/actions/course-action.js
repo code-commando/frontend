@@ -1,14 +1,20 @@
 //action creators
 import superagent from 'superagent';
+import cookies from 'react-cookies';
 
 export const FETCH_COURSE='FETCH_COURSE';
+export const POST_COURSE='POST_COURSE';
 
-
-// let apiURL = 'http://localhost:3000/api/v1/roster';
-// let fetchCourseURL = 
+let apiURL = 'http://api.commando.ccs.net/api/v1';
+// let apiURL = 'http://localhost:3000/api/v1';
 
 export const fetchCourseInfo = (course) => ({
   type: FETCH_COURSE,
+  payload: course,
+});
+
+export const postCourseInfo = (course) => ({
+  type: POST_COURSE,
   payload: course,
 });
 
@@ -24,8 +30,8 @@ export const fetchCourseThunk = () => {
       classCode: '401n5',
       lectureTitle: '03: Asynchronous Callbacks',
       labTitle: 'Lab 04: Bitmap Transformer',
-      lectureLink: 'http://placecage.com/200/200',
-      labLink: 'http://placekitten.com/200/200',
+      lectureLink: 'https://github.com/codefellows/seattle-javascript-401n5/blob/master/06-tcp-server/README.md',
+      labLink: 'https://github.com/codefellows-seattle-javascript-401n5/04-data-modeling-and-binary',
     };
 
 
@@ -37,5 +43,20 @@ export const fetchCourseThunk = () => {
     //     console.log('student', student);
     //     dispatch(randomStudent(student.body));
     //   });
+  };
+};
+
+
+
+export const postCourse = (classCode, githubRepo) => {
+  // console.log(cookies.load('token'));
+  return dispatch => {
+    superagent
+      .post(`${apiURL}/classes`)
+      .set({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${cookies.load('token')}` })
+      .send({classCode, githubRepo})
+      .then(response => {
+        console.log('post course', response);
+      });
   };
 };

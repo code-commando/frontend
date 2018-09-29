@@ -7,12 +7,13 @@ import store from '../src/store/store.js';
 import './App.css';
 import SignIn from './components/SignIn.js';
 import Dashboard from './components/Dashboard.js';
-// import Dashboard from './components/Dashboard2.js';
 import Courses from './components/Courses.js';
 import Roster from './components/Roster.js';
 import Random from './components/Random.js';
 import Quiz from './components/Quiz.js';
 import CodeRunner from './components/CodeRunner.js';
+import Slides from './components/slides.js';
+import Oauth from './components/Oauth.js';
 
 
 
@@ -30,6 +31,8 @@ class App extends Component {
             <Route path='/quiz' component={Quiz} />
             <Route path='/coderunner' component={CodeRunner} />
             <Route path='/signin' component={SignIn} />
+            <Route path='/oauth' component={Oauth} />
+            <Route path='/slides' component={Slides} />
           </Fragment>
         </BrowserRouter>
       </Provider>
