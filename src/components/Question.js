@@ -31,7 +31,6 @@ class Question extends Component {
                 <li key={i}>
                     {question.question}<br />
 
-
                     {question.answers ? question.answers.map((answer, i) => <li key={i}>Choice: {answer}</li>) 
                     : 
                     <input placeholder="enter answer here"/>} <br />
@@ -40,6 +39,7 @@ class Question extends Component {
                     
                     <button onClick={this.renderAnswers}>Show Answers</button>
                 </li>)}
+                
                     <button onClick={this.hideAnswers}>Hide Answers</button>
             </Fragment>
         )
