@@ -12,7 +12,6 @@ const questionStyle = {
     marginTop: '5px',
 };
 
-// import Question from './Question.js';
 
 const answerStyle = {
     display: 'inline-block',
@@ -85,7 +84,7 @@ class Question extends Component {
 
                         <p style={answerStyle}>{this.state.showAnswer && question.correctAnswer}</p> <br />
 
-                        {/* <button onClick={this.renderAnswers}>Show Answers</button> */}
+
                     </li>)}
                 <button onClick={this.renderAnswers} style={showBtnStyle}>Show Answers</button>
                 <button onClick={this.hideAnswers} style={hideBtnStyle}>Hide Answers</button>

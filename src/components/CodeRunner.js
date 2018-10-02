@@ -6,7 +6,6 @@ import { login } from '../actions/login-action.js';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MonacoEditor from 'react-monaco-editor';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
 class CodeRunner extends Component {
   constructor(props) {
@@ -91,15 +90,6 @@ class CodeRunner extends Component {
       );
     });
 
-    // const makeWrapFly = {
-    //   width: '485px',
-    // };
-    // const makeLeftFly = {
-    //   width: '240px',
-    //   height: '123px',
-    //   float: 'left',
-    // };
-
     const makeRightFly = {
       height: '300px',
       border: '1px solid black',
@@ -107,7 +97,6 @@ class CodeRunner extends Component {
       width: '40%',
       float: 'left',
       textAlign: 'left',
-      // marginLeft: '0',
     };
     const makeListFly = {
       margin: '0',
@@ -124,9 +113,7 @@ class CodeRunner extends Component {
       textAlign: 'left',
       width: '40%',
       float: 'left',
-      // marginRight: '0',
       marginLeft: '10%',
-      // margin: 'auto',
       height: '300px',
     };
 
@@ -140,7 +127,6 @@ class CodeRunner extends Component {
       width: '100%',
     };
     const runCodeButton = {
-      // display: 'block',
       margin: 'auto',
       marginTop: '10px',
       background: '#D23833',
@@ -150,7 +136,6 @@ class CodeRunner extends Component {
       fontSize: '16px',
     };
     const outputButton = {
-      // display: 'inline-block',
       margin: 'auto',
       marginTop: '10px',
       background: '#D23833',
@@ -162,16 +147,10 @@ class CodeRunner extends Component {
     const buttonWrapperStyle = {
       marginTop: '10px',
       display: 'inline',
-      // flexDirection: 'row',
-      // justifyContent: 'left',
     };
 
-    // // const code = this.state.code;
-    // // const options = {
-    // //   selectOnLineNumbers:, true
 
     if (cookies.load('token')) {
-      // console.log(cookies.load('token'));
       return (
         <Fragment>
           <style.NavBar />

@@ -1,4 +1,4 @@
-//action creators
+
 import superagent from 'superagent';
 import cookie from 'react-cookies';
 
@@ -13,8 +13,6 @@ export const randomStudent = (student) => ({
 });
 
 
-// Thunk action returns a function that dispatches an action.
-
 
 export const randomStudentThunk = (classCode) => {
 
@@ -25,7 +23,6 @@ export const randomStudentThunk = (classCode) => {
       .get(`${apiURL}?classCode=${classCode}`)
       .auth(token, {type : 'bearer'})
       .then(student => {
-        console.log('student', student);
         dispatch(randomStudent(student.body));
       });
   };

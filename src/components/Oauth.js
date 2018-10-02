@@ -7,7 +7,6 @@ export default class Oauth extends Component {
 
   componentDidMount() {
     const { githubtoken, token } = queryString.parse(this.props.location.search);
-    console.log(githubtoken, token);
     cookie.save('token', token);
     cookie.save('githubtoken', githubtoken);
   }

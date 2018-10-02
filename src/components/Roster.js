@@ -58,12 +58,10 @@ class Roster extends Component {
 
   addToRoster = (event) => {
     event.preventDefault();
-    // this.props.postStudent();
   }
 
   deleteFromRoster = (event) => {
     event.preventDefault();
-    // this.props.deleteStudent();
   }
 
   onChange = event => {
@@ -92,15 +90,6 @@ class Roster extends Component {
 
           <div className="RosterMain">
 
-            {/* <form onSubmit={this.addToRoster} onChange={this.onChange}>
-              <input name='name' style={inputStyle} placeholder='New Student' value={this.props.value} /><br />
-              <button style={buttonStyle}>Add New Student</button><br />
-            </form>
-            <form onSubmit={this.deleteFromRoster} onChange={this.onChangeId}>
-              <input name='name' style={inputStyle} placeholder='Student ID' value={this.props.value} /><br />
-              <button style={buttonStyle}>Delete By ID</button><br />
-            </form> */}
-
             <div type="main" >
 
               <h1>Roster</h1>
@@ -109,20 +98,6 @@ class Roster extends Component {
                   return <li key={student} style={studentStyle}>{student}</li>;
                 })}
               </ul>
-
-              {/* <form style={inputStyle}>
-                <h2 style={titleStyle}>Edit Student</h2>
-                <label>name</label>
-                <input style={inputStyle} type="text" />
-                <label>name</label>
-                <input style={inputStyle} type="text" />
-                <label>name</label>
-                <input style={inputStyle} type="text" />
-
-                <input type="button" value="edit" />
-                <input type="button" value="delete" /> */}
-
-              {/* </form> */}
 
               <form onSubmit={this.addToRoster} onChange={this.onChange} style={formStyle}>
                 <input name='name' style={inputStyle} placeholder='New Student' value={this.props.value} /><br />

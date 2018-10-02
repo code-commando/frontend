@@ -1,4 +1,4 @@
-//action creators
+
 import superagent from 'superagent';
 import cookies from 'react-cookies';
 
@@ -6,7 +6,7 @@ export const FETCH_COURSE='FETCH_COURSE';
 export const POST_COURSE='POST_COURSE';
 
 let apiURL = 'http://api.commando.ccs.net/api/v1';
-// let apiURL = 'http://localhost:3000/api/v1';
+
 
 export const fetchCourseInfo = (course) => ({
   type: FETCH_COURSE,
@@ -19,7 +19,7 @@ export const postCourseInfo = (course) => ({
 });
 
 
-// Thunk action returns a function that dispatches an action.
+
 
 export const fetchCourseThunk = () => {
   return dispatch => {
@@ -37,19 +37,12 @@ export const fetchCourseThunk = () => {
 
     
     dispatch(fetchCourseInfo(course));
-    // superagent
-    //   .get(`${apiURL}/random?classCode=401n5`)
-    //   .then(student => {
-    //     console.log('student', student);
-    //     dispatch(randomStudent(student.body));
-    //   });
   };
 };
 
 
 
 export const postCourse = (classCode, githubRepo) => {
-  // console.log(cookies.load('token'));
   return dispatch => {
     superagent
       .post(`${apiURL}/classes`)

@@ -1,4 +1,4 @@
-//action creators
+
 import superagent from 'superagent';
 import cookie from 'react-cookies';
 
@@ -13,9 +13,6 @@ export const fetchReadme = (readme) => ({
 });
 
 
-
-// Thunk action returns a function that dispatches an action.
-// API actions
 export const fetchReadmeThunk = (classCode) => {
 
   const token = cookie.load('token');
@@ -25,7 +22,6 @@ export const fetchReadmeThunk = (classCode) => {
       .get(`${apiURL}?classCode=${classCode}`)
       .auth(token, {type : 'bearer'})
       .then(response => {
-        console.log(response);
         dispatch(fetchReadme(response.body));
       });
   };

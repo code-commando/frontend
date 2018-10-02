@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import cookies from 'react-cookies';
 import style from '../style/style.js';
 
-// import HeaderBar from './HeaderBar.js';
-
 
 const mainStyle = {
   backgroundImage: 'url(/images/SignIn-image.png)',
@@ -47,13 +45,8 @@ class SignIn extends Component {
     let githubURL = 'https://github.com/login/oauth/authorize';
 
     let options = {
-      // local
-      // client_id: 'd6c0defbd80f3979493a',
-      //live
       client_id: 'f749977a8455b627dc56',
-      // redirect_uri: 'http://localhost:3000/oauth',
       redirect_uri: 'http://api.commando.ccs.net/oauth',
-      // redirect_uri: 'https://code-commando.herokuapp.com/oauth',
       scope: 'read:user repo',
       state: 'autumn',
 
@@ -67,12 +60,6 @@ class SignIn extends Component {
     let authURL = `${githubURL}?${QueryString}`;
 
     window.location = authURL;
-
-
-    // fetch all the stuff from api
-    
-
-    // this.props.history.push('/dashboard');
   }
 
 
@@ -88,7 +75,6 @@ class SignIn extends Component {
         
         <div style={mainStyle}>
           <style.HeaderBar/>
-          {/* <HeaderBar /> */}
           <h1>Please Sign In</h1>
           
           <img style={githubImgLogo} src='/images/GitHub-Mark-64px.png'/>

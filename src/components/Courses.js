@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import HeaderBar from './HeaderBar.js';
 import style from '../style/style.js';
 import { connect } from 'react-redux';
 import {postCourse} from '../actions/course-action.js';
@@ -46,11 +45,6 @@ const imageStyle = {
   float: 'right',
 };
 
-//  jlm The styling is getting a little wordy (and will be a lot longer on subsequent pages)
-//  - do we want to put the styling in its own file and import the whole thing here?
-
-
-//  jlm Links are to /dashboard, will need to be to /dashboard/:id or something
 class Courses extends Component {
 
   state = {
@@ -68,7 +62,6 @@ class Courses extends Component {
   submitCourse = (e) => {
     e.preventDefault();
     this.props.postCourse(this.state.classCode, this.state.gitHubRepo);
-    console.log('kdjlf', this.state);
   }
 
   handleChange = e => {
@@ -85,7 +78,7 @@ class Courses extends Component {
         <Fragment>
         
           <div style={main}>
-            <HeaderBar />
+            <style.HeaderBar />
             <br></br>
             <h1 style={titleStyle}>Welcome [user]</h1>
 
