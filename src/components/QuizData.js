@@ -20,7 +20,6 @@ class QuizData extends Component {
   }
 
   renderAnswers = () => {
-    console.log('!!!')
     this.setState({ showAnswer: true });
   }
 
@@ -35,7 +34,7 @@ class QuizData extends Component {
           <Question />
         </ul>
       </Fragment>
-    )
+    );
   }
 }
 
